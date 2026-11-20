@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>08 · Para saber más · Diseño e Impresión 3D en el aula</title>
+<meta name="description" content="Manual práctico y secuencial para integrar el diseño y la impresión 3D en colegios e institutos de Andalucía (Código Escuela 4.0): Bambu Lab P1S, MakerWorld, Bambu Studio, Lychee Slicer, Tinkercad y Layerling.">
+<meta name="author" content="Pablo Moraga">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='1' y='0' width='6' height='8' fill='%231e1d1a'/%3E%3Crect x='0' y='1' width='8' height='6' fill='%231e1d1a'/%3E%3Crect x='1' y='1' width='6' height='6' fill='%23cf4f1b'/%3E%3Crect x='3' y='3' width='2' height='2' fill='%23ffffff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/estilo.css?v=aee4a7ae">
+</head>
+<body data-page="08-saber-mas.html">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="cad tl" aria-hidden="true"></div><div class="cad tr" aria-hidden="true"></div><div class="cad bl" aria-hidden="true"></div><div class="cad br" aria-hidden="true"></div>
+<svg class="axes" viewBox="0 0 54 54" aria-hidden="true"><path d="M10 44 L44 44" stroke="#e0453a" stroke-width="2.5"/><path d="M10 44 L10 10" stroke="#3c8a46" stroke-width="2.5"/><path d="M10 44 L30 26" stroke="#1d7386" stroke-width="2.5"/><g font-family="monospace" font-size="9" font-weight="700"><text x="46" y="47" fill="#e0453a">X</text><text x="6" y="8" fill="#3c8a46">Z</text><text x="32" y="25" fill="#1d7386">Y</text></g></svg>
+
+<!-- Biblioteca de ilustraciones (gradientes y símbolos reutilizables) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity=".04"/><stop offset=".55" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity=".02"/></linearGradient>
+    <linearGradient id="g-pei" x1="0" x2="1"><stop offset="0" stop-color="#8b6b33"/><stop offset=".5" stop-color="#b48f4c"/><stop offset="1" stop-color="#7c5e2b"/></linearGradient>
+    <linearGradient id="g-body" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a3d43"/><stop offset="1" stop-color="#232529"/></linearGradient>
+    <linearGradient id="g-alu" x1="0" x2="1"><stop offset="0" stop-color="#9aa0a8"/><stop offset=".5" stop-color="#dde1e5"/><stop offset="1" stop-color="#8d939b"/></linearGradient>
+    <linearGradient id="g-brass" x1="0" x2="1"><stop offset="0" stop-color="#a77b25"/><stop offset=".5" stop-color="#e5c06a"/><stop offset="1" stop-color="#9a6f1e"/></linearGradient>
+    <linearGradient id="g-lid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9e6ef" stop-opacity=".55"/><stop offset="1" stop-color="#b8c9d6" stop-opacity=".22"/></linearGradient>
+    <linearGradient id="g-card" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c79a62"/><stop offset="1" stop-color="#a87b45"/></linearGradient>
+    <linearGradient id="g-view" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6f7f9"/><stop offset="1" stop-color="#e2e5e9"/></linearGradient>
+    <pattern id="p-tex" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#9c7a3e"/><circle cx="1" cy="1" r=".7" fill="#000" opacity=".2"/><circle cx="3" cy="3" r=".6" fill="#fff" opacity=".18"/></pattern>
+    <marker id="m-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#cf4f1b"/></marker>
+    <marker id="m-arrB" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1e88c8"/></marker>
+
+    <symbol id="s-spool" viewBox="0 0 52 60">
+      <rect x="6" y="5" width="40" height="50" fill="currentColor"/>
+      <path d="M6 13H46M6 21H46M6 29H46M6 37H46M6 45H46" stroke="#000" stroke-opacity=".13"/>
+      <rect x="9" y="5" width="6" height="50" fill="#fff" opacity=".2"/>
+      <rect x="0" y="0" width="6" height="60" rx="2" fill="#1d1e21"/><rect x="46" y="0" width="6" height="60" rx="2" fill="#1d1e21"/>
+    </symbol>
+
+    <symbol id="s-ams" viewBox="0 0 300 96">
+      <use href="#s-spool" x="18" y="10" width="52" height="60" style="color:#e2672e"/>
+      <use href="#s-spool" x="86" y="10" width="52" height="60" style="color:#1d7386"/>
+      <use href="#s-spool" x="162" y="10" width="52" height="60" style="color:#f1f0ec"/>
+      <use href="#s-spool" x="230" y="10" width="52" height="60" style="color:#e2ad1f"/>
+      <path d="M6 44 V18 Q6 4 22 4 H278 Q294 4 294 18 V44 Z" fill="url(#g-lid)" stroke="#16171a" stroke-width="2"/>
+      <rect x="0" y="40" width="300" height="56" rx="10" fill="url(#g-body)"/>
+      <g fill="#44484f"><rect x="20" y="62" width="48" height="20" rx="3"/><rect x="88" y="62" width="48" height="20" rx="3"/><rect x="164" y="62" width="48" height="20" rx="3"/><rect x="232" y="62" width="48" height="20" rx="3"/></g>
+      <g fill="#7ddc5a"><circle cx="60" cy="72" r="2.6"/><circle cx="128" cy="72" r="2.6"/><circle cx="204" cy="72" r="2.6"/><circle cx="272" cy="72" r="2.6"/></g>
+      <g stroke="#2a2c31" stroke-width="3" stroke-linecap="round"><path d="M30 72h18M98 72h18M174 72h18M242 72h18"/></g>
+    </symbol>
+
+    <symbol id="s-p1s" viewBox="0 0 300 340">
+      <rect x="0" y="0" width="300" height="340" rx="14" fill="url(#g-body)"/>
+      <rect x="6" y="3" width="288" height="10" rx="4" fill="#4a4d54"/>
+      <rect x="18" y="24" width="264" height="272" rx="6" fill="#1b1c20"/>
+      <rect x="30" y="28" width="240" height="3" rx="1.5" fill="#fff4cf" opacity=".85"/>
+      <rect x="36" y="38" width="5" height="250" fill="#7d8188"/><rect x="259" y="38" width="5" height="250" fill="#7d8188"/>
+      <rect x="26" y="60" width="248" height="9" rx="2" fill="#565a61"/>
+      <path d="M149 24 V50" stroke="#f2f2f0" stroke-width="3"/>
+      <rect x="120" y="46" width="58" height="58" rx="8" fill="#e9eaec" stroke="#b8bcc2"/>
+      <circle cx="149" cy="73" r="15" fill="#d3d6da" stroke="#b0b4ba"/>
+      <path d="M139 73h20M149 63v20" stroke="#b0b4ba" stroke-width="2"/>
+      <rect x="128" y="100" width="42" height="8" rx="2" fill="#c4c7cc"/>
+      <polygon points="143,108 155,108 151,118 147,118" fill="url(#g-brass)"/>
+      <circle cx="34" cy="38" r="5" fill="#0c0d0f" stroke="#6a6e75" stroke-width="1.5"/><circle cx="34" cy="38" r="1.8" fill="#3a7bd5"/>
+      <rect x="128" y="196" width="42" height="34" fill="#e2672e"/>
+      <path d="M128 202H170M128 208H170M128 214H170M128 220H170M128 226H170" stroke="#000" stroke-opacity=".13"/>
+      <rect x="40" y="230" width="220" height="7" rx="1.5" fill="url(#p-tex)"/>
+      <rect x="46" y="237" width="208" height="9" rx="1" fill="#3a3d43"/>
+      <rect x="18" y="24" width="264" height="272" rx="6" fill="url(#g-glass)" stroke="#121315" stroke-width="2"/>
+      <rect x="22" y="304" width="58" height="22" rx="3" fill="#0d0e10" stroke="#55585e"/>
+      <path d="M28 312h30M28 318h22" stroke="#9be15d" stroke-width="2" opacity=".8"/>
+      <circle cx="92" cy="315" r="4" fill="#4a4d54"/><circle cx="104" cy="315" r="4" fill="#4a4d54"/>
+    </symbol>
+
+    <symbol id="s-p1s-back" viewBox="0 0 300 340">
+      <rect width="300" height="340" rx="14" fill="url(#g-body)"/>
+      <rect x="6" y="3" width="288" height="10" rx="4" fill="#4a4d54"/>
+      <rect x="20" y="24" width="260" height="300" rx="6" fill="#2a2c31" stroke="#1a1b1e"/>
+      <circle cx="150" cy="170" r="36" fill="#25272b" stroke="#17181b" stroke-width="3"/>
+      <g stroke="#17181b" stroke-width="3"><path d="M118 152h64M114 164h72M114 176h72M118 188h64"/></g>
+      <rect x="200" y="40" width="46" height="70" rx="6" fill="#e3e4e6" stroke="#9a9ea5"/>
+      <rect x="214" y="52" width="18" height="40" rx="3" fill="#c9ccd1"/><circle cx="223" cy="80" r="4" fill="#9a9ea5"/>
+      <rect x="34" y="236" width="20" height="10" rx="2" fill="#18191c" stroke="#55585e"/>
+      <rect x="26" y="280" width="46" height="22" rx="3" fill="#0b0c0e" stroke="#55585e"/>
+      <rect x="226" y="286" width="44" height="28" rx="3" fill="#18191c" stroke="#55585e"/>
+      <rect x="232" y="292" width="14" height="16" rx="2" fill="#3a3d43"/><rect x="252" y="293" width="12" height="14" rx="2" fill="#c53a2f"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html" aria-label="Inicio"><i class="px" data-px="extruder"></i><span>Pablo Moraga · Diseño e Impresión 3D en el aula</span></a>
+    <nav class="main" aria-label="Secciones">
+      <a href="01-por-que.html"><b>01</b>Por qué 3D</a>
+      <a href="02-impresora.html"><b>02</b>Impresora</a>
+      <a href="03-repositorios.html"><b>03</b>Repositorios</a>
+      <a href="04-laminador.html"><b>04</b>Laminador</a>
+      <a href="05-tinkercad.html"><b>05</b>Tinkercad</a>
+      <a href="06-layerling.html"><b>06</b>Layerling</a>
+      <a href="07-retos.html"><b>07</b>Retos</a>
+      <a href="08-saber-mas.html"><b>08</b>Saber más</a>
+    </nav>
+    <div class="tools">
+      <div class="prog" title="Prácticas y retos completados (guardado en este navegador)">
+        <span class="bar" aria-hidden="true"><i id="barFill"></i></span><span id="progText">0/0</span>
+      </div>
+      <button class="ibtn" id="resetBtn" type="button" title="Reiniciar progreso" aria-label="Reiniciar progreso">↺</button>
+      <button class="ibtn" id="themeBtn" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar modo claro u oscuro">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+<div class="wrap layout">
+<nav class="side" aria-label="Índice del manual"><details class="side-wrap" open><summary>Índice del manual</summary><a href="index.html" class="side-home">Inicio</a><ul class="side-tree"><li><details><summary><span class="num">01</span>¿Por qué 3D?</summary><ul><li><a href="01-por-que.html">Presentación</a></li><li><a href="01-por-que.html#itinerario" data-sub="itinerario">Tu itinerario</a></li><li><a href="01-por-que.html#glosario" data-sub="glosario">Antes de empezar: palabras clave</a></li><li><a href="01-por-que.html#secuencia" data-sub="secuencia">Del problema a la pieza: secuencia didáctica tipo</a></li><li><a href="01-por-que.html#aplicaciones-por-areas-curriculares" data-sub="aplicaciones-por-areas-curriculares">Aplicaciones por áreas curriculares</a></li></ul></details></li><li><details><summary><span class="num">02</span>La impresora 3D</summary><ul><li><a href="02-impresora.html">Presentación</a></li><li><a href="02-impresora.html#componentes-principales-de-la-p1s" data-sub="componentes-principales-de-la-p1s">Componentes principales de la P1S</a></li><li><a href="02-impresora.html#montaje-inicial-de-la-p1s" data-sub="montaje-inicial-de-la-p1s">Montaje inicial de la P1S</a></li><li><a href="02-impresora.html#el-ams-funcionamiento-y-montaje" data-sub="el-ams-funcionamiento-y-montaje">El AMS: funcionamiento y montaje</a></li><li><a href="02-impresora.html#materiales-y-seguridad-en-el-aula" data-sub="materiales-y-seguridad-en-el-aula">Materiales y seguridad en el aula</a></li><li><a href="02-impresora.html#conectividad-en-redes-educativas" data-sub="conectividad-en-redes-educativas">Conectividad en redes educativas</a></li><li><a href="02-impresora.html#iot" data-sub="iot">Alta en Andared_IoT por la dirección MAC (Séneca)</a></li></ul></details></li><li><details><summary><span class="num">03</span>Repositorios</summary><ul><li><a href="03-repositorios.html">Presentación</a></li><li><a href="03-repositorios.html#practicas-secuenciales-en-makerworld" data-sub="practicas-secuenciales-en-makerworld">Prácticas secuenciales en MakerWorld</a></li></ul></details></li><li><details><summary><span class="num">04</span>El laminador</summary><ul><li><a href="04-laminador.html">Presentación</a></li><li><a href="04-laminador.html#bambu-studio" data-sub="bambu-studio">Bambu Studio</a></li><li><a href="04-laminador.html#s-o-s-aula-incidencias-frecuentes" data-sub="s-o-s-aula-incidencias-frecuentes">S.O.S. Aula: incidencias frecuentes</a></li><li><a href="04-laminador.html#galeria-de-errores-de-impresion" data-sub="galeria-de-errores-de-impresion">Galería de errores de impresión</a></li><li><a href="04-laminador.html#diagnostico" data-sub="diagnostico">¿Qué le pasa a mi pieza?</a></li><li><a href="04-laminador.html#lychee-slicer" data-sub="lychee-slicer">Lychee Slicer</a></li><li><a href="04-laminador.html#handy" data-sub="handy">Control desde el móvil: Bambu Handy</a></li></ul></details></li><li><details><summary><span class="num">05</span>Diseñar con Tinkercad</summary><ul><li><a href="05-tinkercad.html">Presentación</a></li><li><a href="05-tinkercad.html#tinkercad-en-doce-operaciones" data-sub="tinkercad-en-doce-operaciones">Tinkercad en doce operaciones</a></li><li><a href="05-tinkercad.html#clases" data-sub="clases">Clases en Tinkercad y Google Classroom</a></li><li><a href="05-tinkercad.html#atajos" data-sub="atajos">Atajos de teclado</a></li><li><a href="05-tinkercad.html#practicas-con-tinkercad" data-sub="practicas-con-tinkercad">Prácticas con Tinkercad</a></li></ul></details></li><li><details><summary><span class="num">06</span>Diseñar con Layerling</summary><ul><li><a href="06-layerling.html">Presentación</a></li><li><a href="06-layerling.html#layerling-paso-a-paso" data-sub="layerling-paso-a-paso">Layerling paso a paso</a></li><li><a href="06-layerling.html#atajos-ly" data-sub="atajos-ly">Atajos de teclado</a></li><li><a href="06-layerling.html#practicas-con-layerling" data-sub="practicas-con-layerling">Prácticas con Layerling</a></li><li><a href="06-layerling.html#ahora-con-asistente-del-prompt-al-stl" data-sub="ahora-con-asistente-del-prompt-al-stl">Ahora con Asistente: del prompt al STL</a></li></ul></details></li><li><details><summary><span class="num">07</span>Retos de diseño</summary><ul><li><a href="07-retos.html">Presentación</a></li><li><a href="07-retos.html#ideas-para-seguir-proyectos-del-curso" data-sub="ideas-para-seguir-proyectos-del-curso">Ideas para seguir: proyectos del curso</a></li></ul></details></li><li><details open><summary><span class="num">08</span>Para saber más</summary><ul><li><a href="08-saber-mas.html" class="on" aria-current="page">Presentación</a></li><li><a href="#tab-prof" data-sub="tab-prof">Para el profesorado</a></li><li><a href="#tab-lam" data-sub="tab-lam">Otros laminadores</a></li><li><a href="#tab-rec" data-sub="tab-rec">Recursos</a></li><li><a href="#tab-cred" data-sub="tab-cred">Créditos y licencias</a></li></ul></details></li></ul></details></nav>
+<div class="page-main">
+<p class="crumbs"><a href="index.html">Inicio</a> › 08 · Para saber más</p>
+<!-- 07 PARA SABER MÁS -->
+<section class="sec" id="saber" style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">08</span><h2>Para saber más</h2>
+      <p class="kick">Orientaciones para el profesorado, otros laminadores, recursos para seguir aprendiendo y créditos del material.</p></div>
+    <div class="tabset" data-tabs>
+      <div class="tablist" role="tablist" aria-label="Apartados de Para saber más">
+        <button role="tab" type="button" aria-selected="true" aria-controls="tab-prof" id="tb-prof">👩‍🏫 Para el profesorado</button>
+        <button role="tab" type="button" aria-selected="false" aria-controls="tab-lam" id="tb-lam" tabindex="-1">🧩 Otros laminadores</button>
+        <button role="tab" type="button" aria-selected="false" aria-controls="tab-rec" id="tb-rec" tabindex="-1">📚 Recursos</button>
+        <button role="tab" type="button" aria-selected="false" aria-controls="tab-cred" id="tb-cred" tabindex="-1">©️ Créditos y licencias</button>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tab-prof" aria-labelledby="tb-prof">
+    <div class="teacher" id="profesorado">
+      <h3 class="th"><span>→</span> Para el profesorado</h3>
+      <p class="muted" style="max-width:760px">Este manual está organizado para utilizarse de dos maneras: como guion de una acción formativa y como material de consulta para el trabajo autónomo en el centro.</p>
+      <div class="grid three" style="margin-top:20px">
+        <div class="card">
+          <h4><i class="px" data-px="book"></i>En sesiones formativas</h4>
+          <ul class="clean small">
+            <li>Seguir el orden de las secciones, de la <b>01</b> a la <b>06</b>.</li>
+            <li>Realizar las prácticas en parejas: una persona modela y otra verifica medidas.</li>
+            <li>Proyectar las animaciones como guía visual de cada fase constructiva.</li>
+            <li>Imprimir en una placa compartida las piezas del grupo (práctica BS-05).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4><i class="px" data-px="apple"></i>En el trabajo autónomo</h4>
+          <ul class="clean small">
+            <li>Retomar el manual en cualquier punto: el progreso se guarda en este navegador.</li>
+            <li>El registro no se envía a ningún servidor; se pierde si se borran los datos de navegación o se cambia de equipo.</li>
+            <li>Adaptar las medidas de las prácticas a los materiales del aula.</li>
+            <li>Seleccionar los retos según el área y la etapa.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4><i class="px" data-px="printer"></i>Organización del taller</h4>
+          <ul class="clean small">
+            <li>Nombrar los archivos como <code>curso_alias_pieza.stl</code>.</li>
+            <li>Mantener un registro de impresiones con material, perfil e incidencias.</li>
+            <li>Asignar responsables rotatorios de la impresora y del recipiente de purga.</li>
+            <li>Revisar el estado de la placa PEI y del filamento antes de cada trabajo.</li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="mini" style="color:inherit;margin-top:28px">Rúbrica orientativa para las prácticas y retos</h3>
+      <div class="tbl"><table>
+        <thead><tr><th>Criterio</th><th>En desarrollo</th><th>Adecuado</th><th>Avanzado</th></tr></thead>
+        <tbody>
+          <tr><td>Precisión de medidas</td><td>Desviaciones que impiden el uso</td><td>Medidas dentro de la tolerancia</td><td>Ajusta tolerancias tras medir la pieza</td></tr>
+          <tr><td>Funcionalidad</td><td>La pieza no cumple su función</td><td>Cumple la función prevista</td><td>Mejora la función respecto al encargo</td></tr>
+          <tr><td>Proceso</td><td>Sin documentación</td><td>Boceto, archivo y registro de impresión</td><td>Documenta versiones y decisiones</td></tr>
+          <tr><td>Fabricación</td><td>Requiere ayuda para laminar</td><td>Lamina y revisa la vista previa</td><td>Optimiza orientación, soportes y material</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tab-lam" aria-labelledby="tb-lam" hidden>
+        <p>Bambu Studio es el laminador recomendado para la P1S, pero conviene conocer otros: el centro puede tener impresoras de varias marcas y algunos funcionan en EducAndOS.</p>
+        <div class="tbl"><table>
+          <thead><tr><th>Laminador</th><th>Licencia</th><th>Puntos fuertes</th><th>Enlace</th></tr></thead>
+          <tbody>
+            <tr><td>Bambu Studio</td><td>Libre (AGPL)</td><td>Perfiles oficiales de Bambu Lab, envío por red y microSD, AMS.</td><td><a href="https://bambulab.com/es-es/download/studio" target="_blank" rel="noopener noreferrer">bambulab.com</a></td></tr>
+            <tr><td>OrcaSlicer</td><td>Libre (AGPL)</td><td>Derivado de Bambu Studio; muchas marcas y calibraciones guiadas.</td><td><a href="https://github.com/SoftFever/OrcaSlicer" target="_blank" rel="noopener noreferrer">github.com/SoftFever/OrcaSlicer</a></td></tr>
+            <tr><td>PrusaSlicer</td><td>Libre (AGPL)</td><td>Origen de Bambu Studio; muy estable y con versión para Linux.</td><td><a href="https://www.prusa3d.com/page/prusaslicer_424/" target="_blank" rel="noopener noreferrer">prusa3d.com</a></td></tr>
+            <tr><td>UltiMaker Cura</td><td>Libre (LGPL)</td><td>Muy extendido en centros con impresoras abiertas tipo Ender.</td><td><a href="https://ultimaker.com/software/ultimaker-cura/" target="_blank" rel="noopener noreferrer">ultimaker.com</a></td></tr>
+            <tr><td>Creality Print</td><td>Gratuito</td><td>Perfiles para impresoras Creality como la K1 o la Ender 3.</td><td><a href="https://www.creality.com/pages/download-software" target="_blank" rel="noopener noreferrer">creality.com</a></td></tr>
+            <tr><td>Lychee Slicer</td><td>Gratuito con registro</td><td>Revisión y reparación de mallas; resina y FDM.</td><td><a href="https://mango3d.io/lychee-slicer" target="_blank" rel="noopener noreferrer">mango3d.io</a></td></tr>
+          </tbody>
+        </table></div>
+        <div class="note info"><i class="px" data-px="star"></i><p>Los parámetros esenciales (altura de capa, perímetros, relleno, soportes y adherencia) son los mismos en todos: lo aprendido en el bloque 04 se traslada directamente.</p></div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tab-rec" aria-labelledby="tb-rec" hidden>
+        <div class="grid two">
+          <div class="card"><h4><i class="px" data-px="book"></i>Documentación oficial</h4><ul class="clean small">
+            <li><a href="https://wiki.bambulab.com/es/p1/manual" target="_blank" rel="noopener noreferrer">Manual de la Bambu Lab P1S</a></li>
+            <li><a href="https://wiki.bambulab.com/es/software/bambu-studio/studio-quick-start" target="_blank" rel="noopener noreferrer">Guía de inicio rápido de Bambu Studio</a></li>
+            <li><a href="https://www.tinkercad.com/learn/designs" target="_blank" rel="noopener noreferrer">Lecciones de diseño 3D de Tinkercad</a></li>
+            <li><a href="https://layerling.com/guia-es/index.html" target="_blank" rel="noopener noreferrer">Guía de usuario de layerling (en español)</a></li>
+          </ul></div>
+          <div class="card"><h4><i class="px" data-px="chest"></i>Repositorios educativos</h4><ul class="clean small">
+            <li><a href="https://makerworld.com/es" target="_blank" rel="noopener noreferrer">MakerWorld</a> y <a href="https://makerworld.com/es/makerlab" target="_blank" rel="noopener noreferrer">MakerLab</a></li>
+            <li><a href="https://www.printables.com/education" target="_blank" rel="noopener noreferrer">Printables Education</a></li>
+            <li><a href="https://www.thingiverse.com/" target="_blank" rel="noopener noreferrer">Thingiverse</a></li>
+            <li><a href="https://cults3d.com/es/etiquetas/educativo" target="_blank" rel="noopener noreferrer">Cults3D · educativo</a></li>
+          </ul></div>
+          <div class="card"><h4><i class="px" data-px="apple"></i>Del mismo autor</h4><ul class="clean small">
+            <li><a href="https://view.genially.com/67c6d6716c8bce7076de17c2" target="_blank" rel="noopener noreferrer">Curso «Iniciación a la impresión 3D y su aplicación en el aula» (CEP de Granada)</a></li>
+            <li><a href="https://pablomoraga.github.io/scratch-en-el-aula/" target="_blank" rel="noopener noreferrer">Scratch en el aula</a></li>
+            <li><a href="https://github.com/pablomoraga" target="_blank" rel="noopener noreferrer">github.com/pablomoraga</a></li>
+          </ul></div>
+          <div class="card"><h4><i class="px" data-px="chip"></i>Programa Código Escuela 4.0</h4><ul class="clean small">
+            <li><a href="https://www.juntadeandalucia.es/educacion/eaprendizaje/impulsocd/pct-codigo-escuela-4-0/kit-previsto-para-educacion-secundaria/" target="_blank" rel="noopener noreferrer">Kit previsto para Educación Secundaria</a></li>
+            <li><a href="https://bambulab.com/es-mx/support/academy" target="_blank" rel="noopener noreferrer">Bambu Lab Academy</a></li>
+          </ul></div>
+        </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="tab-cred" aria-labelledby="tb-cred" hidden>
+        <div class="grid two">
+          <div class="card"><h4>Autoría y licencia</h4><p class="small">Contenidos, ilustraciones, animaciones, láminas de anatomía y prácticas: <b>Pablo Moraga</b>. Licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>: se puede compartir sin modificar, sin fines comerciales y citando la autoría.</p></div>
+          <div class="card"><h4>Imágenes de terceros</h4><ul class="clean small">
+            <li>Capturas de layerling: realizadas por el autor sobre layerling.com (software libre AGPL-3.0, © henmedia).</li>
+            <li>Las ilustraciones de los apartados 01, 02, 04 y 06 se basan en el curso del CEP de Granada del mismo autor.</li>
+            <li>Las ilustraciones de Tinkercad, MakerWorld y Bambu Studio son esquemas propios, no capturas oficiales.</li>
+            <li>Los modelos de las soluciones (STL y fuente .scad) son propios y se generan con <a href="https://openscad.org/" target="_blank" rel="noopener noreferrer">OpenSCAD</a>; se comparten con la misma licencia que el manual.</li>
+          </ul></div>
+          <div class="card"><h4>Marcas</h4><p class="small">Bambu Lab, Bambu Studio, Bambu Handy, MakerWorld, Tinkercad (Autodesk), layerling, Lychee Slicer y el resto de marcas citadas pertenecen a sus titulares. Este material es independiente y no tiene vinculación comercial con ninguno de ellos.</p></div>
+          <div class="card"><h4>Cómo citar</h4><p class="small"><code>Moraga, P. (2026). Diseño e Impresión 3D en el aula. Manual práctico para Código Escuela 4.0. https://pablomoraga.github.io/</code></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<nav class="pn" aria-label="Página anterior y siguiente"><a class="prev" href="07-retos.html"><small>← Anterior</small>07 · Retos de diseño</a></nav>
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f">
+      <span>© Pablo Moraga · Contenidos con licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-NC-ND 4.0</a> · <a href="https://github.com/pablomoraga" target="_blank" rel="noopener noreferrer">github.com/pablomoraga</a></span>
+      <button class="reset" id="resetBtn2" type="button">↺ Reiniciar progreso</button>
+    </div>
+    <p class="small" style="margin-top:14px">Material educativo independiente, sin vinculación comercial con Bambu Lab, Tinkercad (Autodesk) ni Layerling. Las marcas citadas pertenecen a sus respectivos titulares. Las ilustraciones, esquemas de interfaz y capturas son propios.</p>
+    <noscript><p class="small">Las prácticas de diseño, los retos, las animaciones y el registro de progreso requieren JavaScript.</p></noscript>
+  </div>
+</footer>
+
+<script src="js/app.js?v=aee4a7ae"></script>
+</body>
+</html>

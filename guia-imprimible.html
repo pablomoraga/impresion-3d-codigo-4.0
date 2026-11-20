@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de estudio rápido · Diseño e Impresión 3D en el aula</title>
+<style>
+@page{size:A4;margin:14mm 14mm 16mm}
+:root{--ink:#1f2226;--muted:#5c636b;--line:#d5d9df;--acc:#cf4f1b;--bg2:#f4f5f7}
+*{box-sizing:border-box}
+body{margin:0;background:#e9ebee;color:var(--ink);font:10.5pt/1.42 system-ui,"Segoe UI",Arial,sans-serif}
+.sheet{width:210mm;min-height:297mm;margin:10mm auto;background:#fff;padding:14mm;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+@media print{body{background:#fff}.sheet{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;page-break-after:always}.sheet:last-child{page-break-after:auto}.noprint{display:none}}
+h1{font:700 26pt/1.1 Georgia,serif;margin:0 0 4mm}
+h1 em{color:var(--acc);font-style:italic}
+h2{font:700 15pt/1.2 Georgia,serif;margin:0 0 3mm;display:flex;align-items:baseline;gap:3mm;border-bottom:2px solid var(--ink);padding-bottom:1.5mm}
+h2 .n{font:700 13pt ui-monospace,Consolas,monospace;color:var(--acc)}
+h3{font:700 10.5pt system-ui,sans-serif;margin:3.5mm 0 1.5mm;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+p{margin:0 0 2mm}
+ul,ol{margin:0 0 2mm;padding-left:5mm}li{margin:.6mm 0}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+.box{border:1px solid var(--line);border-radius:3mm;padding:3mm 3.5mm;margin-bottom:3mm;break-inside:avoid}
+.box.key{border-left:4px solid var(--acc);background:#fff8f4}
+.kick{color:var(--muted);font-size:11pt}
+.route{display:grid;grid-template-columns:repeat(4,1fr);gap:2.5mm;margin:4mm 0}
+.route div{border:1px solid var(--line);border-top:4px solid var(--acc);border-radius:2mm;padding:2mm 2.5mm;font-size:9pt}
+.route b{display:block;font-size:10pt}.route span{font:700 9pt ui-monospace,monospace;color:var(--acc)}
+table{width:100%;border-collapse:collapse;font-size:9.2pt;margin:1mm 0 3mm}
+th,td{border:1px solid var(--line);padding:1.3mm 2mm;text-align:left;vertical-align:top}
+th{background:var(--bg2)}
+.check td:first-child{width:6mm;text-align:center}
+.cb{display:inline-block;width:3.6mm;height:3.6mm;border:1.2px solid var(--ink);border-radius:.6mm}
+kbd{font:600 8.5pt ui-monospace,monospace;border:1px solid var(--line);border-bottom-width:2px;border-radius:1mm;padding:0 1.2mm;background:#fff}
+code{font:8.8pt ui-monospace,monospace;background:var(--bg2);padding:0 1mm;border-radius:1mm}
+.gl{display:grid;grid-template-columns:1fr 1fr;gap:1mm 5mm;font-size:9.3pt}
+.gl div b{color:var(--acc)}
+.flow{display:flex;flex-wrap:wrap;gap:1.5mm;list-style:none;padding:0;margin:1mm 0 2mm;counter-reset:f}
+.flow li{counter-increment:f;border:1px solid var(--line);border-radius:1.5mm;padding:.8mm 2mm;font-size:9pt;background:var(--bg2)}
+.flow li::before{content:counter(f) " · ";font-weight:700;color:var(--acc)}
+.foot{margin-top:5mm;font-size:8pt;color:var(--muted);border-top:1px solid var(--line);padding-top:2mm}
+.lines{border-bottom:1px solid var(--line);height:7mm}
+.noprint{position:sticky;top:0;background:#1f2226;color:#fff;padding:8px 16px;text-align:center;font-size:14px;z-index:2}
+.noprint button{font:inherit;margin-left:10px;padding:4px 12px;border-radius:6px;border:0;background:#cf4f1b;color:#fff;cursor:pointer}
+@media screen and (max-width:820px){.sheet{width:auto;margin:0;padding:16px}.cols,.gl{grid-template-columns:1fr}.route{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="noprint">Guía para imprimir en A4 (5 páginas)<button type="button" onclick="window.print()">Imprimir o guardar en PDF</button></div>
+
+<!-- PÁGINA 1 -->
+<section class="sheet">
+  <p style="font:700 9pt ui-monospace,monospace;color:var(--acc);letter-spacing:.08em;margin:0 0 2mm">GUÍA DE ESTUDIO RÁPIDO · CÓDIGO ESCUELA 4.0</p>
+  <h1>Diseño e Impresión <em>3D en el aula</em></h1>
+  <p class="kick">Resumen del manual web para seguir el curso, repasar y tener a mano en el aula. Marca cada casilla al completar una práctica.</p>
+
+  <h3>Itinerario del curso</h3>
+  <div class="route">
+    <div><span>01</span><b>¿Por qué 3D?</b>Sentido y palabras clave</div>
+    <div><span>02</span><b>La impresora</b>Montar, conectar, cuidar</div>
+    <div><span>03</span><b>Repositorios</b>MakerWorld · 4 prácticas</div>
+    <div><span>04</span><b>El laminador</b>Bambu Studio · Lychee · 8 prácticas</div>
+    <div><span>05</span><b>Tinkercad</b>Clases · 12 prácticas</div>
+    <div><span>06</span><b>Layerling</b>6 prácticas · asistente IA</div>
+    <div><span>07</span><b>Retos</b>5 proyectos integradores</div>
+    <div><span>08</span><b>Saber más</b>Rúbrica y recursos</div>
+  </div>
+
+  <h3>Del problema a la pieza: secuencia didáctica tipo</h3>
+  <table>
+    <tr><th>Fase</th><th>El alumnado…</th><th>Evidencia</th></tr>
+    <tr><td><b>1. Analizar</b></td><td>detecta una necesidad y toma medidas reales</td><td>Boceto acotado</td></tr>
+    <tr><td><b>2. Diseñar</b></td><td>combina formas sólidas y huecas</td><td>Archivo <code>.STL</code></td></tr>
+    <tr><td><b>3. Fabricar</b></td><td>lamina, revisa la vista previa y envía</td><td>Proyecto <code>.3MF</code></td></tr>
+    <tr><td><b>4. Evaluar</b></td><td>comprueba medidas y propone la versión 2</td><td>Ficha de mejora</td></tr>
+  </table>
+
+  <h3>Palabras clave</h3>
+  <div class="gl">
+    <div><b>STL</b> · forma de la pieza, sin color ni ajustes.</div>
+    <div><b>3MF</b> · proyecto con colores, placas y ajustes.</div>
+    <div><b>Laminar</b> · dividir en capas y calcular el recorrido.</div>
+    <div><b>G-code</b> · instrucciones que ejecuta la impresora.</div>
+    <div><b>PLA</b> · plástico vegetal, el adecuado para el aula.</div>
+    <div><b>Boquilla</b> · salida del plástico fundido (0,4 mm).</div>
+    <div><b>Altura de capa</b> · grosor de cada piso (0,20 mm).</div>
+    <div><b>Perímetro</b> · pared exterior de cada capa.</div>
+    <div><b>Relleno</b> · estructura interior (15 % suele bastar).</div>
+    <div><b>Voladizo</b> · parte en el aire; &gt; 45° necesita soportes.</div>
+    <div><b>Soportes</b> · estructuras provisionales bajo voladizos.</div>
+    <div><b>Brim</b> · borde que mejora la adherencia.</div>
+    <div><b>Purga</b> · plástico expulsado al cambiar de color.</div>
+    <div><b>AMS</b> · cargador automático de cuatro bobinas.</div>
+    <div><b>Sólido / hueco</b> · suman o restan volumen al agrupar.</div>
+    <div><b>Placa</b> · superficie extraíble donde se imprime.</div>
+  </div>
+  <p class="foot">Manual web completo: <b>Diseño e Impresión 3D en el aula</b> · Pablo Moraga · CC BY-NC-ND 4.0</p>
+</section>
+
+<!-- PÁGINA 2 -->
+<section class="sheet">
+  <h2><span class="n">02</span>La impresora Bambu Lab P1S</h2>
+  <div class="cols">
+    <div>
+      <div class="box key"><h3 style="margin-top:0">Ideas clave</h3><ul>
+        <li><b>AMS</b>: cuatro bobinas en ambiente seco; cambio de color automático.</li>
+        <li><b>Cabezal</b>: funde el PLA a unos 220 °C; no tocar la boquilla en caliente.</li>
+        <li><b>Placa PEI texturizada</b>: magnética y flexible; se curva para soltar la pieza.</li>
+        <li><b>Cama caliente</b>: retirar piezas por debajo de 40 °C.</li>
+        <li><b>Purga</b>: colocar un recipiente en el conducto trasero.</li>
+        <li><b>Calibración automática</b> antes de cada trabajo.</li>
+      </ul></div>
+      <h3>Montaje inicial</h3>
+      <ol><li>Retirar los tornillos de transporte del cabezal y la cama.</li><li>Colocar la placa y el conducto de purga.</li><li>Montar el AMS sobre la impresora y conectar el tubo y el cable.</li><li>Encender, elegir idioma y red, y ejecutar la calibración inicial.</li><li>Cargar el filamento en cada ranura del AMS.</li></ol>
+      <h3>Seguridad en el aula</h3>
+      <ul><li>Puerta cerrada durante la impresión; ventilar el aula.</li><li>El alumnado no manipula el cabezal ni la cama en caliente.</li><li>Retirar piezas con espátula, hacia fuera del cuerpo.</li><li>Las piezas de PLA no son aptas para alimentos.</li></ul>
+    </div>
+    <div>
+      <div class="box key"><h3 style="margin-top:0">Alta en Andared_IoT por la MAC</h3>
+        <ol class="flow"><li>Leer la MAC</li><li>Enviarla a la coordinación</li><li>Alta en Séneca</li><li>Conectar</li><li>Vincular cuenta</li></ol>
+        <ol>
+          <li><b>MAC</b>: en la pantalla, <i>Ajustes › WLAN</i> o al final de la lista de ajustes (según firmware). Formato <code>A1:B2:C3:D4:E5:F6</code>.</li>
+          <li><b>Quién da el alta</b>: coordinación TDE o dirección. Si gestiona la impresora la coordinación de Código Escuela 4.0 (STEM), entrega la MAC a la coordinación TDE.</li>
+          <li><b>Séneca</b>: <i>Utilidades › Gestión WiFi › Dispositivos IoT</i> › icono <b>+</b> › MAC, sede y nombre claro › Guardar.</li>
+          <li><b>Impresora</b>: <i>Ajustes › WLAN › Andared_IoT</i>. Si pide clave, la da la coordinación TDE.</li>
+          <li><b>Cuenta</b>: vincular con Bambu Handy (<i>Dispositivos › + Vincular impresora</i>) o en Bambu Studio (pestaña Dispositivo).</li>
+        </ol>
+        <p style="font-size:9pt;color:var(--muted)">Vale para cualquier impresora Bambu Lab con wifi. Si no conecta: revisar la MAC y la banda de 2,4 GHz; si Séneca no ofrece la opción, tramitar con el CAUCE.</p>
+      </div>
+      <h3>Modos de envío</h3>
+      <table><tr><th>Modo</th><th>Ventaja</th><th>Límite</th></tr>
+        <tr><td>Nube (Andared_IoT)</td><td>Cualquier ordenador; cámara y avisos</td><td>Requiere alta por MAC</td></tr>
+        <tr><td>LAN Only</td><td>Sin servicios externos</td><td>Misma subred; sin Handy</td></tr>
+        <tr><td>microSD</td><td>Funciona siempre</td><td>Sin supervisión remota</td></tr></table>
+      <h3>Cuenta de Bambu Lab</h3>
+      <p>Cuenta del centro (correo corporativo), custodiada por el profesorado. Región de inicio de sesión: España. El alumnado no crea cuentas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PÁGINA 3 -->
+<section class="sheet">
+  <h2><span class="n">03</span>Repositorios · <span class="n">04</span>El laminador</h2>
+  <div class="cols">
+    <div>
+      <h3>Antes de descargar un modelo (MakerWorld)</h3>
+      <ul><li>Licencia: CC BY, BY-NC… (ND no permite modificar).</li><li>Fotos de impresiones de la comunidad.</li><li>Perfil de impresión para P1S (y sin AMS si no hay).</li><li>«Abrir en Bambu Studio» descarga el <code>.3MF</code> configurado.</li></ul>
+      <h3>Bambu Studio en seis pasos</h3>
+      <ol class="flow"><li>Impresora, placa, filamento y proceso</li><li>Añadir modelo</li><li>Laminar placa</li><li>Vista previa</li><li>Imprimir placa</li><li>o exportar a microSD</li></ol>
+      <table><tr><th>Ajuste</th><th>Valor habitual</th></tr>
+        <tr><td>Impresora</td><td>Bambu Lab P1S 0.4 nozzle</td></tr><tr><td>Placa</td><td>Textured PEI Plate</td></tr>
+        <tr><td>Proceso</td><td>0.20mm Standard (detalle: 0.12mm Fine)</td></tr><tr><td>Relleno</td><td>15 %</td></tr>
+        <tr><td>Soportes</td><td>Árbol (auto) si hay voladizos &gt; 45°</td></tr><tr><td>Brim</td><td>Auto; manual en bases pequeñas</td></tr></table>
+      <h3>Lychee Slicer</h3>
+      <p>Para revisar y reparar mallas <code>.STL</code> con errores; después se lamina en Bambu Studio.</p>
+    </div>
+    <div>
+      <div class="box key"><h3 style="margin-top:0">¿Qué le pasa a mi pieza?</h3>
+      <table><tr><th>Síntoma</th><th>Qué hacer</th></tr>
+        <tr><td>No se pega</td><td>Lavar la placa con agua y jabón; placa correcta en Studio; nivelación; brim.</td></tr>
+        <tr><td>No sale plástico</td><td>Revisar ranura del AMS, recargar filamento, bobina sin enredos.</td></tr>
+        <tr><td>Esquinas levantadas</td><td>Puerta cerrada, placa limpia, brim, esquinas redondeadas.</td></tr>
+        <tr><td>Maraña de hilos</td><td>Detener; revisar adherencia y soportes.</td></tr>
+        <tr><td>Capas desplazadas</td><td>Que nada roce el cabezal; autotest.</td></tr>
+        <tr><td>Voladizos caídos</td><td>Soportes de árbol o reorientar; chaflanes de 45°.</td></tr>
+        <tr><td>Hilos finos</td><td>Secar el filamento; perfil del fabricante.</td></tr>
+        <tr><td>No encaja</td><td>Holgura de 0,2–0,3 mm por lado; pieza de prueba.</td></tr>
+        <tr><td>Base más ancha</td><td>Chaflán de 0,5 mm en la base.</td></tr></table></div>
+      <h3>Bambu Handy</h3>
+      <p>Cámara en directo, avisos, pausa y parada. No publicar imágenes con personas; al cambiar de responsable, desvincular y cambiar la contraseña.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PÁGINA 4 -->
+<section class="sheet">
+  <h2><span class="n">05</span>Tinkercad · <span class="n">06</span>Layerling</h2>
+  <div class="cols">
+    <div>
+      <h3>Tinkercad: lo esencial</h3>
+      <p><b>Sólido + hueco + agrupar = pieza.</b> El hueco debe sobresalir de la pieza que perfora.</p>
+      <table><tr><th>Tecla</th><th>Acción</th><th>Tecla</th><th>Acción</th></tr>
+        <tr><td><kbd>W</kbd></td><td>Plano sobre una cara</td><td><kbd>Ctrl+G</kbd></td><td>Agrupar</td></tr>
+        <tr><td><kbd>L</kbd></td><td>Alinear</td><td><kbd>Ctrl+D</kbd></td><td>Duplicar y repetir</td></tr>
+        <tr><td><kbd>D</kbd></td><td>Apoyar en el plano</td><td><kbd>Ctrl+Z</kbd></td><td>Deshacer</td></tr>
+        <tr><td><kbd>H</kbd></td><td>Hueco</td><td><kbd>M</kbd></td><td>Simetría</td></tr>
+        <tr><td><kbd>F</kbd></td><td>Encuadrar</td><td><kbd>Mayús</kbd></td><td>Escala proporcional · giros de 45°</td></tr></table>
+      <div class="box key"><h3 style="margin-top:0">Clases en Tinkercad</h3>
+        <ol><li>Perfil › Ajustes › Rol: <b>Docente</b>.</li><li>Clases › <b>Crear nueva clase</b> (nombre, nivel, materia, modo seguro).</li><li>Alumnado › <b>Añadir alumnos</b>: plazas sin correo (uno a uno o en bloque).</li><li>Compartir el <b>código de 9 caracteres</b> o el enlace; imprimir la hoja de acceso.</li><li>Seguir el trabajo en el panel de la clase.</li></ol>
+        <p style="font-size:9pt">Menores de 14 años: plazas de clase, con iniciales o alias. <b>Archivar</b> la clase al terminar: eliminarla borra los diseños.</p></div>
+      <h3>Google Classroom</h3>
+      <p>Tarea › Complementos › <b>Autodesk Tinkercad</b> › adjuntar hasta 8 diseños › Asignar. El alumnado pulsa «Start Tinkering» (copia propia) y entrega. El docente revisa con «Ver en 3D» y califica.</p>
+    </div>
+    <div>
+      <h3>Layerling: lo que añade</h3>
+      <ul><li>Sin registro; guarda en el navegador: <b>exportar copias</b>.</li><li><b>Vaciar</b> con pared uniforme, <b>roscas</b> métricas, <b>engranajes</b>.</li><li><b>Patrón</b> circular, <b>texto en arco</b>, <b>articulaciones flexi</b>.</li><li><b>Dividir</b> piezas grandes con cola de milano.</li><li>Comprobar impresión y holguras antes de exportar.</li></ul>
+      <table><tr><th>Tecla</th><th>Acción</th></tr>
+        <tr><td><kbd>Ctrl+G</kbd></td><td>Agrupar</td></tr><tr><td><kbd>E</kbd></td><td>Editar grupo</td></tr><tr><td><kbd>B</kbd></td><td>Redondeo</td></tr>
+        <tr><td><kbd>Ctrl+K</kbd></td><td>Buscar comandos</td></tr><tr><td><kbd>Ctrl+H</kbd></td><td>Ocultar</td></tr></table>
+      <div class="box"><h3 style="margin-top:0">Asistente de IA (MCP)</h3>
+        <p>Solo con Layerling instalado en el equipo y un cliente de IA local. Uso docente, sin datos del alumnado.</p>
+        <p><b>Buen prompt</b>: forma base, todas las medidas en mm, paredes, orificios, texto, cómo apoya en la placa y «comprobar impresión y exportar en STL».</p></div>
+      <h3>Exportación</h3>
+      <p>Tinkercad: Exportar › <code>.STL</code>. Layerling: <code>.STL</code> o <code>.3MF</code>. Después, Bambu Studio.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PÁGINA 5 -->
+<section class="sheet">
+  <h2>Lista de control de prácticas</h2>
+  <div class="cols">
+    <div>
+      <table class="check"><tr><th></th><th>03 · MakerWorld</th></tr>
+        <tr><td><span class="cb"></span></td><td>MW-01 Búsqueda y verificación</td></tr><tr><td><span class="cb"></span></td><td>MW-02 MakerLab · Hacer mi señal</td></tr>
+        <tr><td><span class="cb"></span></td><td>MW-03 MakerLab · Imagen a llavero</td></tr><tr><td><span class="cb"></span></td><td>MW-04 Rompecabezas de píxeles y relieves</td></tr></table>
+      <table class="check"><tr><th></th><th>04 · Laminador</th></tr>
+        <tr><td><span class="cb"></span></td><td>BS-01 Laminado estándar y revisión por capas</td></tr><tr><td><span class="cb"></span></td><td>BS-02 Escalar una maqueta</td></tr>
+        <tr><td><span class="cb"></span></td><td>BS-03 Cortar para mostrar el interior</td></tr><tr><td><span class="cb"></span></td><td>BS-04 Texto en relieve y soportes tipo árbol</td></tr>
+        <tr><td><span class="cb"></span></td><td>BS-05 Placa compartida del grupo</td></tr><tr><td><span class="cb"></span></td><td>LS-01 Reparación de una malla</td></tr>
+        <tr><td><span class="cb"></span></td><td>LS-02 Orientación y soportes manuales</td></tr><tr><td><span class="cb"></span></td><td>LS-03 Perfil FDM y comparación</td></tr></table>
+      <table class="check"><tr><th></th><th>07 · Retos</th></tr>
+        <tr><td><span class="cb"></span></td><td>R-01 Adaptador ergonómico para lápiz</td></tr><tr><td><span class="cb"></span></td><td>R-02 Volcán o célula en sección</td></tr>
+        <tr><td><span class="cb"></span></td><td>R-03 Reloj de sol para Andalucía</td></tr><tr><td><span class="cb"></span></td><td>R-04 Soporte para sensor HC-SR04</td></tr>
+        <tr><td><span class="cb"></span></td><td>R-05 Medalla del centro en 3 niveles</td></tr></table>
+    </div>
+    <div>
+      <table class="check"><tr><th></th><th>05 · Tinkercad</th></tr>
+        <tr><td><span class="cb"></span></td><td>DP-01 Regla escolar milimetrada</td></tr><tr><td><span class="cb"></span></td><td>DP-02 Moneda histórica o ficha</td></tr>
+        <tr><td><span class="cb"></span></td><td>DP-03 Identificador de mochila</td></tr><tr><td><span class="cb"></span></td><td>DP-04 Dado matemático o de emociones</td></tr>
+        <tr><td><span class="cb"></span></td><td>DP-05 Pirámide de Keops seccionada</td></tr><tr><td><span class="cb"></span></td><td>DP-06 Soporte para Micro:bit o móvil</td></tr>
+        <tr><td><span class="cb"></span></td><td>DP-07 Sello educativo</td></tr><tr><td><span class="cb"></span></td><td>DP-08 Ficha táctil en braille</td></tr>
+        <tr><td><span class="cb"></span></td><td>DP-09 Molécula de agua</td></tr><tr><td><span class="cb"></span></td><td>DP-10 Remezcla de un .STL</td></tr>
+        <tr><td><span class="cb"></span></td><td>DP-11 Taza con asa</td></tr><tr><td><span class="cb"></span></td><td>DP-12 Llavero tipo Lego con nombre</td></tr></table>
+      <table class="check"><tr><th></th><th>06 · Layerling</th></tr>
+        <tr><td><span class="cb"></span></td><td>LY-01 Portalápices con paredes uniformes</td></tr><tr><td><span class="cb"></span></td><td>LY-02 Tornillo y tuerca M10</td></tr>
+        <tr><td><span class="cb"></span></td><td>LY-03 Engranajes que encajan</td></tr><tr><td><span class="cb"></span></td><td>LY-04 Esfera de reloj con patrón</td></tr>
+        <tr><td><span class="cb"></span></td><td>LY-05 Pez articulado</td></tr><tr><td><span class="cb"></span></td><td>LY-06 Regla de 40 cm dividida</td></tr>
+        <tr><td><span class="cb"></span></td><td>AS-01 a AS-03 Tareas con asistente</td></tr></table>
+    </div>
+  </div>
+  <p class="foot">Material educativo independiente, sin vinculación comercial con Bambu Lab, Autodesk (Tinkercad) ni Layerling. Las marcas citadas pertenecen a sus titulares. Pablo Moraga · CC BY-NC-ND 4.0.</p>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 · La impresora 3D · Diseño e Impresión 3D en el aula</title>
+<meta name="description" content="Manual práctico y secuencial para integrar el diseño y la impresión 3D en colegios e institutos de Andalucía (Código Escuela 4.0): Bambu Lab P1S, MakerWorld, Bambu Studio, Lychee Slicer, Tinkercad y Layerling.">
+<meta name="author" content="Pablo Moraga">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Crect x='1' y='0' width='6' height='8' fill='%231e1d1a'/%3E%3Crect x='0' y='1' width='8' height='6' fill='%231e1d1a'/%3E%3Crect x='1' y='1' width='6' height='6' fill='%23cf4f1b'/%3E%3Crect x='3' y='3' width='2' height='2' fill='%23ffffff'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/estilo.css?v=aee4a7ae">
+</head>
+<body data-page="02-impresora.html">
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<div class="cad tl" aria-hidden="true"></div><div class="cad tr" aria-hidden="true"></div><div class="cad bl" aria-hidden="true"></div><div class="cad br" aria-hidden="true"></div>
+<svg class="axes" viewBox="0 0 54 54" aria-hidden="true"><path d="M10 44 L44 44" stroke="#e0453a" stroke-width="2.5"/><path d="M10 44 L10 10" stroke="#3c8a46" stroke-width="2.5"/><path d="M10 44 L30 26" stroke="#1d7386" stroke-width="2.5"/><g font-family="monospace" font-size="9" font-weight="700"><text x="46" y="47" fill="#e0453a">X</text><text x="6" y="8" fill="#3c8a46">Z</text><text x="32" y="25" fill="#1d7386">Y</text></g></svg>
+
+<!-- Biblioteca de ilustraciones (gradientes y símbolos reutilizables) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="g-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".22"/><stop offset=".45" stop-color="#fff" stop-opacity=".04"/><stop offset=".55" stop-color="#fff" stop-opacity=".12"/><stop offset="1" stop-color="#fff" stop-opacity=".02"/></linearGradient>
+    <linearGradient id="g-pei" x1="0" x2="1"><stop offset="0" stop-color="#8b6b33"/><stop offset=".5" stop-color="#b48f4c"/><stop offset="1" stop-color="#7c5e2b"/></linearGradient>
+    <linearGradient id="g-body" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3a3d43"/><stop offset="1" stop-color="#232529"/></linearGradient>
+    <linearGradient id="g-alu" x1="0" x2="1"><stop offset="0" stop-color="#9aa0a8"/><stop offset=".5" stop-color="#dde1e5"/><stop offset="1" stop-color="#8d939b"/></linearGradient>
+    <linearGradient id="g-brass" x1="0" x2="1"><stop offset="0" stop-color="#a77b25"/><stop offset=".5" stop-color="#e5c06a"/><stop offset="1" stop-color="#9a6f1e"/></linearGradient>
+    <linearGradient id="g-lid" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9e6ef" stop-opacity=".55"/><stop offset="1" stop-color="#b8c9d6" stop-opacity=".22"/></linearGradient>
+    <linearGradient id="g-card" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c79a62"/><stop offset="1" stop-color="#a87b45"/></linearGradient>
+    <linearGradient id="g-view" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f6f7f9"/><stop offset="1" stop-color="#e2e5e9"/></linearGradient>
+    <pattern id="p-tex" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" fill="#9c7a3e"/><circle cx="1" cy="1" r=".7" fill="#000" opacity=".2"/><circle cx="3" cy="3" r=".6" fill="#fff" opacity=".18"/></pattern>
+    <marker id="m-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#cf4f1b"/></marker>
+    <marker id="m-arrB" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="3.2" markerHeight="3.2" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#1e88c8"/></marker>
+
+    <symbol id="s-spool" viewBox="0 0 52 60">
+      <rect x="6" y="5" width="40" height="50" fill="currentColor"/>
+      <path d="M6 13H46M6 21H46M6 29H46M6 37H46M6 45H46" stroke="#000" stroke-opacity=".13"/>
+      <rect x="9" y="5" width="6" height="50" fill="#fff" opacity=".2"/>
+      <rect x="0" y="0" width="6" height="60" rx="2" fill="#1d1e21"/><rect x="46" y="0" width="6" height="60" rx="2" fill="#1d1e21"/>
+    </symbol>
+
+    <symbol id="s-ams" viewBox="0 0 300 96">
+      <use href="#s-spool" x="18" y="10" width="52" height="60" style="color:#e2672e"/>
+      <use href="#s-spool" x="86" y="10" width="52" height="60" style="color:#1d7386"/>
+      <use href="#s-spool" x="162" y="10" width="52" height="60" style="color:#f1f0ec"/>
+      <use href="#s-spool" x="230" y="10" width="52" height="60" style="color:#e2ad1f"/>
+      <path d="M6 44 V18 Q6 4 22 4 H278 Q294 4 294 18 V44 Z" fill="url(#g-lid)" stroke="#16171a" stroke-width="2"/>
+      <rect x="0" y="40" width="300" height="56" rx="10" fill="url(#g-body)"/>
+      <g fill="#44484f"><rect x="20" y="62" width="48" height="20" rx="3"/><rect x="88" y="62" width="48" height="20" rx="3"/><rect x="164" y="62" width="48" height="20" rx="3"/><rect x="232" y="62" width="48" height="20" rx="3"/></g>
+      <g fill="#7ddc5a"><circle cx="60" cy="72" r="2.6"/><circle cx="128" cy="72" r="2.6"/><circle cx="204" cy="72" r="2.6"/><circle cx="272" cy="72" r="2.6"/></g>
+      <g stroke="#2a2c31" stroke-width="3" stroke-linecap="round"><path d="M30 72h18M98 72h18M174 72h18M242 72h18"/></g>
+    </symbol>
+
+    <symbol id="s-p1s" viewBox="0 0 300 340">
+      <rect x="0" y="0" width="300" height="340" rx="14" fill="url(#g-body)"/>
+      <rect x="6" y="3" width="288" height="10" rx="4" fill="#4a4d54"/>
+      <rect x="18" y="24" width="264" height="272" rx="6" fill="#1b1c20"/>
+      <rect x="30" y="28" width="240" height="3" rx="1.5" fill="#fff4cf" opacity=".85"/>
+      <rect x="36" y="38" width="5" height="250" fill="#7d8188"/><rect x="259" y="38" width="5" height="250" fill="#7d8188"/>
+      <rect x="26" y="60" width="248" height="9" rx="2" fill="#565a61"/>
+      <path d="M149 24 V50" stroke="#f2f2f0" stroke-width="3"/>
+      <rect x="120" y="46" width="58" height="58" rx="8" fill="#e9eaec" stroke="#b8bcc2"/>
+      <circle cx="149" cy="73" r="15" fill="#d3d6da" stroke="#b0b4ba"/>
+      <path d="M139 73h20M149 63v20" stroke="#b0b4ba" stroke-width="2"/>
+      <rect x="128" y="100" width="42" height="8" rx="2" fill="#c4c7cc"/>
+      <polygon points="143,108 155,108 151,118 147,118" fill="url(#g-brass)"/>
+      <circle cx="34" cy="38" r="5" fill="#0c0d0f" stroke="#6a6e75" stroke-width="1.5"/><circle cx="34" cy="38" r="1.8" fill="#3a7bd5"/>
+      <rect x="128" y="196" width="42" height="34" fill="#e2672e"/>
+      <path d="M128 202H170M128 208H170M128 214H170M128 220H170M128 226H170" stroke="#000" stroke-opacity=".13"/>
+      <rect x="40" y="230" width="220" height="7" rx="1.5" fill="url(#p-tex)"/>
+      <rect x="46" y="237" width="208" height="9" rx="1" fill="#3a3d43"/>
+      <rect x="18" y="24" width="264" height="272" rx="6" fill="url(#g-glass)" stroke="#121315" stroke-width="2"/>
+      <rect x="22" y="304" width="58" height="22" rx="3" fill="#0d0e10" stroke="#55585e"/>
+      <path d="M28 312h30M28 318h22" stroke="#9be15d" stroke-width="2" opacity=".8"/>
+      <circle cx="92" cy="315" r="4" fill="#4a4d54"/><circle cx="104" cy="315" r="4" fill="#4a4d54"/>
+    </symbol>
+
+    <symbol id="s-p1s-back" viewBox="0 0 300 340">
+      <rect width="300" height="340" rx="14" fill="url(#g-body)"/>
+      <rect x="6" y="3" width="288" height="10" rx="4" fill="#4a4d54"/>
+      <rect x="20" y="24" width="260" height="300" rx="6" fill="#2a2c31" stroke="#1a1b1e"/>
+      <circle cx="150" cy="170" r="36" fill="#25272b" stroke="#17181b" stroke-width="3"/>
+      <g stroke="#17181b" stroke-width="3"><path d="M118 152h64M114 164h72M114 176h72M118 188h64"/></g>
+      <rect x="200" y="40" width="46" height="70" rx="6" fill="#e3e4e6" stroke="#9a9ea5"/>
+      <rect x="214" y="52" width="18" height="40" rx="3" fill="#c9ccd1"/><circle cx="223" cy="80" r="4" fill="#9a9ea5"/>
+      <rect x="34" y="236" width="20" height="10" rx="2" fill="#18191c" stroke="#55585e"/>
+      <rect x="26" y="280" width="46" height="22" rx="3" fill="#0b0c0e" stroke="#55585e"/>
+      <rect x="226" y="286" width="44" height="28" rx="3" fill="#18191c" stroke="#55585e"/>
+      <rect x="232" y="292" width="14" height="16" rx="2" fill="#3a3d43"/><rect x="252" y="293" width="12" height="14" rx="2" fill="#c53a2f"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="index.html" aria-label="Inicio"><i class="px" data-px="extruder"></i><span>Pablo Moraga · Diseño e Impresión 3D en el aula</span></a>
+    <nav class="main" aria-label="Secciones">
+      <a href="01-por-que.html"><b>01</b>Por qué 3D</a>
+      <a href="02-impresora.html"><b>02</b>Impresora</a>
+      <a href="03-repositorios.html"><b>03</b>Repositorios</a>
+      <a href="04-laminador.html"><b>04</b>Laminador</a>
+      <a href="05-tinkercad.html"><b>05</b>Tinkercad</a>
+      <a href="06-layerling.html"><b>06</b>Layerling</a>
+      <a href="07-retos.html"><b>07</b>Retos</a>
+      <a href="08-saber-mas.html"><b>08</b>Saber más</a>
+    </nav>
+    <div class="tools">
+      <div class="prog" title="Prácticas y retos completados (guardado en este navegador)">
+        <span class="bar" aria-hidden="true"><i id="barFill"></i></span><span id="progText">0/0</span>
+      </div>
+      <button class="ibtn" id="resetBtn" type="button" title="Reiniciar progreso" aria-label="Reiniciar progreso">↺</button>
+      <button class="ibtn" id="themeBtn" type="button" title="Cambiar entre modo claro y oscuro" aria-label="Cambiar modo claro u oscuro">◐</button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+<div class="wrap layout">
+<nav class="side" aria-label="Índice del manual"><details class="side-wrap" open><summary>Índice del manual</summary><a href="index.html" class="side-home">Inicio</a><ul class="side-tree"><li><details><summary><span class="num">01</span>¿Por qué 3D?</summary><ul><li><a href="01-por-que.html">Presentación</a></li><li><a href="01-por-que.html#itinerario" data-sub="itinerario">Tu itinerario</a></li><li><a href="01-por-que.html#glosario" data-sub="glosario">Antes de empezar: palabras clave</a></li><li><a href="01-por-que.html#secuencia" data-sub="secuencia">Del problema a la pieza: secuencia didáctica tipo</a></li><li><a href="01-por-que.html#aplicaciones-por-areas-curriculares" data-sub="aplicaciones-por-areas-curriculares">Aplicaciones por áreas curriculares</a></li></ul></details></li><li><details open><summary><span class="num">02</span>La impresora 3D</summary><ul><li><a href="02-impresora.html" class="on" aria-current="page">Presentación</a></li><li><a href="#componentes-principales-de-la-p1s" data-sub="componentes-principales-de-la-p1s">Componentes principales de la P1S</a></li><li><a href="#montaje-inicial-de-la-p1s" data-sub="montaje-inicial-de-la-p1s">Montaje inicial de la P1S</a></li><li><a href="#el-ams-funcionamiento-y-montaje" data-sub="el-ams-funcionamiento-y-montaje">El AMS: funcionamiento y montaje</a></li><li><a href="#materiales-y-seguridad-en-el-aula" data-sub="materiales-y-seguridad-en-el-aula">Materiales y seguridad en el aula</a></li><li><a href="#conectividad-en-redes-educativas" data-sub="conectividad-en-redes-educativas">Conectividad en redes educativas</a></li><li><a href="#iot" data-sub="iot">Alta en Andared_IoT por la dirección MAC (Séneca)</a></li></ul></details></li><li><details><summary><span class="num">03</span>Repositorios</summary><ul><li><a href="03-repositorios.html">Presentación</a></li><li><a href="03-repositorios.html#practicas-secuenciales-en-makerworld" data-sub="practicas-secuenciales-en-makerworld">Prácticas secuenciales en MakerWorld</a></li></ul></details></li><li><details><summary><span class="num">04</span>El laminador</summary><ul><li><a href="04-laminador.html">Presentación</a></li><li><a href="04-laminador.html#bambu-studio" data-sub="bambu-studio">Bambu Studio</a></li><li><a href="04-laminador.html#s-o-s-aula-incidencias-frecuentes" data-sub="s-o-s-aula-incidencias-frecuentes">S.O.S. Aula: incidencias frecuentes</a></li><li><a href="04-laminador.html#galeria-de-errores-de-impresion" data-sub="galeria-de-errores-de-impresion">Galería de errores de impresión</a></li><li><a href="04-laminador.html#diagnostico" data-sub="diagnostico">¿Qué le pasa a mi pieza?</a></li><li><a href="04-laminador.html#lychee-slicer" data-sub="lychee-slicer">Lychee Slicer</a></li><li><a href="04-laminador.html#handy" data-sub="handy">Control desde el móvil: Bambu Handy</a></li></ul></details></li><li><details><summary><span class="num">05</span>Diseñar con Tinkercad</summary><ul><li><a href="05-tinkercad.html">Presentación</a></li><li><a href="05-tinkercad.html#tinkercad-en-doce-operaciones" data-sub="tinkercad-en-doce-operaciones">Tinkercad en doce operaciones</a></li><li><a href="05-tinkercad.html#clases" data-sub="clases">Clases en Tinkercad y Google Classroom</a></li><li><a href="05-tinkercad.html#atajos" data-sub="atajos">Atajos de teclado</a></li><li><a href="05-tinkercad.html#practicas-con-tinkercad" data-sub="practicas-con-tinkercad">Prácticas con Tinkercad</a></li></ul></details></li><li><details><summary><span class="num">06</span>Diseñar con Layerling</summary><ul><li><a href="06-layerling.html">Presentación</a></li><li><a href="06-layerling.html#layerling-paso-a-paso" data-sub="layerling-paso-a-paso">Layerling paso a paso</a></li><li><a href="06-layerling.html#atajos-ly" data-sub="atajos-ly">Atajos de teclado</a></li><li><a href="06-layerling.html#practicas-con-layerling" data-sub="practicas-con-layerling">Prácticas con Layerling</a></li><li><a href="06-layerling.html#ahora-con-asistente-del-prompt-al-stl" data-sub="ahora-con-asistente-del-prompt-al-stl">Ahora con Asistente: del prompt al STL</a></li></ul></details></li><li><details><summary><span class="num">07</span>Retos de diseño</summary><ul><li><a href="07-retos.html">Presentación</a></li><li><a href="07-retos.html#ideas-para-seguir-proyectos-del-curso" data-sub="ideas-para-seguir-proyectos-del-curso">Ideas para seguir: proyectos del curso</a></li></ul></details></li><li><details><summary><span class="num">08</span>Para saber más</summary><ul><li><a href="08-saber-mas.html">Presentación</a></li><li><a href="08-saber-mas.html#tab-prof" data-sub="tab-prof">Para el profesorado</a></li><li><a href="08-saber-mas.html#tab-lam" data-sub="tab-lam">Otros laminadores</a></li><li><a href="08-saber-mas.html#tab-rec" data-sub="tab-rec">Recursos</a></li><li><a href="08-saber-mas.html#tab-cred" data-sub="tab-cred">Créditos y licencias</a></li></ul></details></li></ul></details></nav>
+<div class="page-main">
+<p class="crumbs"><a href="index.html">Inicio</a> › 02 · La impresora 3D</p>
+<!-- 02 LA IMPRESORA -->
+<section class="sec" id="impresora">
+  <div class="wrap">
+    <div class="sec-head"><span class="sec-num">02</span><h2>La impresora 3D</h2>
+      <p class="kick">Bambu Lab P1S: tecnología, componentes, calibración automática, materiales y pautas de seguridad para su uso en el aula.</p></div>
+
+    <h3 class="mini">Tecnología adecuada para centros educativos</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>Criterio</th><th>FDM (filamento fundido)</th><th>Resina (SLA / MSLA)</th></tr></thead>
+      <tbody>
+        <tr><td>Material</td><td>Filamento sólido en bobina (PLA)</td><td>Resina fotopolimérica líquida</td></tr>
+        <tr><td>Manipulación</td><td>Sin productos químicos</td><td>Guantes, gafas y lavado en alcohol isopropílico</td></tr>
+        <tr><td>Ventilación</td><td>Ventilación ordinaria del aula</td><td>Ventilación específica por vapores</td></tr>
+        <tr><td>Postprocesado</td><td>Retirada de soportes</td><td>Lavado y curado UV</td></tr>
+        <tr><td>Adecuación al aula</td><td class="yes">Recomendada</td><td class="no">No recomendada</td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h4><i class="px" data-px="printer"></i>Cinemática CoreXY cerrada</h4>
+        <ul class="clean">
+          <li>La base solo se desplaza en vertical: la pieza no oscila durante la impresión.</li>
+          <li>El cerramiento impide el contacto con piezas móviles y zonas calientes.</li>
+          <li>La temperatura interior es estable y la pieza se ve menos afectada por corrientes de aire.</li>
+          <li>Reduce el ruido percibido y la entrada de polvo.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><i class="px" data-px="warn"></i>Frente a impresoras abiertas de cama móvil</h4>
+        <ul class="clean">
+          <li>La placa se mueve en el eje Y, lo que exige más ajustes para obtener piezas altas estables.</li>
+          <li>El cabezal y la cama quedan accesibles al alumnado.</li>
+          <li>Suelen requerir nivelación y ajustes manuales periódicos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="sub" id="componentes-principales-de-la-p1s" style="scroll-margin-top:110px"><i class="px" data-px="nozzle"></i>Componentes principales de la P1S</h3>
+    <div class="grid two">
+      <figure class="ill">
+        <svg viewBox="0 0 360 470" role="img" aria-label="Vista frontal de la Bambu Lab P1S con el AMS sobre la tapa">
+          <ellipse cx="180" cy="452" rx="150" ry="8" fill="#000" opacity=".12"/>
+          <use href="#s-ams" x="30" y="6" width="300" height="96"/>
+          <use href="#s-p1s" x="30" y="100" width="300" height="340"/>
+          <path d="M190 172 L214 160" stroke="#fff" stroke-width="1.5"/>
+          <g class="mk"><circle cx="222" cy="156" r="11"/><text x="222" y="160" text-anchor="middle">1</text></g>
+          <path d="M282 333 L304 320" stroke="#fff" stroke-width="1.5"/>
+          <g class="mk"><circle cx="312" cy="314" r="11"/><text x="312" y="318" text-anchor="middle">2</text></g>
+          <g class="mk"><circle cx="322" cy="20" r="11"/><text x="322" y="24" text-anchor="middle">3</text></g>
+          <path d="M68 135 L84 124" stroke="#fff" stroke-width="1.5"/>
+          <g class="mk"><circle cx="92" cy="118" r="11"/><text x="92" y="122" text-anchor="middle">4</text></g>
+          <g class="mk t"><circle cx="124" cy="416" r="11"/><text x="124" y="420" text-anchor="middle">P</text></g>
+        </svg>
+        <figcaption>Vista frontal · 1 cabezal · 2 cama y placa PEI · 3 AMS · 4 cámara · P pantalla y botones</figcaption>
+      </figure>
+      <figure class="ill">
+        <svg viewBox="0 0 360 470" role="img" aria-label="Vista trasera de la P1S con buffer, tubos PTFE, conducto de purga y recipiente">
+          <ellipse cx="180" cy="452" rx="150" ry="8" fill="#000" opacity=".12"/>
+          <rect x="50" y="16" width="46" height="34" fill="#e2672e"/><rect x="118" y="16" width="46" height="34" fill="#1d7386"/><rect x="192" y="16" width="46" height="34" fill="#f1f0ec"/><rect x="260" y="16" width="46" height="34" fill="#e2ad1f"/>
+          <path d="M36 50 V22 Q36 8 52 8 H308 Q324 8 324 22 V50 Z" fill="url(#g-lid)" stroke="#16171a" stroke-width="2"/>
+          <rect x="30" y="44" width="300" height="58" rx="10" fill="url(#g-body)"/>
+          <use href="#s-p1s-back" x="30" y="100" width="300" height="340"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M200 100 C200 124 240 118 245 140" stroke="#9aa0a8" stroke-width="6"/><path d="M200 100 C200 124 240 118 245 140" stroke="#f4f4f2" stroke-width="3.5"/>
+            <path d="M262 140 C262 118 292 116 296 104" stroke="#9aa0a8" stroke-width="6"/><path d="M262 140 C262 118 292 116 296 104" stroke="#f4f4f2" stroke-width="3.5"/>
+            <path d="M110 102 C104 180 86 290 74 336" stroke="#111" stroke-width="3"/>
+            <path d="M70 404 q5 4 0 8" stroke="#e2672e" stroke-width="3"/><path d="M84 405 q-5 4 1 9" stroke="#e2672e" stroke-width="3"/>
+          </g>
+          <rect x="44" y="414" width="76" height="34" rx="2" fill="url(#g-card)" stroke="#7a5630"/><rect x="44" y="414" width="76" height="5" fill="#8b6235"/>
+          <g class="mk"><circle cx="122" cy="390" r="11"/><text x="122" y="394" text-anchor="middle">5</text></g>
+          <g class="mk t"><circle cx="292" cy="178" r="11"/><text x="292" y="182" text-anchor="middle">B</text></g>
+          <g class="mk t"><circle cx="222" cy="120" r="11"/><text x="222" y="124" text-anchor="middle">T</text></g>
+          <g class="mk t"><circle cx="114" cy="238" r="11"/><text x="114" y="242" text-anchor="middle">C</text></g>
+          <g class="mk t"><circle cx="314" cy="400" r="11"/><text x="314" y="404" text-anchor="middle">E</text></g>
+        </svg>
+        <figcaption>Vista trasera · 5 conducto de purga y recipiente · B buffer · T tubos PTFE · C cable de datos del AMS · E alimentación e interruptor</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid comp" style="margin-top:16px">
+      <div class="card">
+        <svg viewBox="0 0 240 140" role="img" aria-label="Sección del cabezal: engranajes, bloque calefactor y boquilla">
+          <rect width="240" height="140" class="ill-bg"/>
+          <rect x="117" y="0" width="6" height="56" fill="#e2672e"/>
+          <circle cx="103" cy="30" r="13" fill="url(#g-alu)" stroke="#5c6168" stroke-width="3" stroke-dasharray="3 2.4"/>
+          <circle cx="137" cy="30" r="13" fill="url(#g-alu)" stroke="#5c6168" stroke-width="3" stroke-dasharray="3 2.4"/>
+          <rect x="112" y="50" width="16" height="32" fill="#c3c7cc" stroke="#8d939b"/>
+          <g fill="#a9aeb5"><rect x="94" y="54" width="52" height="4" rx="1"/><rect x="94" y="62" width="52" height="4" rx="1"/><rect x="94" y="70" width="52" height="4" rx="1"/></g>
+          <rect x="92" y="82" width="56" height="24" rx="3" fill="url(#g-alu)" stroke="#6b7078"/>
+          <rect x="97" y="88" width="18" height="11" rx="2" fill="#c53a2f"/>
+          <polygon points="110,106 130,106 124,121 116,121" fill="url(#g-brass)" stroke="#6b4e14"/>
+          <path d="M40 131 H114 Q120 128 120 121" stroke="#e2672e" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path class="ldr" d="M88 30 H72"/><text class="lbl" x="68" y="33" text-anchor="end">engranajes</text>
+          <path class="ldr" d="M148 94 H166"/><text class="lbl" x="170" y="92">bloque</text><text class="lbl" x="170" y="103">calefactor</text>
+          <path class="ldr" d="M127 116 H166"/><text class="lbl" x="170" y="119">boquilla 0,4</text>
+          <rect x="160" y="14" width="66" height="20" rx="10" fill="#c53a2f"/><text x="193" y="28" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="monospace">≈ 220 °C</text>
+        </svg>
+        <h4><span class="num">1</span> Cabezal de impresión</h4>
+        <p>Hotend y extrusor. Los engranajes empujan el filamento hacia el bloque calefactor, que lo funde a unos <b>220 °C</b>; la boquilla lo deposita capa a capa.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 140" role="img" aria-label="Placa PEI flexionada liberando una pieza sobre la base magnética">
+          <rect width="240" height="140" class="ill-bg"/>
+          <rect x="30" y="108" width="180" height="10" rx="2" fill="#3a3d43"/>
+          <rect x="30" y="104" width="180" height="4" fill="#6b6f76"/>
+          <path d="M30 94 Q120 62 210 94 L210 100 Q120 68 30 100 Z" fill="url(#p-tex)" stroke="#5e4720"/>
+          <g transform="rotate(-4 120 60)"><rect x="104" y="44" width="32" height="26" fill="#e2672e"/><path d="M104 50h32M104 56h32M104 62h32" stroke="#000" stroke-opacity=".13"/></g>
+          <path class="arr" d="M24 70 Q24 84 30 90"/><path class="arr" d="M216 70 Q216 84 210 90"/>
+          <text class="lbl" x="120" y="132" text-anchor="middle">base magnética · placa PEI flexible</text>
+          <rect x="160" y="10" width="66" height="20" rx="10" fill="#1d7386"/><text x="193" y="24" text-anchor="middle" fill="#fff" font-size="11" font-weight="700" font-family="monospace">&lt; 40 °C</text>
+        </svg>
+        <h4><span class="num">2</span> Cama caliente y placa PEI</h4>
+        <p>Base magnética con placa flexible texturizada. Una vez fría, basta con curvarla ligeramente para liberar la pieza sin espátulas metálicas.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 140" role="img" aria-label="AMS con cuatro bobinas de colores">
+          <rect width="240" height="140" class="ill-bg"/>
+          <use href="#s-ams" x="20" y="10" width="200" height="64"/>
+          <text class="lbl" x="22" y="96">· 4 ranuras con motor propio</text>
+          <text class="lbl" x="22" y="112">· lector RFID de bobinas</text>
+          <text class="lbl" x="22" y="128">· desecante y juntas estancas</text>
+        </svg>
+        <h4><span class="num">3</span> Sistema AMS</h4>
+        <p>Si se dispone del conjunto: cargador automático para cuatro bobinas que permite imprimir en varios colores y protege el filamento de la humedad. Su montaje se detalla más abajo.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 140" role="img" aria-label="Cámara interior enfocando la placa y su imagen en un monitor">
+          <rect width="240" height="140" class="ill-bg"/>
+          <rect x="10" y="10" width="140" height="120" rx="6" fill="#1b1c20"/>
+          <polygon points="28,28 150,96 150,124 60,124" fill="#9fd3ff" opacity=".18"/>
+          <circle cx="24" cy="24" r="6" fill="#0c0d0f" stroke="#6a6e75" stroke-width="1.5"/><circle cx="24" cy="24" r="2" fill="#3a7bd5"/>
+          <rect x="20" y="112" width="124" height="5" fill="url(#p-tex)"/>
+          <rect x="88" y="92" width="22" height="20" fill="#e2672e"/>
+          <rect x="162" y="26" width="68" height="46" rx="4" fill="#30343a"/><rect x="166" y="30" width="60" height="36" fill="#1b1c20"/>
+          <rect x="190" y="48" width="12" height="11" fill="#e2672e"/><rect x="168" y="59" width="56" height="3" fill="url(#p-tex)"/>
+          <rect x="188" y="72" width="16" height="6" fill="#30343a"/><rect x="180" y="78" width="32" height="3" rx="1.5" fill="#30343a"/>
+          <text class="lbl" x="196" y="100" text-anchor="middle">supervisión</text><text class="lbl" x="196" y="113" text-anchor="middle">desde el aula</text>
+        </svg>
+        <h4><span class="num">4</span> Cámara interior y sensores</h4>
+        <p>Permite supervisar el proceso desde el ordenador o el móvil sin interrumpir la clase. Un sensor detecta el final del filamento y pausa la impresión.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 140" role="img" aria-label="Conducto de purga trasero con residuos cayendo en un recipiente">
+          <rect width="240" height="140" class="ill-bg"/>
+          <rect x="20" y="8" width="200" height="78" rx="6" fill="url(#g-body)"/>
+          <rect x="40" y="58" width="60" height="22" rx="3" fill="#0b0c0e" stroke="#55585e"/>
+          <g fill="none" stroke="#e2672e" stroke-width="3" stroke-linecap="round"><path d="M60 82 q5 5 0 10 t1 6"/><path d="M78 84 q-4 6 1 10"/></g>
+          <rect x="36" y="100" width="72" height="34" rx="2" fill="url(#g-card)" stroke="#7a5630"/><rect x="36" y="100" width="72" height="5" fill="#8b6235"/>
+          <text class="lbl" x="118" y="74">conducto de purga</text>
+          <text class="lbl" x="118" y="122">recipiente colector</text>
+        </svg>
+        <h4><span class="num">5</span> Conducto de purga trasero</h4>
+        <p>Expulsa pequeños residuos de filamento al iniciar la impresión o al cambiar de color. Conviene situar un recipiente colector en la parte posterior.</p>
+      </div>
+    </div>
+
+    <div class="note info"><i class="px" data-px="target"></i><div><p><b>Calibración automática.</b> Antes de cada trabajo, la P1S ejecuta de forma autónoma la <b>nivelación de la base</b> y la <b>compensación de vibraciones</b>. Desaparece así el ajuste manual tradicional con hoja de papel y tornillos, una de las principales fuentes de incidencias en impresoras escolares.</p></div></div>
+
+    <h3 class="sub" id="montaje-inicial-de-la-p1s" style="scroll-margin-top:110px"><i class="px" data-px="printer"></i>Montaje inicial de la P1S</h3>
+    <p class="muted">Secuencia resumida de la guía de desembalaje del fabricante. Conviene realizarla entre dos personas y conservar el embalaje para posibles traslados.</p>
+    <div class="mount">
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Impresora saliendo de la caja"><rect width="240" height="130" class="ill-bg"/>
+          <polygon points="50,72 190,72 200,60 60,60" fill="#b8874f"/>
+          <use href="#s-p1s" x="85" y="4" width="70" height="80"/>
+          <rect x="50" y="72" width="140" height="52" fill="url(#g-card)" stroke="#7a5630"/>
+          <path class="arr" d="M70 64 V22"/><path class="arr" d="M170 64 V22"/>
+          <text class="lbl" x="120" y="104" text-anchor="middle" style="fill:#3b2a14;font-weight:700">≈ 13 kg</text></svg>
+        <h4><span class="num">1</span> Desembalar</h4>
+        <p>Abrir la caja, retirar la espuma superior y extraer la impresora con las dos asas de plástico sobre una superficie plana.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Bridas del cabezal y espumas de protección"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="38" width="200" height="12" rx="3" fill="#565a61"/>
+          <rect x="92" y="22" width="56" height="62" rx="8" fill="#e9eaec" stroke="#b8bcc2"/><circle cx="120" cy="50" r="14" fill="#d3d6da" stroke="#b0b4ba"/>
+          <rect x="76" y="32" width="8" height="24" rx="2" fill="#f5f5f2" stroke="#8a8a8a"/><rect x="156" y="32" width="8" height="24" rx="2" fill="#f5f5f2" stroke="#8a8a8a"/>
+          <text x="72" y="76" font-size="16" fill="#cf4f1b">✂</text><text x="152" y="76" font-size="16" fill="#cf4f1b">✂</text>
+          <rect x="20" y="96" width="62" height="24" rx="3" fill="#e9e4c8" stroke="#b9b18a"/><text class="lbl" x="51" y="112" text-anchor="middle" style="fill:#5b5432">espuma</text>
+          <text class="lbl" x="150" y="112" text-anchor="middle">cortar 2 bridas</text></svg>
+        <h4><span class="num">2</span> Retirar protecciones</h4>
+        <p>Leer la guía rápida (tapa lateral superior), quitar los plásticos de los paneles, sacar la caja de accesorios y cortar las dos bridas que sujetan el cabezal.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Conexión de la pantalla"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="72" width="200" height="50" rx="8" fill="url(#g-body)"/>
+          <rect x="40" y="84" width="70" height="26" rx="3" fill="#0b0c0e" stroke="#9aa0a8" stroke-dasharray="3 2"/>
+          <rect x="44" y="12" width="64" height="26" rx="3" fill="#0d0e10" stroke="#55585e"/><path d="M50 21h30M50 28h22" stroke="#9be15d" stroke-width="2"/>
+          <path d="M96 38 C96 54 130 52 130 84" stroke="#222" stroke-width="2.5" fill="none"/>
+          <path class="arr" d="M64 44 V78"/>
+          <text class="lbl" x="150" y="30">orientar el cable</text><text class="lbl" x="150" y="44">y encajar</text></svg>
+        <h4><span class="num">3</span> Conectar la pantalla</h4>
+        <p>Enchufar el cable en la pantalla respetando la orientación y encajarla en su alojamiento.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Tres tornillos de seguridad del eje Z"><rect width="240" height="130" class="ill-bg"/>
+          <use href="#s-p1s" x="50" y="4" width="110" height="122"/>
+          <circle cx="68" cy="90" r="7" class="scr"/><circle cx="142" cy="90" r="7" class="scr"/><circle cx="105" cy="82" r="7" class="scr"/>
+          <text class="lbl" x="168" y="58" style="font-weight:700;fill:#e0453a">× 3</text>
+          <text class="lbl" x="168" y="74">tornillos</text><text class="lbl" x="168" y="87">del eje Z</text></svg>
+        <h4><span class="num">4</span> Desbloquear la cama</h4>
+        <p>Retirar los 3 tornillos de seguridad del eje Z indicados con flechas rojas en la guía rápida. Sin este paso, la cama no puede desplazarse.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Portabobinas lateral con una bobina"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="30" y="10" width="120" height="112" rx="8" fill="url(#g-body)"/>
+          <rect x="150" y="56" width="34" height="8" rx="3" fill="#3a3d43"/><circle cx="146" cy="60" r="3" fill="#c9ccd1"/>
+          <circle cx="196" cy="60" r="32" fill="none" stroke="#1d1e21" stroke-width="4"/><circle cx="196" cy="60" r="29" fill="#e2672e"/><circle cx="196" cy="60" r="9" fill="#1d1e21"/>
+          <text x="90" y="64" text-anchor="middle" font-size="10" font-family="monospace" fill="#e9e6df">solo sin AMS</text></svg>
+        <h4><span class="num">5</span> Portabobinas</h4>
+        <p>Retirar el tornillo del orificio lateral y atornillar el portabobinas. Solo es necesario cuando se imprime sin AMS.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Interruptor de encendido y autotest en pantalla"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="8" width="200" height="70" rx="6" fill="url(#g-body)"/>
+          <rect x="150" y="26" width="50" height="32" rx="3" fill="#18191c" stroke="#55585e"/><rect x="156" y="32" width="16" height="20" rx="2" fill="#3a3d43"/><rect x="178" y="33" width="14" height="18" rx="2" fill="#c53a2f"/>
+          <path d="M164 58 C164 96 214 104 236 108" stroke="#111" stroke-width="4" fill="none"/>
+          <rect x="24" y="88" width="104" height="32" rx="4" fill="#0d0e10" stroke="#55585e"/>
+          <text x="76" y="108" text-anchor="middle" fill="#9be15d" font-size="10" font-family="monospace">autotest…</text>
+          <text class="lbl" x="136" y="96">después: retirar</text><text class="lbl" x="136" y="109">espuma bajo cama</text></svg>
+        <h4><span class="num">6</span> Encender y autotest</h4>
+        <p>Conectar la alimentación, encender y seguir el asistente de la pantalla. Al terminar el autotest, retirar la espuma fijada bajo la cama.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Carga de filamento por el tubo trasero y recipiente de purga"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="8" width="200" height="88" rx="6" fill="url(#g-body)"/>
+          <path d="M8 26 C70 26 120 18 150 34" stroke="#f2f2f0" stroke-width="6" fill="none"/><path d="M8 26 C70 26 120 18 150 34" stroke="#e2672e" stroke-width="2" fill="none"/>
+          <rect x="40" y="68" width="46" height="18" rx="3" fill="#0b0c0e" stroke="#55585e"/>
+          <path d="M60 88 q5 4 0 9" stroke="#e2672e" stroke-width="3" fill="none"/>
+          <rect x="32" y="100" width="64" height="26" rx="2" fill="url(#g-card)" stroke="#7a5630"/>
+          <text x="160" y="56" text-anchor="middle" font-size="10" font-family="monospace" fill="#e9e6df">tubo PTFE</text>
+          <text class="lbl" x="104" y="118">recipiente bajo el conducto</text></svg>
+        <h4><span class="num">7</span> Filamento y purga</h4>
+        <p>Introducir el filamento por el tubo PTFE trasero hasta el extrusor y colocar un recipiente bajo el conducto de purga. Puede imprimirse uno definitivo buscando <em>P1S purge container</em> en MakerWorld.</p>
+      </div>
+    </div>
+
+    <h3 class="sub" id="el-ams-funcionamiento-y-montaje" style="scroll-margin-top:110px"><i class="px" data-px="ams"></i>El AMS: funcionamiento y montaje</h3>
+    <ol class="amsflow">
+      <li><b>4 ranuras</b>Cada una con motor propio: empuja el filamento o lo rebobina.</li>
+      <li><b>Hub</b>Une las cuatro trayectorias en una y aporta un segundo impulso.</li>
+      <li><b>Tubo PTFE</b>Conduce el filamento hasta la parte trasera de la impresora.</li>
+      <li><b>Buffer</b>Muelle y sensor Hall que mantienen la tensión adecuada.</li>
+      <li><b>Extrusor</b>El cabezal recibe el filamento seleccionado.</li>
+    </ol>
+    <p class="small muted" style="margin-top:10px">Diez sensores repartidos por el recorrido controlan la posición, la velocidad y la tensión del filamento.</p>
+    <div class="mount ams" style="margin-top:14px">
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="AMS y sobres de desecante"><rect width="240" height="130" class="ill-bg"/>
+          <use href="#s-ams" x="12" y="14" width="150" height="48"/>
+          <rect x="178" y="14" width="46" height="30" rx="3" fill="#f4f4f2" stroke="#999"/><g fill="#bbb"><circle cx="190" cy="24" r="2"/><circle cx="202" cy="32" r="2"/><circle cx="214" cy="22" r="2"/></g>
+          <rect x="178" y="50" width="46" height="30" rx="3" fill="#f4f4f2" stroke="#999"/><g fill="#bbb"><circle cx="188" cy="62" r="2"/><circle cx="200" cy="70" r="2"/><circle cx="212" cy="60" r="2"/></g>
+          <path class="arr" d="M174 48 H160"/>
+          <text class="lbl" x="14" y="98">retirar elementos de transporte</text><text class="lbl" x="14" y="114">2 sobres de desecante</text></svg>
+        <h4><span class="num">A1</span> Preparar el AMS</h4>
+        <p>Retirar el embalaje y los elementos de transporte, y comprobar que los dos sobres de desecante están en su compartimento.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Buffer de filamento en la parte trasera"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="8" width="200" height="114" rx="6" fill="url(#g-body)"/>
+          <rect x="130" y="24" width="46" height="72" rx="6" fill="#e3e4e6" stroke="#9a9ea5"/><rect x="144" y="36" width="18" height="44" rx="3" fill="#c9ccd1"/>
+          <path d="M153 40 l-6 4 l12 4 l-12 4 l12 4 l-12 4 l6 4" stroke="#6b7078" fill="none"/>
+          <g fill="#bfc3c8"><circle cx="135" cy="29" r="2"/><circle cx="171" cy="29" r="2"/><circle cx="135" cy="91" r="2"/><circle cx="171" cy="91" r="2"/></g>
+          <text x="32" y="44" font-size="10" font-family="monospace" fill="#e9e6df">buffer</text><text x="32" y="60" font-size="10" font-family="monospace" fill="#e9e6df">muelle +</text><text x="32" y="74" font-size="10" font-family="monospace" fill="#e9e6df">sensor Hall</text></svg>
+        <h4><span class="num">A2</span> Buffer trasero</h4>
+        <p>El buffer une el AMS con el extrusor y regula la tensión del filamento. Fijarlo en la parte trasera siguiendo la guía rápida incluida con el AMS.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="AMS colocado sobre la tapa de la impresora"><rect width="240" height="130" class="ill-bg"/>
+          <use href="#s-p1s" x="82" y="40" width="76" height="86"/>
+          <use href="#s-ams" x="72" y="4" width="96" height="31"/>
+          <path class="arr" d="M52 10 V40"/><path class="arr" d="M188 10 V40"/>
+          <text class="lbl" x="18" y="70">centrado</text><text class="lbl" x="18" y="83">sobre la</text><text class="lbl" x="18" y="96">tapa</text></svg>
+        <h4><span class="num">A3</span> Colocar el AMS</h4>
+        <p>Apoyarlo centrado sobre la tapa superior de la impresora, con la parte frontal hacia el usuario.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Esquema de conexiones entre AMS, buffer y cabezal"><rect width="240" height="130" class="ill-bg"/>
+          <use href="#s-ams" x="8" y="6" width="110" height="35"/>
+          <rect x="172" y="54" width="30" height="44" rx="5" fill="#e3e4e6" stroke="#9a9ea5"/>
+          <rect x="70" y="82" width="40" height="36" rx="6" fill="#e9eaec" stroke="#b8bcc2"/><polygon points="86,118 94,118 90,126" fill="url(#g-brass)"/>
+          <g fill="none" stroke-linecap="round">
+            <path d="M112 28 C160 28 187 30 187 54" stroke="#9aa0a8" stroke-width="6"/><path d="M112 28 C160 28 187 30 187 54" stroke="#f6f6f4" stroke-width="3.5"/>
+            <path d="M187 98 C187 122 130 58 90 82" stroke="#9aa0a8" stroke-width="6"/><path d="M187 98 C187 122 130 58 90 82" stroke="#f6f6f4" stroke-width="3.5"/>
+            <path d="M30 41 C30 70 24 100 14 124" stroke="#222" stroke-width="2.5"/>
+          </g>
+          <text class="lbl" x="140" y="20">PTFE</text><text class="lbl" x="206" y="112">buffer</text><text class="lbl" x="36" y="74">cable</text><text class="lbl" x="116" y="122">cabezal</text></svg>
+        <h4><span class="num">A4</span> Conexiones</h4>
+        <p>Conectar el tubo PTFE del AMS al buffer, el tubo del buffer al cabezal y el cable de datos del AMS al conector trasero de la impresora.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Bobina sobre los rodillos y filamento entrando en la ranura"><rect width="240" height="130" class="ill-bg"/>
+          <circle cx="80" cy="114" r="7" fill="#55585e"/><circle cx="160" cy="114" r="7" fill="#55585e"/>
+          <circle cx="120" cy="64" r="52" fill="none" stroke="#1d1e21" stroke-width="4"/><circle cx="120" cy="64" r="49" fill="#1d7386"/>
+          <circle cx="120" cy="64" r="16" fill="#1d1e21"/><rect x="124" y="58" width="10" height="7" rx="1" fill="#e2ad1f"/>
+          <path class="arr" d="M58 40 A64 64 0 0 1 96 6"/>
+          <path d="M150 104 C170 116 196 116 212 108" stroke="#1d7386" stroke-width="3" fill="none"/>
+          <rect x="210" y="98" width="24" height="20" rx="3" fill="#44484f"/><circle cx="229" cy="102" r="2.5" fill="#7ddc5a"/>
+          <text class="lbl" x="140" y="56" style="font-size:9px">RFID</text></svg>
+        <h4><span class="num">A5</span> Cargar una bobina</h4>
+        <p>Colocar la bobina sobre los rodillos e introducir el extremo del filamento en la entrada hasta que el motor lo arrastre. Las bobinas de Bambu Lab se identifican por RFID; en las demás se indican tipo y color en la pantalla o en Bambu Studio.</p>
+      </div>
+      <div class="card">
+        <svg viewBox="0 0 240 130" role="img" aria-label="Cuatro ranuras sincronizadas en pantalla"><rect width="240" height="130" class="ill-bg"/>
+          <rect x="20" y="10" width="200" height="74" rx="6" fill="#0d0e10" stroke="#55585e"/>
+          <rect x="34" y="22" width="36" height="36" rx="4" fill="#e2672e"/><rect x="80" y="22" width="36" height="36" rx="4" fill="#1d7386"/><rect x="126" y="22" width="36" height="36" rx="4" fill="#f1f0ec"/><rect x="172" y="22" width="36" height="36" rx="4" fill="#e2ad1f"/>
+          <g font-size="10" font-family="monospace" fill="#dcdcdc" text-anchor="middle"><text x="52" y="74">A1</text><text x="98" y="74">A2</text><text x="144" y="74">A3</text><text x="190" y="74">A4</text></g>
+          <text class="lbl" x="20" y="104">10–30 °C · humedad &lt; 85 %</text><text class="lbl" x="20" y="120">tapa cerrada</text></svg>
+        <h4><span class="num">A6</span> Comprobar</h4>
+        <p>Verificar que las cuatro ranuras aparecen sincronizadas en la pantalla o en Bambu Studio y mantener la tapa cerrada.</p>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h4><i class="px" data-px="thermo"></i>Condiciones de uso del AMS</h4>
+        <ul class="clean small">
+          <li>Temperatura ambiente entre 10 y 30 °C y humedad relativa inferior al 85 %.</li>
+          <li>Sustituir o regenerar el desecante cuando el indicador de humedad lo aconseje.</li>
+          <li>Mantener la tapa cerrada: las juntas de silicona conservan el interior seco.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><i class="px" data-px="warn"></i>No recomendado en el AMS</h4>
+        <ul class="clean small">
+          <li>Filamentos flexibles (TPU): se cargan directamente por el tubo trasero.</li>
+          <li>Bobinas de cartón: pueden deslizar o soltar fibras; usar un aro adaptador o rebobinar en una bobina de plástico.</li>
+          <li>Filamentos húmedos o quebradizos, que pueden partirse en el recorrido.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="links">
+      <a href="https://wiki.bambulab.com/en/p1/manual/unboxing-p1s" target="_blank" rel="noopener noreferrer">Desembalaje P1S (wiki)</a>
+      <a href="https://wiki.bambulab.com/en/x1/manual/intro-ams" target="_blank" rel="noopener noreferrer">Introducción al AMS (wiki)</a>
+    </div>
+
+    <h3 class="sub" id="materiales-y-seguridad-en-el-aula" style="scroll-margin-top:110px"><i class="px" data-px="shield"></i>Materiales y seguridad en el aula</h3>
+    <ul class="checklist">
+      <li><i class="px" data-px="leaf"></i><div><b>PLA como material estándar.</b> Polímero obtenido de recursos renovables como el almidón de maíz, biodegradable en condiciones de compostaje industrial y con emisiones muy reducidas durante la impresión. Evitar ABS y ASA en entornos escolares.</div></li>
+      <li><i class="px" data-px="thermo"></i><div><b>Retirada de piezas.</b> Esperar a que la base descienda por debajo de 40 °C antes de retirar la placa y flexionarla.</div></li>
+      <li><i class="px" data-px="drop"></i><div><b>Cuidado de la superficie PEI.</b> Evitar tocarla con los dedos: la grasa reduce la adherencia. Limpiarla periódicamente con agua y jabón neutro.</div></li>
+      <li><i class="px" data-px="bag"></i><div><b>Conservación del filamento.</b> Guardar las bobinas abiertas en bolsas herméticas con gel de sílice.</div></li>
+      <li><i class="px" data-px="printer"></i><div><b>Temperatura interior.</b> En aulas cálidas, mantener la puerta o la tapa superior ligeramente abierta durante impresiones prolongadas de PLA para evitar obstrucciones por calor.</div></li>
+      <li><i class="px" data-px="warn"></i><div><b>Supervisión.</b> El alumnado no manipula el cabezal ni la placa mientras la impresora está en funcionamiento.</div></li>
+    </ul>
+
+    <div class="grid two" style="margin-top:16px;align-items:start">
+      <div class="gal" style="margin:0;grid-template-columns:1fr">
+        <figure><div class="ill16" data-ill="g027" role="img" aria-label="Ilustración: impresión 3D de filamento o FDM y tipos de filamento"><svg viewBox="0 0 600 338" role="img"><rect width="600" height="338" fill="#f8f9fb"></rect><line x1="12" y1="46" x2="12" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="36" y1="46" x2="36" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="60" y1="46" x2="60" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="84" y1="46" x2="84" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="108" y1="46" x2="108" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="132" y1="46" x2="132" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="156" y1="46" x2="156" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="180" y1="46" x2="180" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="204" y1="46" x2="204" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="228" y1="46" x2="228" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="252" y1="46" x2="252" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="276" y1="46" x2="276" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="300" y1="46" x2="300" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="324" y1="46" x2="324" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="348" y1="46" x2="348" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="372" y1="46" x2="372" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="396" y1="46" x2="396" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="420" y1="46" x2="420" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="444" y1="46" x2="444" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="468" y1="46" x2="468" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="492" y1="46" x2="492" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="516" y1="46" x2="516" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="540" y1="46" x2="540" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="564" y1="46" x2="564" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="588" y1="46" x2="588" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="58" x2="600" y2="58" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="82" x2="600" y2="82" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="106" x2="600" y2="106" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="130" x2="600" y2="130" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="154" x2="600" y2="154" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="178" x2="600" y2="178" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="202" x2="600" y2="202" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="226" x2="600" y2="226" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="250" x2="600" y2="250" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="274" x2="600" y2="274" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="298" x2="600" y2="298" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="322" x2="600" y2="322" stroke="#e6e9ee" stroke-width="1"></line><rect x="0" y="0" width="600" height="46" fill="#1f2226"></rect><rect x="0" y="46" width="600" height="3" fill="#e2672e"></rect><text x="22" y="29" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#f39a62" text-anchor="start">FILAMENTOS PARA FDM</text><g fill="#5c636b"><rect x="560" y="18" width="6" height="6"></rect><rect x="570" y="18" width="6" height="6" fill="#e2672e"></rect><rect x="550" y="18" width="6" height="6"></rect></g><circle cx="75" cy="126" r="48" fill="#1f2226"></circle><circle cx="75" cy="126" r="44" fill="#e2672e"></circle><circle cx="75" cy="126" r="27.28" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="9.68"></circle><circle cx="75" cy="126" r="13.2" fill="#1f2226"></circle><circle cx="75" cy="126" r="5.279999999999999" fill="#f8f9fb"></circle><text x="75" y="206" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#1f2226" text-anchor="middle">PLA</text><text x="75" y="228" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Fácil de imprimir</text><text x="75" y="246" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Se reblandece a 60 °C</text><rect x="23" y="258" width="104" height="24" fill="#3c8a46" rx="12"></rect><text x="75" y="275" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Recomendado</text><circle cx="225" cy="126" r="48" fill="#1f2226"></circle><circle cx="225" cy="126" r="44" fill="#1d7386"></circle><circle cx="225" cy="126" r="27.28" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="9.68"></circle><circle cx="225" cy="126" r="13.2" fill="#1f2226"></circle><circle cx="225" cy="126" r="5.279999999999999" fill="#f8f9fb"></circle><text x="225" y="206" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#1f2226" text-anchor="middle">PETG</text><text x="225" y="228" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Resistente y flexible</text><text x="225" y="246" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Apto para exterior</text><rect x="173" y="258" width="104" height="24" fill="#8a9099" rx="12"></rect><text x="225" y="275" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Avanzado</text><circle cx="375" cy="126" r="48" fill="#1f2226"></circle><circle cx="375" cy="126" r="44" fill="#5c636b"></circle><circle cx="375" cy="126" r="27.28" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="9.68"></circle><circle cx="375" cy="126" r="13.2" fill="#1f2226"></circle><circle cx="375" cy="126" r="5.279999999999999" fill="#f8f9fb"></circle><text x="375" y="206" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#1f2226" text-anchor="middle">ABS</text><text x="375" y="228" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Necesita cámara cerrada</text><text x="375" y="246" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Emite vapores</text><rect x="323" y="258" width="104" height="24" fill="#d8432f" rx="12"></rect><text x="375" y="275" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">No en el aula</text><circle cx="525" cy="126" r="48" fill="#1f2226"></circle><circle cx="525" cy="126" r="44" fill="#3c8a46"></circle><circle cx="525" cy="126" r="27.28" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="9.68"></circle><circle cx="525" cy="126" r="13.2" fill="#1f2226"></circle><circle cx="525" cy="126" r="5.279999999999999" fill="#f8f9fb"></circle><text x="525" y="206" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="22" font-weight="800" fill="#1f2226" text-anchor="middle">TPU</text><text x="525" y="228" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Flexible como goma</text><text x="525" y="246" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12.5" font-weight="400" fill="#5c636b" text-anchor="middle">Sin AMS</text><rect x="473" y="258" width="104" height="24" fill="#8a9099" rx="12"></rect><text x="525" y="275" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Avanzado</text><rect x="470" y="58" width="112" height="26" fill="#1f2226" rx="13"></rect><text x="526" y="76" font-family="ui-monospace,Consolas,monospace" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">Ø 1,75 mm</text><rect x="0" y="308" width="600" height="30" fill="#eef0f3"></rect><text x="300" y="328" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#5c636b" text-anchor="middle">El PLA es el filamento de referencia en educación.</text></svg></div><figcaption><b>Filamentos: PLA, PETG, ABS y TPU</b>El PLA de 1,75 mm es el filamento de referencia en educación: procede de recursos renovables y es fácil de imprimir.<small>Basada en la diapositiva 27 del curso del CEP de Granada</small></figcaption></figure>
+      </div>
+      <div class="card">
+        <h4><i class="px" data-px="spool"></i>Cambio manual de filamento (sin AMS)</h4>
+        <ol class="clean small">
+          <li>Llevar la boquilla a temperatura de fusión (220–240 °C para PLA).</li>
+          <li>Empujar ligeramente el filamento hacia la boquilla para deshacer posibles deformaciones.</li>
+          <li>Retirarlo antes de que se enfríe, tirando a través del tubo PTFE.</li>
+          <li>Cortar el nuevo filamento en diagonal e introducirlo hasta comprobar que llega a la boquilla.</li>
+        </ol>
+        <p class="small muted" style="margin-top:8px">En la P1S, el menú de filamento de la pantalla guía la carga y la descarga; el procedimiento manual sirve como respaldo.</p>
+      </div>
+    </div>
+
+    <h3 class="sub" id="conectividad-en-redes-educativas" style="scroll-margin-top:110px"><i class="px" data-px="wifi"></i>Conectividad en redes educativas</h3>
+    <p>Los filtros de contenido y los portales cautivos de las redes de los centros suelen restringir la conexión de la impresora con la nube del fabricante. Existen dos alternativas fiables:</p>
+    <div class="grid two">
+      <div class="card">
+        <h4><i class="px" data-px="wifi"></i>Modo LAN Only</h4>
+        <ol class="clean">
+          <li>En la pantalla de la impresora, conectarla a la red Wi-Fi del aula.</li>
+          <li>Activar <b>LAN Only</b> en los ajustes de red y anotar la dirección IP y el código de acceso.</li>
+          <li>En Bambu Studio, añadir la impresora por IP introduciendo el código de acceso.</li>
+          <li>Comprobar que el ordenador y la impresora están en la misma subred.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h4><i class="px" data-px="sd"></i>Tarjeta microSD</h4>
+        <ol class="clean">
+          <li>En Bambu Studio, laminar y elegir <b>Exportar archivo de placa laminado</b>.</li>
+          <li>Guardar el archivo <code>.gcode.3mf</code> en la tarjeta microSD.</li>
+          <li>Insertar la tarjeta en la impresora.</li>
+          <li>Seleccionar el archivo en la pantalla y comenzar la impresión.</li>
+        </ol>
+      </div>
+    </div>
+    <h3 class="sub" id="iot" style="scroll-margin-top:110px"><i class="px" data-px="wifi"></i>Alta en Andared_IoT por la dirección MAC (Séneca)</h3>
+    <p>Necesaria para usar la cuenta de Bambu Lab, Bambu Handy y el envío desde cualquier ordenador del centro. Vale para <b>cualquier impresora Bambu Lab con wifi</b> (A1, A1 mini, P1P, P1S, X1…): Andared_IoT solo admite dispositivos dados de alta en Séneca por su MAC.</p>
+    <ol class="flow"><li>Leer la MAC</li><li>Enviarla a la coordinación</li><li>Alta en Séneca</li><li>Conectar a Andared_IoT</li><li>Vincular la cuenta</li></ol>
+    <div class="grid two" style="margin-top:16px">
+      <div class="card">
+        <h4><span class="num">1</span> Leer la MAC en la impresora</h4>
+        <ol class="clean small">
+          <li>En la pantalla, abrir <b>Ajustes</b> (icono de engranaje).</li>
+          <li>Buscar la dirección MAC en <b>WLAN</b> o al final de la lista de ajustes; la ubicación varía con la versión del firmware.</li>
+          <li>Anotarla completa: seis pares de caracteres, del tipo <code>A1:B2:C3:D4:E5:F6</code>.</li>
+        </ol>
+        <p class="small muted">Si no aparece, actualizar el firmware desde la propia pantalla o consultar al CAUCE.</p>
+      </div>
+      <div class="card">
+        <h4><span class="num">2</span> Alta en Séneca</h4>
+        <p class="small">La realiza quien ejerce la <b>coordinación TDE</b> o la <b>dirección</b> del centro. Si la impresora la gestiona la coordinación de Código Escuela 4.0 (STEM), esta entrega la MAC a la coordinación TDE para que la registre.</p>
+        <ol class="clean small">
+          <li>Séneca: <b>Utilidades › Gestión WiFi › Dispositivos IoT</b>.</li>
+          <li>Pulsar el icono <b>+</b> (nueva entrada) arriba a la derecha.</li>
+          <li>Escribir la <b>MAC</b>, elegir la <b>sede</b> y poner un <b>nombre</b> claro: «Impresora 3D P1S · Aula de Tecnología».</li>
+          <li>Guardar.</li>
+        </ol>
+      </div>
+    </div>
+    <figure class="shot" data-ui="senecaUI" style="max-width:640px;margin-top:14px"><figcaption>Esquema propio del formulario de alta de dispositivos IoT en Séneca (simplificado).</figcaption></figure>
+    <div class="grid two">
+      <div class="card">
+        <h4><span class="num">3</span> Conectar a Andared_IoT</h4>
+        <ol class="clean small">
+          <li>En la impresora: <b>Ajustes › WLAN</b>, elegir <b>Andared_IoT</b>.</li>
+          <li>Si pide clave, la facilita la coordinación TDE.</li>
+          <li>Comprobar que muestra conexión e IP.</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h4><span class="num">4</span> Vincular la cuenta</h4>
+        <p class="small">Con la impresora ya en línea, se vincula a la cuenta del centro desde Bambu Handy o Bambu Studio (<a href="04-laminador.html#handy">bloque 4C del laminador</a>).</p>
+      </div>
+    </div>
+    <div class="note info"><i class="px" data-px="warn"></i><p><b>Si no conecta.</b> Comprobar que la MAC se escribió sin errores y que la impresora busca una red de 2,4 GHz. Si la opción de Séneca no está disponible para el centro, la coordinación TDE puede tramitar el alta con el CAUCE.</p></div>
+
+    <div class="links">
+      <a href="https://wiki.bambulab.com/es/p1/manual" target="_blank" rel="noopener noreferrer">Manual oficial P1S</a>
+      <a href="https://wiki.bambulab.com/es/p1/maintenance/p1p-maintenance" target="_blank" rel="noopener noreferrer">Guía de mantenimiento</a>
+    </div>
+    <figure class="anat" data-anat="printer"></figure>
+  </div>
+</section>
+<nav class="pn" aria-label="Página anterior y siguiente"><a class="prev" href="01-por-que.html"><small>← Anterior</small>01 · ¿Por qué 3D?</a><a class="next" href="03-repositorios.html"><small>Siguiente →</small>03 · Repositorios</a></nav>
+</div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f">
+      <span>© Pablo Moraga · Contenidos con licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-NC-ND 4.0</a> · <a href="https://github.com/pablomoraga" target="_blank" rel="noopener noreferrer">github.com/pablomoraga</a></span>
+      <button class="reset" id="resetBtn2" type="button">↺ Reiniciar progreso</button>
+    </div>
+    <p class="small" style="margin-top:14px">Material educativo independiente, sin vinculación comercial con Bambu Lab, Tinkercad (Autodesk) ni Layerling. Las marcas citadas pertenecen a sus respectivos titulares. Las ilustraciones, esquemas de interfaz y capturas son propios.</p>
+    <noscript><p class="small">Las prácticas de diseño, los retos, las animaciones y el registro de progreso requieren JavaScript.</p></noscript>
+  </div>
+</footer>
+
+<script src="js/app.js?v=aee4a7ae"></script>
+</body>
+</html>
