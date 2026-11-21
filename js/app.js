@@ -112,7 +112,8 @@ var ICON16={"bulb":[".......kk.......",".....kk44kk.....","....k445544k....","..
 "ams":[".kkkkkkkkkkkkkk.","k77777777777777k","k77777777777777k","k77777777777777k","kjjjjjjjjjjjjjjk","km111777ggg444nk","km222888hhh555nk","km222888hhh555nk","km222888hhh555nk","km222888hhh555nk","km222888hhh555nk","kmjjjjjjjjjjjjnk","knnnnnnnnnnnnnnk","kjjbjjbjjbjjbjjk","knnjnnjnnjnnjnnk",".kkkkkkkkkkkkkk."],
 "camera":["................","....kkkkk.......","...kjjjjjk......",".kkkmmmmnkkkkkk.","kjjjmmmmmjjjjjjk","kmmmmmmmmmmm55nk","kmmmmmmnnnmmjjnk","kmmmmmn777nmmmnk","kmmmmn7g887nmmnk","kmmmmn87888nmmnk","kmmmmn88888nmmnk","kmmmmjn888njmmnk","kmmmmmjnnnjmmmnk","knnnnnnjjjnnnnnk",".kkkkkkkkkkkkkk.","................"],
 "purge":[".......kk.......","......keek......","......kkek......",".....k4444k.....",".....k5556k.....",".....k5556k.....","....kk5556kk....","...k77777777k...","...k88888889k...","...k88888889k...","..kk88888889kk..",".k111111111111k.",".k222222222223k.",".k222222222223k.",".k333333333333k.","..kkkkkkkkkkkk.."],
-"spool":["......kkkk......","....kkjjjjkk....","...kjjmmmmjjk...","..kjm111111mjk..",".kjm12222221mjk.",".km1222222221nk.","kjm222gggg222mjk","kmm222hnnh222mnk","kmm222hnnh222mnk","knm222hggh222mnk",".km2221111222nk.",".knj22222222jnk.","..knj222222jnk..","...knjjjjjjnk...","....kknnnnkk....","......kkkk......"]};
+"spool":["......kkkk......","....kkjjjjkk....","...kjjmmmmjjk...","..kjm111111mjk..",".kjm12222221mjk.",".km1222222221nk.","kjm222gggg222mjk","kmm222hnnh222mnk","kmm222hnnh222mnk","knm222hggh222mnk",".km2221111222nk.",".knj22222222jnk.","..knj222222jnk..","...knjjjjjjnk...","....kknnnnkk....","......kkkk......"],
+"hotend":[".......kk.......",".....kk22kk.....","..kkkmmmmmmkkk..",".khhiiiiiiiiiik.","..kkkkjjjjkkkk..",".khhiiiiiiiiiik.","..kkkkjjjjkkkk..",".khhiiiiiiiiiik.","..kkkkjjjjkkkk..","...kkkkmmkkkk...",".kkggggggggggk..","keehhnhhheeeik..",".kkiighhhgggik..","...kkppppppkk...",".....kkqqkk.....",".......kk......."]};
 /*ICON16-FIN*/
 function px(name){
   if(name==="extruder") return extruderSVG();
@@ -692,7 +693,7 @@ function renderRetos(){
   host.innerHTML=RT.map(function(r,i){
     var n=String(i+1).padStart(2,"0");
     return '<details class="task reto" id="reto-'+n+'" data-area="'+AREA[r.id]+'">'+
-      '<summary><i class="px" data-px="trophy"></i><h3 class="rt" style="margin:0">Reto '+n+' · '+r.t+'</h3><span class="tog" aria-hidden="true">+</span>'+
+      '<summary><i class="px" data-px="hotend"></i><h3 class="rt" style="margin:0">Reto '+n+' · '+r.t+'</h3><span class="tog" aria-hidden="true">+</span>'+
       '<span class="rs"><span class="code">R-'+n+'</span><span class="tag">'+r.a+'</span><span class="tag">Avanzado</span><span class="tag">Tinkercad / Layerling</span></span></summary>'+
       '<div class="reto-body">'+
         '<div><h4 class="rh">(5) Evolución por fases</h4>'+animSVG(r.id)+'<div class="anim-cap"><span>Clic o Intro para pausar</span><span>3 pasos</span></div></div>'+
@@ -1829,6 +1830,7 @@ renderSequence();
 renderDiag();
 renderGlossary();
 initLightbox();
+document.querySelectorAll(".task .task-h").forEach(function(h){if(!h.querySelector(".px")){var i=document.createElement("i");i.className="px task-ic";i.setAttribute("data-px","hotend");h.insertBefore(i,h.firstChild);}});
 paintIcons();
 setFavicon();
 load();

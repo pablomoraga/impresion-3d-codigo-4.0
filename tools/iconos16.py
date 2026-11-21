@@ -223,6 +223,13 @@ def icons():
 
     a = new("spool"); a.circle(6.5, 6.5, 6.7, "m"); a.circle(6.5, 6.5, 5.2, "2"); a.circle(6.5, 6.5, 2.4, "h"); a.circle(6.5, 6.5, 1.1, "n", True)
     a.px([(3, 3), (4, 2)], "1")
+    a = new("hotend"); a.rect(6, 0, 2, 2, "2", True); a.rect(4, 1, 6, 1, "m", True)
+    for y in (2, 4, 6):
+        a.rect(1, y, 12, 1, "i", True); a.px([(1, y), (2, y)], "h")
+    for y in (3, 5, 7):
+        a.rect(5, y, 4, 1, "j", True)
+    a.rect(6, 8, 2, 1, "m", True); a.rect(2, 9, 10, 3, "h"); a.px([(4, 10)], "n"); a.rect(8, 10, 3, 1, "e", True); a.px([(0, 10), (1, 10)], "e")
+    a.rect(4, 12, 6, 1, "p", True); a.rect(6, 13, 2, 1, "q", True)
     return {k: v.render() for k, v in D.items()}
 
 
