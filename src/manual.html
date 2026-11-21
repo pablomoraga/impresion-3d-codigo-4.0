@@ -140,13 +140,19 @@ section[id]{scroll-margin-top:var(--offset)}
 .sec-count{font:600 12px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--card);margin-left:8px;vertical-align:middle;white-space:nowrap}
 .sub{display:flex;align-items:center;gap:14px;margin:60px 0 20px;padding:18px 20px;font-size:1.72rem;line-height:1.2;position:relative;isolation:isolate}
 .sub .px{width:38px;height:38px}
-.sub::before{content:"";position:absolute;inset:0 -16px;z-index:-1;border-radius:18px;
-  background-color:color-mix(in srgb,var(--bg2) 82%,transparent);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M0 .5H18M.5 0V18' fill='none' stroke='%23606c7a' stroke-opacity='.30'/%3E%3C/svg%3E");
-  box-shadow:0 10px 26px rgba(31,34,38,.13),0 1px 0 rgba(31,34,38,.06);
-  -webkit-mask-image:radial-gradient(140% 190% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(140% 190% at 50% 50%,#000 58%,transparent 100%)}
+.sub::before,.sub::after{content:"";position:absolute;inset:0 -16px;z-index:-1;--band:color-mix(in srgb,var(--bg2),var(--ink) 5%)}
+.sub::before{background:var(--band);
+  clip-path:polygon(0 36px,12px 36px,12px 12px,36px 12px,36px 0,
+    calc(100% - 24px) 0,calc(100% - 24px) 12px,calc(100% - 12px) 12px,calc(100% - 12px) 24px,100% 24px,
+    100% calc(100% - 36px),calc(100% - 12px) calc(100% - 36px),calc(100% - 12px) calc(100% - 12px),calc(100% - 48px) calc(100% - 12px),calc(100% - 48px) 100%,
+    36px 100%,36px calc(100% - 12px),12px calc(100% - 12px),12px calc(100% - 24px),0 calc(100% - 24px))}
+.sub::after{background:
+    linear-gradient(var(--band),var(--band)) left 0 top 0/12px 12px no-repeat,
+    linear-gradient(var(--band),var(--band)) right 0 bottom 0/12px 12px no-repeat,
+    linear-gradient(var(--band),var(--band)) right 24px bottom 0/12px 12px no-repeat,
+    linear-gradient(var(--band),var(--band)) left 0 bottom 0/12px 12px no-repeat}
 .sub small{font-size:12.5px}
-@media (max-width:759px){.sub{font-size:1.4rem;padding:14px 12px}.sub .px{width:30px;height:30px}.sub::before{inset:0 -8px}}
+@media (max-width:759px){.sub{font-size:1.4rem;padding:14px 12px}.sub .px{width:30px;height:30px}.sub::before,.sub::after{inset:0 -8px}}
 .sub small{font:600 12px var(--mono);color:var(--accent-ink);letter-spacing:.05em;text-transform:uppercase}
 .mini{font:700 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:22px 0 10px}
 
