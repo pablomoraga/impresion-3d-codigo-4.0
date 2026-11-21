@@ -136,8 +136,7 @@ function px(name){
 }
 /* Favicon: el mismo extrusor de 16 bits con colores fijos */
 function setFavicon(){
-  var s=extruderSVG().replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" ');
-  var l=document.querySelector('link[rel="icon"]'); if(l) l.href="data:image/svg+xml,"+encodeURIComponent(s);
+  var l=document.querySelector('link[rel="icon"]');if(l&&!/favicon\.svg/.test(l.getAttribute("href")||""))l.setAttribute("href","img/favicon.svg");
 }
 function paintIcons(root){
   (root||document).querySelectorAll("[data-px]").forEach(function(el){ if(!el.firstChild) el.innerHTML=px(el.getAttribute("data-px")); });
@@ -311,7 +310,7 @@ function animSVG(key){
 }
 /* Áreas para el filtro (data-area) */
 var AREA={p01:"matematicas",p02:"matematicas",p03:"",p04:"matematicas",p05:"historia ciencias",p06:"robotica",p07:"matematicas",p08:"inclusion",p09:"ciencias",p10:"robotica",p11:"",p12:"matematicas",
-  r1:"inclusion",r2:"ciencias",r3:"ciencias matematicas",r4:"robotica",r5:"",r6:"robotica",r7:"robotica",r8:"ciencias matematicas",r9:"matematicas",r10:"ciencias inclusion"};
+  cs1:"ciencias robotica",cs2:"ciencias robotica",r1:"inclusion",r2:"ciencias",r3:"ciencias matematicas",r4:"robotica",r5:"",r6:"robotica",r7:"robotica",r8:"ciencias matematicas",r9:"matematicas",r10:"ciencias inclusion"};
 
 /* Animaciones de las prácticas de Layerling (3 fotogramas) */
 function gear(cx,cy,rp,z,c){var p=[],t=2*Math.PI/z,ro=rp-4,rt=rp+4;for(var i=0;i<z;i++){var a=i*t;[[a,ro],[a+.2*t,rt],[a+.5*t,rt],[a+.7*t,ro]].forEach(function(q){p.push(f1(cx+q[1]*Math.cos(q[0]))+","+f1(cy+q[1]*Math.sin(q[0])));});}return P(p.join(" "),c);}
@@ -382,6 +381,42 @@ var LY=[
   st:["Medir el bote (habitual: Ø 31–32 mm y 50 mm de alto) y sumar entre 0,5 y 1 mm de holgura al diámetro.","Añadir un «Cilindro» de Ø 36 × 75 mm y, encima, un «Paraboloide» de Ø 36 × 45 mm como ojiva; agrupar.","Restar desde la base un cilindro de Ø 32,5 × 52 mm (o «Vaciar» con pared de 1,6 mm y solo «Abajo» abierto).","Crear una aleta con una «Cuña» de 30 × 2 × 35 mm apoyada en la base y repetirla con «Patrón» en modo «Círculo», 3 copias.","«Comprobar impresión» y exportar; imprimir de pie, con las aletas sobre la placa."],
   tips:["Funcionan mejor los botes de tapa interior (translúcidos). Lanzar al aire libre, con gafas y a 3 m: un tercio de agua y media pastilla; tapar, dar la vuelta y apartarse.","Medir el alcance cambiando la cantidad de agua o de pastilla: práctica de control de variables."],tools:["ly_cilindro","paraboloide","vaciar","cuna","patron","comprobar"]}
 ];
+
+
+/* CanSat: chasis cilíndrico para Tinkercad y Layerling */
+(function(){
+  var body=R(80,26,80,90,"sol")+R(86,26,68,84,"bgc"),base=R(80,110,80,6,"sol"),slots="";for(var k=0;k<3;k++)slots+=R(92+k*20,56,8,24,"bgc");
+  var lid=R(78,14,84,8,"lite")+R(84,22,72,5,"lite"),ring=C(120,8,7,"sec")+C(120,8,3.5,"bgc");
+  A.cs1={l:["Tubo Ø 66 mm y fondo","Ranuras de ventilación","Tapa con anclajes"],f:[body+base+T(196,70,"Ø 66 mm","dt")+T(196,84,"115 mm","dt"),body+base+slots+T(200,70,"6 ranuras","dt"),body+base+slots+lid+ring+T(204,20,"paracaídas","dt")]};
+  var body2=R(80,26,80,90,"sol",3)+R(84,26,72,86,"bgc"),sl2="";for(var j=0;j<3;j++)sl2+=R(92+j*20,40,8,20,"bgc")+R(102+j*20,74,8,20,"bgc");
+  var bay=R(78,12,84,10,"lite",3)+R(88,22,8,6,"sec")+R(144,22,8,6,"sec");
+  A.cs2={l:["Cilindro vaciado: pared 1,6 mm","Dos coronas de ranuras (Patrón)","Tapa de bayoneta y argolla"],f:[body2+T(196,70,"Ø 66 × 112","dt"),body2+sl2,body2+sl2+bay+ring]};
+  STEPS.cs1=[0,1,2];STEPS.cs2=[0,1,2];
+})();
+var CANSAT=[
+ {id:"cs1",t:"CanSat: chasis cilíndrico con tapa",a:"Física · Tecnología · ESERO",ar:"ciencias robotica",tech:"Tubo, ranuras repetidas y tapa encajable",
+  s:"Lata de <b>Ø 66 × 115 mm</b> como máximo, con pared de 2 mm, fondo cerrado, <b>6 ranuras de ventilación</b> frente a los sensores, carriles para la placa y tapa encajable con <b>anclajes para el paracaídas</b>.",
+  st:["Insertar un <em>Tubo</em>: radio 33 mm, pared 2 mm, altura 107 mm y 64 lados. Es el cuerpo.",
+      "Cerrar el fondo con un <em>Cilindro</em> de Ø 66 × 3 mm alineado con el tubo (<kbd>L</kbd>) en Z = 0, y subir el tubo a Z = 3 mm.",
+      "Crear una ranura con una <em>Caja</em> hueca de 4 × 6 × 24 mm que atraviese la pared a media altura; duplicarla (<kbd>Ctrl</kbd>+<kbd>D</kbd>) y girarla 60° alrededor del eje del tubo hasta tener 6 ranuras.",
+      "Añadir dos carriles interiores de 4 × 6 × 95 mm con una ranura hueca de 1,8 mm, separados lo justo para la placa (52 mm para una micro:bit).",
+      "Tapa: cilindro de Ø 66 × 3 mm con un reborde inferior (tubo de Ø 61,6 mm, pared 2 mm, 5 mm de alto) que encaje con 0,2 mm de holgura. Añadir cuatro orificios de Ø 3 mm a 25 mm del centro para los cordones del paracaídas y una argolla central (toroide de Ø 16 mm). Agrupar y exportar cuerpo y tapa por separado."],
+  tips:["Altura: 3 (fondo) + 107 (tubo) + 3 (tapa) = 113 mm. La argolla y cualquier pieza exterior cuentan para el tamaño máximo: si no caben, usar solo los cuatro orificios con cordón. Comprobar siempre las bases vigentes de la convocatoria (medidas, masa y sujeción del paracaídas).","Colocar las ranuras frente al sensor de presión y temperatura; imprimir en PETG si la lata va a estar al sol antes del lanzamiento."],
+  tools:["tubo","cilindro","caja","hueco","duplicar","girar","toroide","alinear","agrupar","exportar"]},
+ {id:"cs2",t:"CanSat: chasis con vaciado, patrón y tapa de bayoneta",a:"Física · Tecnología · ESERO",ar:"ciencias robotica",tech:"Vaciar, Patrón, Tapa y comprobaciones",
+  s:"Cuerpo de <b>Ø 66 × 112 mm</b> vaciado con pared de <b>1,6 mm</b>, <b>12 ranuras de ventilación</b> en dos coronas, tapa de <b>bayoneta</b> generada automáticamente y argolla con orificios para el paracaídas.",
+  st:["Añadir un «Cilindro» de Ø 66 × 112 mm y «Vaciar»: pared 1,6 mm, solo «Arriba» abierto.",
+      "Crear una ranura con una «Caja» de 3 × 8 × 20 mm convertida en «Orificio» (<kbd>H</kbd>) que atraviese la pared; «Patrón» en modo «Círculo», 6 copias. Repetir 30 mm más arriba, girada 30°, para la segunda corona; agrupar.",
+      "Con el cuerpo seleccionado, «Tapa» › tipo «De bayoneta» (o «De rosca»), ajuste normal de 0,2 mm: la tapa aparece al lado, boca abajo.",
+      "Sobre la tapa, añadir un «Toroide» de Ø 18 mm como argolla y cuatro orificios de Ø 3 mm con «Patrón de orificios» para los cordones.",
+      "«Comprobar holguras» y «Comprobar impresión»; con «Placas de impresión» separar cuerpo y tapa y exportar en 3MF."],
+  tips:["«Canal para cable» abre un paso para la antena o el cable de un sensor exterior.","Medir el conjunto cerrado con la «Cinta métrica»: no debe superar Ø 66 × 115 mm. Pesar después la lata con la electrónica: la masa también está limitada por las bases."],
+  tools:["ly_cilindro","vaciar","ly_caja","patron","tapa","holguras","comprobar"]}];
+function renderCanSat(){
+  var a=document.getElementById("cansatTc"),b=document.getElementById("cansatLy");
+  if(a)a.innerHTML=practiceCard(CANSAT[0],0,{pre:"cansat-",code:"CS",level:"Avanzado",app:"Tinkercad",track:"cs-"});
+  if(b)b.innerHTML=practiceCard(CANSAT[1],1,{pre:"cansat-",code:"CS",level:"Avanzado",app:"Layerling",track:"cs-"});
+}
 
 /* ---------- 4. Prácticas de diseño (sección 05) ---------- */
 var K=function(k){return "<kbd>"+k+"</kbd>";};
@@ -504,8 +539,7 @@ function renderAsistente(){
       '<details class="ayuda"><summary>🔁 Pide una mejora</summary><p class="small" style="margin:10px 14px 12px">'+a.it+'</p></details>'+
       '<p style="margin:14px 0 0">'+chk("as-"+n)+'</p></article>';}).join("");
   h.querySelectorAll(".copy-prompt").forEach(function(b){b.addEventListener("click",function(){var txt=AS[+b.getAttribute("data-i")].p;
-    var done=function(){b.textContent="Copiado ✓";setTimeout(function(){b.textContent="Copiar prompt";},1800);};
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt).then(done,function(){});}});});
+    copyText(txt,b);});});
 }
 /* Iconos orientativos de las herramientas (24 × 24) */
 var TI={
@@ -585,6 +619,8 @@ var SOL={
  p10:[["Cilindro (base)","Sólido","Ø 50 × 4","Centro"],["Modelo importado","Sólido","Escala proporcional","Sobre la base · hundido 0,5"],["Texto (etiqueta)","Sólido","Letra 5 · relieve 1","Canto o cara superior"]],
  p11:[["Cono (64 lados)","Sólido","R base 27 · R sup. 37 · alto 85","Centro"],["Cono (interior)","Hueco","R base 24 · R sup. 34 · alto 85","Centrado · Z = 3"],["Toroide girado 90°","Sólido","Radio 18 · tubo 4","Lateral, mitad dentro de la pared · Z ≈ 45"]],
  p12:[["Caja","Sólido","31,8 × 15,8 × 9,6","Base"],["Cilindro × 8 (tetones)","Sólido","Ø 4,8 × 1,8","Retícula 2 × 4 cada 8 mm · Z = 9,6"],["Texto (nombre)","Sólido","Letra 5 · relieve 0,8","Cara lateral larga, centrado"],["Caja (pestaña, radio 2)","Sólido","8 × 8 × 3","En un extremo · Z = 0"],["Cilindro","Hueco","Ø 4 × 5","Centro de la pestaña"]],
+ cs1:[["Tubo (64 lados)","Sólido","Ø 66 · pared 2 · alto 107","Z = 3"],["Cilindro (fondo)","Sólido","Ø 66 × 3","Z = 0"],["Caja × 6 (ranuras)","Hueco","4 × 6 × 24 · cada 60°","Media altura, atravesando la pared"],["Caja × 2 (carriles)","Sólido","4 × 6 × 95 · ranura 1,8","Interior, a 52 mm"],["Cilindro + tubo (tapa)","Sólido","Ø 66 × 3 · reborde Ø 61,6 × 5","Pieza aparte"],["Toroide y 4 cilindros","Sólido / Hueco","Ø 16 · orificios Ø 3 a 25 mm","Sobre la tapa"]],
+ cs2:[["Cilindro vaciado","Sólido","Ø 66 × 112 · pared 1,6","Abierto arriba"],["Caja × 12 (ranuras)","Orificio","3 × 8 × 20 · Patrón círculo 6 + 6","Dos coronas, giro de 30°"],["Tapa de bayoneta","Sólido","generada · holgura 0,2","Pieza aparte"],["Toroide (argolla)","Sólido","Ø 18","Centro de la tapa"],["Orificios × 4","Orificio","Ø 3","Patrón de orificios en la tapa"]],
  r1:[["Polígono de 3 lados (prisma)","Sólido","Lado 22 · largo 45 · aristas R 3","De pie"],["Cilindro","Hueco","Ø 8,2 × 50","Centrado en el baricentro"]],
  r2:[["Caja (base)","Sólido","90 × 90 × 4","Base"],["Paraboloide o cono","Sólido","Ø 90 × 55","Centrado · Z = 4"],["Cono invertido (cráter)","Hueco","Ø 14 × 10","Cima"],["Cilindro (chimenea)","Hueco","Ø 6 × 45","Eje central"],["Esfera achatada (cámara)","Hueco","30 × 30 × 12","Z = 8"],["Caja (sección)","Hueco","90 × 45 × 60","Mitad frontal"]],
  r3:[["Cilindro (esfera)","Sólido","Ø 100 × 4","Centro"],["Caja × 13 (marcas)","Sólido","1,5 × 100 × 1 · girada θ","Centrada en el disco · Z = 4"],["Cilindro (recorte)","Hueco","Ø 80 × 6","Centro"],["Caja (mitad sur)","Hueco","100 × 50 × 6","Mitad inferior"],["Cuña (gnomon)","Sólido","50 × 3 × 37,7","Sobre la línea del mediodía"]],
@@ -1325,14 +1361,15 @@ var KEY="impresion3d-aula:progreso";
 var state={};
 function load(){try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
-var ALL_IDS=(function(){var a=[],add=function(p,n){for(var i=1;i<=n;i++)a.push(p+String(i).padStart(2,"0"));};add("mw-",4);add("bs-",5);add("ls-",3);add("dp-",11);add("ly-",9);add("as-",3);add("reto-",5);return a;})();
+var ALL_IDS=(function(){var a=[],add=function(p,n){for(var i=1;i<=n;i++)a.push(p+String(i).padStart(2,"0"));};add("mw-",4);add("bs-",5);add("ls-",3);add("dp-",11);add("ly-",9);add("as-",3);add("reto-",10);add("cs-",2);return a;})();
 function update(){
   var boxes=[].slice.call(document.querySelectorAll("input.track"));
   boxes.forEach(function(b){var t=b.closest(".task"); if(t) t.classList.toggle("done",b.checked);});
   var done=ALL_IDS.filter(function(id){return state[id];}).length;
   var pct=Math.round(done/ALL_IDS.length*100);
-  document.getElementById("barFill").style.width=pct+"%";
-  document.getElementById("progText").textContent=done+"/"+ALL_IDS.length;
+  var bf=document.getElementById("barFill"),pt=document.getElementById("progText");
+  if(bf)bf.style.width=pct+"%";
+  if(pt){pt.textContent=done+"/"+ALL_IDS.length;pt.title="Progreso global: "+done+" de "+ALL_IDS.length+" prácticas y retos completados (guardado en este navegador)";}
   var bar=document.querySelector(".prog");if(bar){bar.setAttribute("role","progressbar");bar.setAttribute("aria-valuemin","0");bar.setAttribute("aria-valuemax",String(ALL_IDS.length));bar.setAttribute("aria-valuenow",String(done));bar.setAttribute("aria-label","Prácticas y retos completados");}
   document.querySelectorAll(".sec-count[data-count]").forEach(function(c){
     var sec=c.closest("section"),all=sec.querySelectorAll("input.track"),ok=sec.querySelectorAll("input.track:checked");
@@ -1355,8 +1392,7 @@ function bindProgress(){
     document.querySelectorAll("input.track").forEach(function(b){b.checked=false;});
     update();
   };
-  document.getElementById("resetBtn").addEventListener("click",reset);
-  document.getElementById("resetBtn2").addEventListener("click",reset);
+  ["resetBtn","resetBtn2"].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener("click",reset);});
   update();
 }
 
@@ -1445,8 +1481,8 @@ var ROUTE=[
  {n:"02",t:"La impresora",d:"Montar, conectar y cuidar",f:"02-impresora.html",id:"impresora",ic:"printer",lv:"Base"},
  {n:"03",t:"Repositorios",d:"Buscar y descargar modelos",f:"03-repositorios.html",id:"repositorios",ic:"chest",lv:"Preparar",p:["mw-"]},
  {n:"04",t:"El laminador",d:"Del archivo a la impresora",f:"04-laminador.html",id:"laminador",ic:"layers",lv:"Preparar",p:["bs-","ls-"]},
- {n:"05",t:"Tinkercad",d:"Primeras piezas propias",f:"05-tinkercad.html",id:"tinkercad",ic:"pencil",lv:"Diseñar",p:["dp-"]},
- {n:"06",t:"Layerling",d:"Herramientas avanzadas",f:"06-layerling.html",id:"layerling",ic:"cube",lv:"Diseñar",p:["ly-","as-"]},
+ {n:"05",t:"Tinkercad",d:"Primeras piezas propias",f:"05-tinkercad.html",id:"tinkercad",ic:"pencil",lv:"Diseñar",p:["dp-","cs-01"]},
+ {n:"06",t:"Layerling",d:"Herramientas avanzadas",f:"06-layerling.html",id:"layerling",ic:"cube",lv:"Diseñar",p:["ly-","as-","cs-02"]},
  {n:"07",t:"Retos",d:"Proyectos completos",f:"07-retos.html",id:"retos",ic:"trophy",lv:"Crear",p:["reto-"]},
  {n:"08",t:"Saber más",d:"Recursos y rúbrica",f:"08-saber-mas.html",id:"saber",ic:"book",lv:"Ampliar"}];
 function renderRoute(){
@@ -1809,8 +1845,26 @@ function renderLyInterfaz(){
 (function(){var m={ly_caja:"s-caja",ly_cilindro:"s-cilindro",cuna:"s-cuna",paraboloide:"s-paraboloide",redondeo:"redondeo",chaflan:"chaflan",vaciar:"vaciar",tapa:"tapa",patron:"patron",dividir:"dividir",flexi:"flexi",comprobar:"comprobar",holguras:"holguras",ly_agrupar:"agrupar",ly_exportar:"exportar",ajustes:"ajustes",boceto:"b-linea"};
   Object.keys(m).forEach(function(k){TIMG[k]=LYI+"ico/"+m[k]+".png";});})();
 
+
+/* ---------- 13. Copiar al portapapeles ---------- */
+function copyText(txt,btn){
+  var ok=function(){if(!btn)return;var t=btn.getAttribute("data-label")||btn.textContent;btn.setAttribute("data-label",t);btn.textContent="¡Copiado!";btn.classList.add("ok");setTimeout(function(){btn.textContent=t;btn.classList.remove("ok");},1800);};
+  var fb=function(){var ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.cssText="position:fixed;left:-9999px;top:0";document.body.appendChild(ta);ta.select();try{document.execCommand("copy");ok();}catch(e){}ta.remove();};
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(ok,fb);}else fb();
+}
+function initCopy(){
+  var mk=function(label,get){var b=document.createElement("button");b.type="button";b.className="copybtn";b.textContent=label;b.setAttribute("aria-label",label+" al portapapeles");b.addEventListener("click",function(e){e.preventDefault();copyText(get(),b);});return b;};
+  document.querySelectorAll(".page-main code, main code").forEach(function(c){
+    if(c.closest(".tbl,.spec,.legend,h1,h2,h3,h4,.copywrap,.pipe,.flow")||c.textContent.trim().length<24)return;
+    var w=document.createElement("span");w.className="copywrap";c.parentNode.insertBefore(w,c);w.appendChild(c);w.appendChild(mk("Copiar",function(){return c.textContent.trim();}));});
+  document.querySelectorAll("details.ayuda ol.steps").forEach(function(ol){
+    var t=function(){return [].map.call(ol.querySelectorAll("li"),function(li,i){return (i+1)+". "+li.textContent.replace(/\s+/g," ").trim();}).join("\n");};
+    var p=document.createElement("p");p.className="copyrow";p.appendChild(mk("Copiar pasos",t));ol.parentNode.insertBefore(p,ol.nextSibling);});
+}
+
 initTheme();
 renderPractices();
+renderCanSat();
 renderAsistente();
 renderRetos();
 renderWiki();
@@ -1839,4 +1893,5 @@ initNav();
 initAnims();
 initFilters();
 initLinks();
+initCopy();
 })();

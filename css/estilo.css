@@ -597,6 +597,13 @@ figure.shot.mini svg{border:0}
 
 .task-h .task-ic{width:30px;height:30px;flex:0 0 30px}
 
+/* Copiar al portapapeles */
+.copywrap{display:inline-flex;flex-wrap:wrap;align-items:center;gap:6px;max-width:100%}
+.copybtn{font:700 11.5px var(--mono);padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap}
+.copybtn:hover,.copybtn:focus-visible{border-color:var(--accent);color:var(--accent)}
+.copybtn.ok{background:#4fbf3c;border-color:#2e7d25;color:#fff}
+.copyrow{margin:0 14px 12px;text-align:right}
+
 /* ---- Páginas con menú lateral ---- */
 .layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:32px;align-items:start;padding-top:calc(var(--offset) + 18px)}
 .layout.home{padding-top:28px}
