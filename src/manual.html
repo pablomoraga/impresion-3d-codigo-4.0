@@ -467,7 +467,7 @@ details.ayuda ul.pist li{margin:.3em 0}
 .phones figure{margin:0;text-align:center}
 .phones svg{width:100%;max-width:200px;height:auto}
 .phones figcaption{font:600 12px var(--mono);color:var(--muted);margin-top:6px}
-.wk:not(.wide) .pin span{display:none}.wk:not(.wide) .pin.l,.wk:not(.wide) .pin.d{transform:translate(-13px,-13px)}
+.wk:not(.wide) .pin span,.wk.nolab .pin span{display:none}.wk.nolab .pin.l,.wk.nolab .pin.d{transform:translate(-13px,-13px)}.wk:not(.wide) .pin.l,.wk:not(.wide) .pin.d{transform:translate(-13px,-13px)}
 @media (max-width:760px){.pin span{display:none}.pin.d{transform:translate(-13px,-13px)}}
 
 /* Challenges */
@@ -579,6 +579,18 @@ figure.shot.mini svg{border:0}
   animation:print3d-up 2.8s steps(28) .4s both}
 @keyframes print3d-up{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(-15% -10% -15% -5%)}}
 @media (prefers-reduced-motion:reduce){.hero h1 .print3d{animation:none}}
+
+/* Cinta de Layerling por grupos */
+.lyrib{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:12px;margin:8px 0 6px}
+.lyrib section{border:2px solid var(--gc);border-radius:12px;background:var(--card);overflow:hidden}
+.lyrib h4{margin:0;padding:6px 12px;background:var(--gc);color:#fff;font:700 12.5px var(--mono);text-transform:uppercase;letter-spacing:.05em}
+.lyrib ul{list-style:none;margin:0;padding:6px 10px}
+.lyrib li{display:flex;gap:10px;align-items:center;padding:4px 0;border-bottom:1px dashed var(--line)}
+.lyrib li:last-child{border-bottom:0}
+.lyrib img{width:34px;height:34px;flex:0 0 34px;border-radius:6px;background:#fff;border:1px solid var(--line)}
+.lyrib b{display:block;font-size:13.5px;line-height:1.2}
+.lyrib small{display:block;font-size:12px;color:var(--muted);line-height:1.3}
+.lyrib p{margin:0;padding:6px 12px 10px;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -1692,6 +1704,45 @@ figure.shot.mini svg{border:0}
     <div class="sec-head"><span class="sec-num">06</span><h2>Diseñar con Layerling <span class="sec-count" data-count></span></h2>
       <p class="kick">Editor 3D libre, sin registro, que guarda en el navegador. Añade herramientas que Tinkercad no tiene: vaciado, roscas, engranajes, patrones y texto en arco.</p></div>
 
+    <h3 class="sub" id="interfaz-layerling" style="scroll-margin-top:110px"><i class="px" data-px="cube"></i>La interfaz de Layerling</h3>
+    <p>Layerling sigue la misma idea que Tinkercad: <b>formas sólidas y orificios</b> que se combinan al agrupar. Lo que cambia es la pantalla. En lugar de una barra de iconos, tiene una <b>cinta de herramientas</b> dividida en grupos de colores; las medidas se escriben en el <b>panel de la derecha</b>; y una <b>barra a la izquierda</b> reúne la vista y las herramientas de medida. Además, tiene dos pestañas: <b>Editor 3D</b>, para trabajar con cuerpos, y <b>Boceto</b>, para dibujar contornos y convertirlos en piezas.</p>
+    <div id="lyInterfaz" class="wkgrid"></div>
+
+    <h3 class="mini" style="margin-top:24px">La cinta de herramientas, grupo a grupo</h3>
+    <p class="muted small">Iconos reales de la aplicación. Los grupos Portapapeles, Combinar y Organizar se despliegan al pulsar su icono; las herramientas aparecen en gris cuando no hay nada seleccionado o falta una segunda forma.</p>
+    <div id="lyCinta"></div>
+
+    <h3 class="mini" style="margin-top:24px">Desplegables, menús y ventanas</h3>
+    <div id="lyVentanas" class="wkgrid three"></div>
+
+    <h3 class="mini" style="margin-top:24px">La pestaña Boceto</h3>
+    <div id="lyBoceto"></div>
+
+    <h3 class="mini" style="margin-top:24px">Barra de vista y medida (izquierda)</h3>
+    <div id="lyVista"></div>
+
+    <h3 class="mini" style="margin-top:24px">De Tinkercad a Layerling</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>En Tinkercad</th><th>En Layerling</th><th>Dónde está</th></tr></thead>
+      <tbody>
+        <tr><td>Sólido · Hueco</td><td><b>Sólido (S) · Orificio (H)</b></td><td>Panel de la derecha o clic derecho</td></tr>
+        <tr><td>Agrupar (Ctrl+G)</td><td><b>Agrupar (Ctrl+G)</b>; y <b>Crear conjunto (Ctrl+B)</b> para juntar sin fundir, útil en varios colores</td><td>Cinta · Combinar</td></tr>
+        <tr><td>Alinear (L)</td><td><b>Alinear</b> y <b>Alinear caras</b></td><td>Cinta · Organizar</td></tr>
+        <tr><td>Simetría (M)</td><td><b>Reflejar (M)</b></td><td>Cinta · Reflejo y patrón</td></tr>
+        <tr><td>Apoyar en el plano (D)</td><td><b>Bajar al plano de trabajo (D)</b> y <b>Apoyar sobre una cara (C)</b></td><td>Cinta · Organizar</td></tr>
+        <tr><td>Plano de trabajo (W)</td><td><b>Colocar plano de trabajo</b></td><td>Barra de la izquierda</td></tr>
+        <tr><td>Regla (R)</td><td><b>Cinta métrica</b>, <b>escuadra</b> y <b>transportador</b></td><td>Barra de la izquierda</td></tr>
+        <tr><td>Duplicar y repetir (Ctrl+D)</td><td><b>Duplicar (Ctrl+D)</b> y <b>Patrón</b> (fila, cuadrícula o círculo)</td><td>Portapapeles · Reflejo y patrón</td></tr>
+        <tr><td>Radio y bisel en el inspector</td><td><b>Redondeo (B)</b> y <b>Chaflán (Mayús+B)</b> sobre las aristas elegidas</td><td>Cinta · Aristas y paredes</td></tr>
+        <tr><td>Restar una caja para vaciar</td><td><b>Vaciar</b> con pared uniforme y <b>Tapa</b> automática</td><td>Cinta · Aristas y paredes</td></tr>
+        <tr><td>Formas básicas</td><td><b>Añadir forma</b>: 25 formas, más roscas y agujeros normalizados</td><td>Cinta · Formas</td></tr>
+        <tr><td>Exportar .STL</td><td><b>Exportar</b> en STL, 3MF o STEP</td><td>Cinta · Archivo</td></tr>
+        <tr><td>Rejilla de ajuste</td><td><b>Cuadrícula de ajuste</b></td><td>Abajo a la derecha</td></tr>
+        <tr><td>Cuenta y clases en la nube</td><td><b>Sin cuenta</b>: el diseño se guarda en el navegador; exportar copias</td><td>Página de inicio</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note"><i class="px" data-px="star"></i><p><b>Solo en Layerling:</b> bocetos con extrusión, revolución y barrido; vaciado y tapas; roscas y engranajes; patrón de orificios; articulaciones flexi; dividir piezas grandes; cortador de galletas; molde y matriz; canal para cable; comprobar impresión y holguras; mostrar voladizos; vista de sección; pintar en varios colores; placas de impresión; y la búsqueda de comandos con Ctrl+K.</p></div>
+
     <h3 class="sub"><i class="px" data-px="cube"></i><span><small>Manual visual</small><br>Layerling paso a paso</span></h3>
     <p class="muted">Del diseño nuevo a la exportación, con capturas propias del editor. La lógica es la de Tinkercad: sólidos, orificios, agrupar y alinear.</p>
     <div id="manualLayerling" class="wkgrid three"></div>
@@ -2519,7 +2570,7 @@ var TOOLS={
  ajustes:["ajustes","Ajustes · Impresora","Rueda dentada del título"],cono:["cono","Cono","Formas básicas"],toroide:["toroide","Toroide","Formas básicas"],tubo:["tubo","Tubo","Formas básicas"],tapa:["tapa","Tapa","Cinta · tipos: por dentro, rosca…"],cuna:["cuna","Cuña","Añadir forma"],paraboloide:["paraboloide","Paraboloide","Añadir forma"],boceto:["boceto","Boceto · Extruir","Editor 3D → Boceto"],ia:["ia","Asistente de IA (MCP)","Copia local de layerling"]
 };
 function toolChips(keys){
-  return '<div class="toolset">'+keys.map(function(k){var t=TOOLS[k];return '<div class="tool">'+(TIMG[k]?'<img src="'+TIMG[k]+'" alt="" class="real">':'<svg viewBox="0 0 24 24" aria-hidden="true">'+TI[t[0]]+'</svg>')+'<div><b>'+t[1]+'</b><small>'+t[2]+'</small></div></div>';}).join("")+'</div><p class="tools-note">Iconos de Tinkercad capturados de la aplicación; los de Layerling son orientativos. El aspecto puede variar con cada versión.</p>';
+  return '<div class="toolset">'+keys.map(function(k){var t=TOOLS[k];return '<div class="tool">'+(TIMG[k]?'<img src="'+TIMG[k]+'" alt="" class="real">':'<svg viewBox="0 0 24 24" aria-hidden="true">'+TI[t[0]]+'</svg>')+'<div><b>'+t[1]+'</b><small>'+t[2]+'</small></div></div>';}).join("")+'</div><p class="tools-note">Iconos capturados de Tinkercad y de Layerling; los que no aparecen en la cinta son orientativos. El aspecto puede variar con cada versión.</p>';
 }
 var TC_TOOLS={p01:["caja","rejilla","duplicar","texto","agrupar","exportar"],p02:["cilindro","tubo","caja","texto","alinear","agrupar"],p03:["caja","cilindro","hueco","texto","agrupar"],
  p04:["caja","plano","semiesfera","hueco","alinear","agrupar"],p05:["piramide","caja","hueco","girar","agrupar"],p06:["caja","girar","alinear","agrupar"],
@@ -2713,7 +2764,7 @@ function wkMedia(c){
 function wkCard(c){
   var pins=c.pins.map(function(p,j){return '<span class="pin '+(p[3]||"")+'" style="left:'+p[0]+'%;top:'+p[1]+'%"><b>'+(j+1)+'</b><span>'+p[2]+'</span></span>';}).join("");
   var leg='<ol class="legend">'+c.pins.map(function(p){return "<li>"+p[2]+"</li>";}).join("")+'</ol>';
-  return '<figure class="wk'+(c.wide?" wide":"")+'"><h4><span class="num">'+c.n+'</span>'+c.t+'</h4>'+
+  return '<figure class="wk'+(c.wide?" wide":"")+(c.nolab?" nolab":"")+'"><h4><span class="num">'+c.n+'</span>'+c.t+'</h4>'+
     '<div class="wk-img">'+wkMedia(c)+pins+'</div>'+
     leg+'<p>'+c.p+'</p><figcaption>'+(c.cap||(c.own?'Captura propia de Bambu Studio en Windows':'Esquema propio de la interfaz, simplificado'))+'</figcaption></figure>';
 }
@@ -2988,17 +3039,17 @@ var MAN_TC=[
 var LYB="img/layerling/",LYG="https://layerling.com/guia-es/";
 var MAN_LY=[
  ["Crear un diseño","Crear nuevo diseño 3D","01-inicio.jpg","getting-started.html","La página de inicio da la bienvenida y ofrece «Crear nuevo diseño 3D». Los diseños se guardan solos en el navegador, sin cuenta.",""],
- ["Las zonas del editor","Cinta · plano · vista","02-editor.jpg","getting-started.html","Arriba, la cinta de herramientas por grupos de colores; en el centro, el plano de trabajo; a la izquierda, el cubo y la barra de vista.",""],
- ["Biblioteca de formas","Formas básicas","03-formas.jpg","shapes.html","El botón Formas de la cinta despliega cajas, cilindros, esferas y piezas especiales; un clic en el plano coloca la forma.",""],
- ["Medidas exactas","Longitud · Anchura · Altura","04-medidas.jpg","shapes.html","Caja de 40 × 40 × 20 mm: las medidas se escriben en el panel de propiedades de la derecha.",""],
- ["Preparar un orificio","Cilindro como orificio","05-orificio.jpg","solids-and-holes.html","Cilindro de Ø 14 × 30 mm convertido en orificio (tecla H): sobresale de la caja para atravesarla.","<kbd>H</kbd> orificio · <kbd>S</kbd> sólido"],
- ["Agrupar","Resultado: taladro","06-agrupar.jpg","solids-and-holes.html","Al seleccionar las dos formas y agrupar, el orificio quita material y la caja queda perforada.","<kbd>Ctrl</kbd> + <kbd>G</kbd>"],
- ["Patrón","Fila · cuadrícula · círculo","07-patron.jpg","select-and-arrange.html","La ventana Patrón repite la selección en fila, cuadrícula o círculo, con vista previa de las copias.",""],
- ["Redondear aristas","Ventana Redondeo","08-redondeo.jpg","edges-and-hollowing.html","Se eligen las aristas (todas, superiores, verticales…) y el radio; la vista previa muestra el resultado.","<kbd>B</kbd> redondeo · <kbd>Mayús</kbd> + <kbd>B</kbd> chaflán"],
- ["Vaciar","Pared uniforme","09-vaciar.jpg","edges-and-hollowing.html","Grosor de pared y lados abiertos: arriba para un vaso, delante para un cajón.",""],
- ["Comprobar impresión","Antes del laminador","10-comprobar.jpg","printing.html","Revisa paredes finas, piezas flotantes, contacto con la placa, voladizos y mallas abiertas.",""],
- ["Elegir la impresora","Ajustes · Plano de trabajo","11-impresora.jpg","printing.html","En los ajustes del espacio de trabajo se elige la impresora: la placa toma su tamaño real y avisa si la pieza no cabe.",""],
- ["Exportar","STL o 3MF","12-exportar.jpg","files-and-saving.html","La ventana Exportar ofrece STL, 3MF, STEP y otros formatos, con estimación de material.",""]
+ ["Las zonas del editor","Cinta · plano · vista","02-editor.jpg","getting-started.html","Arriba, la cinta por grupos de colores y la barra con las pestañas Editor 3D y Boceto; en el centro, el plano de trabajo; a la izquierda, el cubo y la barra de vista y medida.",""],
+ ["Biblioteca de formas","Formas básicas","03-formas.jpg","shapes.html","«Añadir forma», en el grupo Formas, abre la biblioteca: 16 formas básicas, recipientes y tubos, agujeros y roscas. La forma queda pegada al puntero y se coloca con un clic, también sobre la cara de otro cuerpo.",""],
+ ["Medidas exactas","Longitud · Anchura · Altura","04-medidas.jpg","shapes.html","Caja de 40 × 40 × 20 mm: Longitud, Anchura y Altura se escriben en «Propiedades», en el panel de la derecha.",""],
+ ["Preparar un orificio","Cilindro como orificio","05-orificio.jpg","solids-and-holes.html","Cilindro de Ø 14 × 30 mm convertido en «Orificio» (tecla H o botón del panel derecho): sobresale de la caja para atravesarla.","<kbd>H</kbd> orificio · <kbd>S</kbd> sólido"],
+ ["Agrupar","Resultado: taladro","06-agrupar.jpg","solids-and-holes.html","Seleccionar las dos formas (Ctrl+A) y pulsar «Agrupar» en el desplegable Combinar: el orificio quita material y la caja queda perforada.","<kbd>Ctrl</kbd> + <kbd>G</kbd>"],
+ ["Patrón","Fila · cuadrícula · círculo","07-patron.jpg","select-and-arrange.html","«Patrón», en el grupo Reflejo y patrón, repite la selección en fila, cuadrícula o círculo, con vista previa de las copias.",""],
+ ["Redondear aristas","Ventana Redondeo","08-redondeo.jpg","edges-and-hollowing.html","«Redondeo», en el grupo Aristas y paredes: se eligen las aristas (todas, superiores, verticales…) y el radio, con vista previa.","<kbd>B</kbd> redondeo · <kbd>Mayús</kbd> + <kbd>B</kbd> chaflán"],
+ ["Vaciar","Pared uniforme","09-vaciar.jpg","edges-and-hollowing.html","«Vaciar», en el grupo Aristas y paredes: grosor de pared y lados abiertos, arriba para un vaso, delante para un cajón.",""],
+ ["Comprobar impresión","Antes del laminador","10-comprobar.jpg","printing.html","«Comprobar impresión», en el desplegable Combinar: revisa paredes finas, piezas flotantes, contacto con la placa, voladizos y mallas abiertas.",""],
+ ["Elegir la impresora","Ajustes · Plano de trabajo","11-impresora.jpg","printing.html","Rueda dentada junto al nombre del diseño › Ajustes del espacio de trabajo › Plano de trabajo: se elige la impresora, la placa toma su tamaño real y avisa si la pieza no cabe.",""],
+ ["Exportar","STL o 3MF","12-exportar.jpg","files-and-saving.html","«Exportar», en el grupo Archivo, ofrece STL, 3MF, STEP y otros formatos, con estimación de material.",""]
 ];
 /* Ilustraciones propias de las operaciones de Tinkercad */
 function isoBox(cx,cy,s,h,c1,c2,c3,dash){var a=s*.866,b=s*.5,st=dash?' stroke-dasharray="5 4"':'';
@@ -3727,12 +3778,54 @@ var WK_TCREAL=[
   p:"Elegir «.STL» y abrir el archivo en Bambu Studio."}];
 function renderTcReal(){var h=document.getElementById("guiaTcReal");if(h)h.innerHTML=WK_TCREAL.map(wkCard).join("");}
 
+/* ---------- 12. La interfaz de Layerling (capturas e iconos reales) ---------- */
+var LYI="img/layerling/ui/",LYC="Captura de layerling.com (software libre AGPL-3.0)";
+var LY_UI=[
+ {n:"★",t:"La ventana de Layerling con una forma seleccionada",own:LYI+"ui-interfaz.jpg",w:1440,h:900,wide:1,nolab:1,cap:LYC,
+  pins:[[44,7,"Cinta de herramientas por grupos","d"],[37,11.6,"Pestañas Editor 3D y Boceto"],[54,11.6,"Nombre del diseño","l"],[61.6,11.6,"Buscar comandos (Ctrl+K)","l"],[64,16,"Ajustes del espacio de trabajo","l"],[3.6,15,"Cubo de vistas"],[2.4,58,"Barra de vista y medida"],[86,22,"Sólido u Orificio","l"],[86,45,"Propiedades: medidas en mm","l"],[86,87,"Posición, rotación y más","l"],[50,46,"Tiradores, flechas de giro y cotas"],[84,96.6,"Cuadrícula de ajuste y unidades","l"]],
+  p:"La cinta sustituye a la barra de iconos de Tinkercad; las medidas se escriben en el panel de la derecha y la barra de la izquierda reúne la vista y las herramientas de medida."}];
+var LY_RIB=[
+ {g:"Portapapeles",c:"#26a5c7",i:[["copiar","Copiar","Ctrl+C"],["pegar","Pegar","Ctrl+V"],["duplicar","Duplicar","Ctrl+D"],["eliminar","Eliminar","Supr"]],nota:"Se despliega al pulsar el icono del portapapeles."},
+ {g:"Historial",c:"#3aa85a",i:[["deshacer","Deshacer","Ctrl+Z"],["rehacer","Rehacer","Ctrl+Y"],["historial","Historial","volver a cualquier paso anterior"]]},
+ {g:"Formas",c:"#e3b21d",i:[["anadir-forma","Añadir forma","biblioteca: formas básicas, recipientes y tubos, agujeros, roscas…"]]},
+ {g:"Visibilidad",c:"#555b66",i:[["lista-objetos","Lista de objetos","todos los cuerpos del diseño"],["ocultar","Ocultar selección","Ctrl+H"]],nota:"El desplegable incluye «Mostrar voladizos (desde 45°)»: raya en rojo las caras que necesitarán soportes."},
+ {g:"Combinar",c:"#8a63d2",i:[["agrupar","Agrupar","Ctrl+G · el orificio resta volumen"],["conjunto","Crear conjunto","Ctrl+B · juntas sin fundir, para varios colores"],["desagrupar","Desagrupar",""],["interseccion","Intersección booleana","conserva solo la parte común"],["recortar","Recortar","resta un cuerpo de otro, para encajes"],["troquelar","Troquelar","corta un contorno a través de otro cuerpo"],["envolvente","Envolvente","envuelve varias formas en un cuerpo convexo"],["holguras","Comprobar holguras","solapes y juntas demasiado justas"],["comprobar","Comprobar impresión","paredes finas, voladizos y problemas antes de exportar"],["analisis","Análisis de impresión","informe de la pieza"]]},
+ {g:"Reflejo y patrón",c:"#e8862a",i:[["reflejar","Reflejar","M · como la simetría de Tinkercad"],["punto-giro","Fijar el punto de giro","eje de giro en una cara"],["patron","Patrón","copias en fila, cuadrícula o círculo"],["patron-orificios","Patrón de orificios","rejillas de ventilación o de altavoz"],["cara","Cara","trabaja sobre una cara plana, también en STL"]]},
+ {g:"Dividir y formar",c:"#e8862a",i:[["dividir","Dividir","corta con un plano: piezas que no caben en la cama"],["flexi","Articulaciones flexi","figuras articuladas sin soportes"],["nervio","Nervio de soporte","sujeta una pieza tumbada sobre su arista"],["puentes","Puentes de plantilla","plantillas para pintar con letras sujetas"],["galletas","Cortador de galletas","pared fina y reborde a partir de un contorno"],["molde","Molde y matriz","molde para colar o punzón y matriz"]]},
+ {g:"Aristas y paredes",c:"#e8862a",i:[["chaflan","Chaflán","Mayús+B · corta la arista en ángulo"],["redondeo","Redondeo","B · redondea las aristas elegidas"],["vaciar","Vaciar","paredes de grosor uniforme"],["tapa","Tapa","tapa por dentro, por fuera, de rosca, de corredera…"],["canal-cable","Canal para cable","paso para un cable o el hilo de un LED"],["desfase","Desfase","engrosa o adelgaza un cuerpo"],["eliminar-cara","Eliminar cara","abre una cara del cuerpo"]]},
+ {g:"Superficie",c:"#e8862a",i:[["simplificar","Simplificar malla","menos triángulos en un STL importado"],["exacto","Hacer exacto","convierte una malla en planos y cilindros reales"],["textura","Textura de superficie","relieves y texturas en las caras"],["pintar","Pintar","colorea zonas para imprimir en varios colores"]]},
+ {g:"Organizar",c:"#d8432f",i:[["alinear","Alinear","como la L de Tinkercad"],["ajustar-cuadricula","Ajustar a la cuadrícula","lleva la forma al cruce más cercano"],["bajar-plano","Bajar al plano de trabajo","D"],["apoyar-cara","Apoyar sobre una cara","C · tumba la pieza sobre la cara elegida"],["alinear-caras","Alinear caras","cara contra cara o a ras"],["centrar-plano","Centrar en el plano de trabajo",""],["placas","Placas de impresión","reparte la pieza y sus partes en varias placas"]]},
+ {g:"Archivo",c:"#3f6fd1",i:[["importar","Importar","STL, 3MF, STEP, SVG…"],["exportar","Exportar","STL, 3MF o STEP para el laminador"],["adjuntos","Adjuntos","notas e imágenes guardadas con el diseño"]]}];
+var LY_VENT=[
+ {n:"1",t:"Biblioteca de formas",own:LYI+"ui-formas.jpg",w:900,h:730,cap:LYC,pins:[[50,19.5,"Buscar formas"],[22,31.5,"Formas básicas (16)"],[30,73,"Recipientes, tubos y transiciones"],[25,88,"Agujeros y recortes"]],p:"Al elegir una forma queda pegada al puntero: se coloca con un clic, también sobre la cara de otro cuerpo."},
+ {n:"2",t:"Combinar (desplegable)",own:LYI+"ui-combinar.jpg",w:480,h:120,cap:LYC,pins:[[18,76,"Agrupar · conjunto · desagrupar"],[48,76,"Intersección, recortar, troquelar"],[86,76,"Comprobar holguras e impresión","l"]],p:"Con dos formas seleccionadas se activan todas las operaciones."},
+ {n:"3",t:"Organizar (desplegable)",own:LYI+"ui-organizar.jpg",w:440,h:120,cap:LYC,pins:[[16,76,"Alinear"],[44,76,"Bajar al plano · apoyar sobre una cara"],[60,30,"Organizar"]],p:"Alinear funciona como en Tinkercad; «Apoyar sobre una cara» (C) tumba la pieza para imprimirla."},
+ {n:"4",t:"Menú del clic derecho",own:LYI+"ui-contexto.jpg",w:330,h:900,cap:LYC,pins:[[60,3.3,"Duplicar · copiar"],[70,18.5,"Convertir en orificio (H)"],[50,26.7,"Chaflán · redondeo · vaciar"],[50,56,"Reflejar (M)"],[60,79,"Ocultar · bloquear"],[75,95,"Posar sobre una cara (C) · bajar (D)"]],p:"Reúne las herramientas que se pueden aplicar al cuerpo sobre el que se hace clic."},
+ {n:"5",t:"Buscar comandos (Ctrl+K)",own:LYI+"ui-buscar.jpg",w:680,h:420,cap:LYC,pins:[[40,7,"Escribir lo que se busca"],[90,25,"Grupo de la cinta donde está","l"],[70,25,"Su atajo de teclado","l"]],p:"Encuentra cualquier herramienta, forma o comando, en castellano o en inglés, y enseña dónde está y su tecla."},
+ {n:"6",t:"Ajustes del espacio de trabajo",own:LYI+"ui-ajustes.jpg",w:400,h:600,cap:LYC,pins:[[10,8,"Secciones"],[60,21,"Modo sencillo para principiantes"],[60,33,"Modo rápido para equipos lentos"],[60,68,"Fondo y posición del cubo"]],p:"El «Modo sencillo» reduce la cinta y agranda los botones: adecuado para Primaria."}];
+var LY_BOC=[{n:"★",t:"Pestaña Boceto: dibujar un contorno y convertirlo en cuerpo",own:LYI+"ui-boceto.jpg",w:1440,h:520,wide:1,nolab:1,cap:LYC,
+  pins:[[8,7,"Dibujar: línea, arco, curvas, mano alzada"],[19.6,7,"Formas de boceto"],[29,7,"Seleccionar, imagen, puntos, esquinas"],[42,7,"Portapapeles"],[50.4,7,"Historial"],[62.8,7,"Terminar boceto o cancelar","l"],[42,19,"Pestaña Boceto activa"],[50,70,"Hoja de dibujo con cuadrícula"]],
+  p:"En la pestaña Boceto se elige qué hará el contorno: «Extruir boceto» (estirarlo), «Revolucionar boceto» (girarlo como en un torno) o «Boceto de barrido» (llevarlo por una trayectoria)."}];
+var LY_BOCICO=[["b-linea","Línea"],["b-arco","Arco"],["b-bezier","Curva de Bézier"],["b-curva","Curva suave"],["b-manoalzada","Mano alzada"],["b-construccion","Línea de construcción"],["b-desdecentro","Línea desde el centro"],["b-seleccionar","Seleccionar"],["b-imagen","Añadir imagen"],["b-puntos","Añadir o quitar puntos"],["b-chaflan","Achaflanar esquina"],["b-redondear","Redondear esquina"],["b-borrar","Borrar"]];
+var LY_VISTA=[["v-inicio","Vista inicial"],["v-centrar","Centrar en la selección"],["v-acercar","Acercar"],["v-alejar","Alejar"],["v-orto","Vista ortográfica"],["v-segunda","Segunda vista"],["v-barras","Barras de desplazamiento"],["v-ocultar-plano","Ocultar plano de trabajo"],["v-colocar-plano","Colocar plano de trabajo"],["v-mirar-plano","Mirar de frente al plano"],["v-cinta","Cinta métrica"],["v-escuadra","Escuadra"],["v-transportador","Transportador"],["v-seccion","Vista de sección"],["v-nota","Nota"]];
+function renderLyInterfaz(){
+  var a=document.getElementById("lyInterfaz");if(a)a.innerHTML=LY_UI.map(wkCard).join("");
+  var b=document.getElementById("lyCinta");if(b)b.innerHTML='<div class="lyrib">'+LY_RIB.map(function(g){return '<section style="--gc:'+g.c+'"><h4>'+g.g+'</h4><ul>'+g.i.map(function(x){return '<li><img src="'+LYI+'ico/'+x[0]+'.png" alt="" width="34" height="34"><span><b>'+x[1]+'</b>'+(x[2]?'<small>'+x[2]+'</small>':'')+'</span></li>';}).join("")+'</ul>'+(g.nota?'<p>'+g.nota+'</p>':'')+'</section>';}).join("")+'</div>';
+  var c=document.getElementById("lyVentanas");if(c)c.innerHTML=LY_VENT.map(wkCard).join("");
+  var d=document.getElementById("lyBoceto");if(d)d.innerHTML=LY_BOC.map(wkCard).join("")+icoGrid(LY_BOCICO,LYI+"ico/",".png");
+  var e=document.getElementById("lyVista");if(e)e.innerHTML=icoGrid(LY_VISTA,LYI+"ico/",".png");
+}
+/* Iconos reales de Layerling en las fichas de herramientas */
+(function(){var m={ly_caja:"s-caja",ly_cilindro:"s-cilindro",cuna:"s-cuna",paraboloide:"s-paraboloide",redondeo:"redondeo",chaflan:"chaflan",vaciar:"vaciar",tapa:"tapa",patron:"patron",dividir:"dividir",flexi:"flexi",comprobar:"comprobar",holguras:"holguras",ly_agrupar:"agrupar",ly_exportar:"exportar",ajustes:"ajustes",boceto:"b-linea"};
+  Object.keys(m).forEach(function(k){TIMG[k]=LYI+"ico/"+m[k]+".png";});})();
+
 initTheme();
 renderPractices();
 renderAsistente();
 renderRetos();
 renderWiki();
 renderTcReal();
+renderLyInterfaz();
 renderIcoGrids();
 renderManuals();
 renderPhones();
