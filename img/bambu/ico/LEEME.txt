@@ -1,0 +1,4 @@
+Iconos copiados sin modificar de Bambu Studio (resources/images), (c) Bambu Lab.
+Bambu Studio es software libre con licencia GNU (AGPL-3.0; ver LICENSE.txt del programa): https://github.com/bambulab/BambuStudio
+Estos archivos no forman parte de la licencia CC BY-NC-ND del manual; se usan para identificar
+los botones del programa con fines educativos.

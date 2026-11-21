@@ -548,6 +548,28 @@ footer .brand{font-size:14px}
 .app-chip.gc{background:#1e8e3e}
 .grid.one-card{grid-template-columns:1fr}
 
+/* Ilustraciones, iconos reales y apartados en construcción */
+figure.shot.ill svg{border:1px solid var(--line);border-radius:10px}
+figure.shot.mini{margin:0 0 10px}
+figure.shot.mini svg{border:0}
+.box-key{border:2px solid var(--accent);border-radius:14px;padding:14px;background:var(--card);box-shadow:var(--shadow)}
+.icogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin:6px 0 14px}
+.icogrid figure{margin:0;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px 6px;text-align:center}
+.icogrid img{height:46px;width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto 4px}
+.icogrid figcaption{font:600 11.5px var(--sans);color:#30343a;line-height:1.25}
+.tool img.real{width:34px;height:34px;object-fit:contain;flex:0 0 34px;border-radius:6px;background:#fff;border:1px solid var(--line)}
+.wip{display:inline-block;margin-left:8px;font:700 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:#7a4a00;background:#ffe08a;border:1px solid #b88a10;border-radius:999px;padding:2px 9px;vertical-align:middle}
+.card.feature{border:2px solid var(--accent)}
+
+/* «en el aula» como una pieza impresa: capas visibles, volumen y aparición capa a capa */
+.hero h1 .print3d{display:inline-block;color:transparent;padding-right:.1em;
+  background:repeating-linear-gradient(180deg,var(--accent) 0 .075em,color-mix(in srgb,var(--accent) 68%,#000) .075em .092em);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(1px 1px 0 #b04a1c) drop-shadow(1px 1px 0 #a8461b) drop-shadow(1px 1px 0 #8e3a14) drop-shadow(2px 3px 2px rgba(0,0,0,.18));
+  animation:print3d-up 2.8s steps(28) .4s both}
+@keyframes print3d-up{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(-15% -10% -15% -5%)}}
+@media (prefers-reduced-motion:reduce){.hero h1 .print3d{animation:none}}
+
 /* ---- Páginas con menú lateral ---- */
 .layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:32px;align-items:start;padding-top:calc(var(--offset) + 18px)}
 .layout.home{padding-top:28px}

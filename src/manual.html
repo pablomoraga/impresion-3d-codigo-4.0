@@ -557,6 +557,28 @@ footer .brand{font-size:14px}
 .r2{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px}.r2>b{margin-left:8px}
 .app-chip.gc{background:#1e8e3e}
 .grid.one-card{grid-template-columns:1fr}
+
+/* Ilustraciones, iconos reales y apartados en construcción */
+figure.shot.ill svg{border:1px solid var(--line);border-radius:10px}
+figure.shot.mini{margin:0 0 10px}
+figure.shot.mini svg{border:0}
+.box-key{border:2px solid var(--accent);border-radius:14px;padding:14px;background:var(--card);box-shadow:var(--shadow)}
+.icogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;margin:6px 0 14px}
+.icogrid figure{margin:0;border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px 6px;text-align:center}
+.icogrid img{height:46px;width:auto;max-width:100%;object-fit:contain;display:block;margin:0 auto 4px}
+.icogrid figcaption{font:600 11.5px var(--sans);color:#30343a;line-height:1.25}
+.tool img.real{width:34px;height:34px;object-fit:contain;flex:0 0 34px;border-radius:6px;background:#fff;border:1px solid var(--line)}
+.wip{display:inline-block;margin-left:8px;font:700 11px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:#7a4a00;background:#ffe08a;border:1px solid #b88a10;border-radius:999px;padding:2px 9px;vertical-align:middle}
+.card.feature{border:2px solid var(--accent)}
+
+/* «en el aula» como una pieza impresa: capas visibles, volumen y aparición capa a capa */
+.hero h1 .print3d{display:inline-block;color:transparent;padding-right:.1em;
+  background:repeating-linear-gradient(180deg,var(--accent) 0 .075em,color-mix(in srgb,var(--accent) 68%,#000) .075em .092em);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(1px 1px 0 #b04a1c) drop-shadow(1px 1px 0 #a8461b) drop-shadow(1px 1px 0 #8e3a14) drop-shadow(2px 3px 2px rgba(0,0,0,.18));
+  animation:print3d-up 2.8s steps(28) .4s both}
+@keyframes print3d-up{from{clip-path:inset(100% 0 0 0)}to{clip-path:inset(-15% -10% -15% -5%)}}
+@media (prefers-reduced-motion:reduce){.hero h1 .print3d{animation:none}}
 </style>
 </head>
 <body>
@@ -667,18 +689,12 @@ footer .brand{font-size:14px}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Fabricación digital y STEAM · Código Escuela 4.0 (Andalucía)</span>
-      <h1>Diseño e Impresión <em>3D en el aula</em></h1>
+      <h1>Diseño e Impresión <em>3D <span class="print3d">en el aula</span></em></h1>
       <p class="lead">Manual práctico y secuencial para integrar el diseño y la impresión 3D en colegios e institutos: desde la configuración de la <strong>Bambu Lab P1S</strong> y la búsqueda en <strong>MakerWorld</strong> hasta el modelado de piezas propias en <strong>Tinkercad</strong> y <strong>Layerling</strong>.</p>
       <div class="cta">
         <a class="btn primary" href="#contenidos">Empezar ↓</a>
         <a class="btn ghost" href="#retos">Ir a los retos</a>
       </div>
-      <ul class="pills">
-        <li><b>18</b> prácticas de diseño</li>
-        <li><b>5</b> retos</li>
-        <li><b>2</b> laminadores</li>
-        <li><b>Bambu</b> P1S</li>
-      </ul>
     </div>
     <figure class="mascot" style="margin:0">
       <i class="px" data-px="p1sams" role="img" aria-label="Ilustración en pixel art de una impresora Bambu Lab P1S con el AMS imprimiendo una pieza"></i>
@@ -697,9 +713,9 @@ footer .brand{font-size:14px}
       <a href="#impresora"><span class="n">02</span><b>La impresora 3D</b><i class="px" data-px="printer"></i><span class="d">Bambu Lab P1S: componentes, calibración, materiales y seguridad.</span></a>
       <a href="#repositorios"><span class="n">03</span><b>Repositorios</b><i class="px" data-px="chest"></i><span class="d">MakerWorld, MakerLab y bibliotecas educativas complementarias.</span></a>
       <a href="#laminador"><span class="n">04</span><b>El laminador</b><i class="px" data-px="layers"></i><span class="d">Bambu Studio como laminador principal y Lychee Slicer para mallas.</span></a>
-      <a href="#tinkercad"><span class="n">05</span><b>Diseñar con Tinkercad</b><i class="px" data-px="pencil"></i><span class="d">Manual visual, clases y doce prácticas.</span></a>
-      <a href="#layerling"><span class="n">06</span><b>Diseñar con Layerling</b><i class="px" data-px="cube"></i><span class="d">Herramientas avanzadas, seis prácticas y asistente.</span></a>
-      <a href="#retos"><span class="n">07</span><b>Retos de diseño</b><i class="px" data-px="trophy"></i><span class="d">Cinco proyectos integradores con especificación técnica.</span></a>
+      <a href="#tinkercad"><span class="n">05</span><b>Diseñar con Tinkercad</b><i class="px" data-px="pencil"></i><span class="d">Manual visual, clases y once prácticas.</span></a>
+      <a href="#layerling"><span class="n">06</span><b>Diseñar con Layerling</b><i class="px" data-px="cube"></i><span class="d">Herramientas avanzadas, nueve prácticas y asistente.</span></a>
+      <a href="#retos"><span class="n">07</span><b>Retos de diseño</b><i class="px" data-px="trophy"></i><span class="d">Diez proyectos integradores, de la ergonomía a la robótica.</span></a>
       <a href="#saber"><span class="n">08</span><b>Para saber más</b><i class="px" data-px="book"></i><span class="d">Profesorado, otros laminadores, recursos y créditos.</span></a>
     </div>
   </div>
@@ -782,6 +798,7 @@ footer .brand{font-size:14px}
         <tr><td>Adecuación al aula</td><td class="yes">Recomendada</td><td class="no">No recomendada</td></tr>
       </tbody>
     </table></div>
+    <figure class="shot ill" data-ui="fdmaula" style="margin-top:16px"></figure>
 
     <div class="grid two" style="margin-top:16px">
       <div class="card">
@@ -792,6 +809,7 @@ footer .brand{font-size:14px}
           <li>La temperatura interior es estable y la pieza se ve menos afectada por corrientes de aire.</li>
           <li>Reduce el ruido percibido y la entrada de polvo.</li>
         </ul>
+        <p class="small muted" style="margin:8px 0 0">«CoreXY»: dos motores fijos mueven el cabezal en X e Y mediante dos correas cruzadas. Abajo, la máquina sin carcasa.</p>
       </div>
       <div class="card">
         <h4><i class="px" data-px="warn"></i>Frente a impresoras abiertas de cama móvil</h4>
@@ -802,6 +820,7 @@ footer .brand{font-size:14px}
         </ul>
       </div>
     </div>
+    <figure class="shot ill" data-ui="corexy" style="max-width:640px;margin:16px auto 0"><figcaption>Esquema propio de una impresora CoreXY sin carcasa: motores, correas, cabezal y cama.</figcaption></figure>
 
     <h3 class="sub"><i class="px" data-px="nozzle"></i>Componentes principales de la P1S</h3>
     <div class="grid two">
@@ -1193,6 +1212,7 @@ footer .brand{font-size:14px}
       <a href="https://wiki.bambulab.com/es/p1/manual" target="_blank" rel="noopener noreferrer">Manual oficial P1S</a>
       <a href="https://wiki.bambulab.com/es/p1/maintenance/p1p-maintenance" target="_blank" rel="noopener noreferrer">Guía de mantenimiento</a>
     </div>
+<h3 class="sub" id="ideas-clave-impresora" style="scroll-margin-top:110px"><i class="px" data-px="bulb"></i>Ideas clave · La impresora</h3>
     <figure class="anat" data-anat="printer"></figure>
   </div>
 </section>
@@ -1203,13 +1223,17 @@ footer .brand{font-size:14px}
     <div class="sec-head"><span class="sec-num">03</span><h2>Repositorios <span class="sec-count" data-count></span></h2>
       <p class="kick">Antes de diseñar, conviene saber encontrar, evaluar y preparar modelos ya hechos. MakerWorld es el repositorio integrado con Bambu Lab.</p></div>
 
-    <h3 class="mini">MakerWorld</h3>
+    <h3 class="sub" id="que-es-repositorio" style="scroll-margin-top:110px"><i class="px" data-px="chest"></i>¿Qué es un repositorio?</h3>
+    <p>Un <b>repositorio de modelos 3D</b> es una biblioteca en línea donde otras personas publican diseños listos para imprimir. Cada modelo incluye fotografías, la <b>licencia</b> que indica qué se puede hacer con él, valoraciones y los archivos para descargar (<code>.STL</code> o <code>.3MF</code>). Es el camino más rápido para imprimir en el aula sin diseñar desde cero, y una fuente de ideas que después se pueden remezclar.</p>
+    <figure class="shot ill" data-ui="repo"></figure>
+
+    <h3 class="sub" id="makerworld" style="scroll-margin-top:110px"><i class="px" data-px="star"></i>MakerWorld</h3>
+    <div class="note info"><i class="px" data-px="shield"></i><p><b>Primero, la cuenta de Bambu Lab.</b> MakerWorld y Bambu Studio usan la <b>misma cuenta</b>: con ella se descargan modelos, se usa MakerLab, se abren los proyectos directamente en el laminador y se envían a la impresora. Crearla con el correo del centro antes de empezar (<a href="#handy">pasos en el bloque 4C</a>). El alumnado no crea cuentas.</p></div>
     <div class="grid two">
       <div class="card">
         <h4><i class="px" data-px="chest"></i>MakerWorld: pautas de uso</h4>
         <ul class="clean">
-          <li><b><code>.STL</code></b>: solo la malla. Hay que configurar orientación, perfil y soportes en el laminador.</li>
-          <li><b><code>.3MF</code> con perfil</b>: proyecto ya preparado. Elegir un perfil publicado para <b>P1S</b>.</li>
+          <li>Elegir un perfil de impresión publicado para <b>P1S</b>.</li>
           <li>Filtrar por <b>Sin AMS / Single Color</b> cuando no se dispone de cargador multicolor.</li>
           <li>Explorar la categoría <b>Education</b> y buscar también con términos en inglés.</li>
         </ul>
@@ -1225,14 +1249,22 @@ footer .brand{font-size:14px}
       </div>
     </div>
 
+    <h3 class="mini" style="margin-top:28px" id="stl-3mf">STL y 3MF: dos formatos, dos usos</h3>
+    <div class="box-key">
+      <figure class="shot ill" data-ui="stl3mf" style="margin:0"></figure>
+      <div class="grid two" style="margin-top:12px">
+        <div class="card"><h4><code>.STL</code> · la forma</h4><p class="small">Solo describe la superficie con triángulos: sin color, sin placa y sin ajustes. Lo genera cualquier programa de diseño (Tinkercad, Layerling) y se prepara en el laminador: orientación, perfil, soportes.</p></div>
+        <div class="card"><h4><code>.3MF</code> · el proyecto</h4><p class="small">Guarda modelos, colores, placas, perfil de impresora y ajustes. En MakerWorld, «Abrir en Bambu Studio» carga un 3MF ya configurado: revisar que el perfil sea de la <b>P1S</b> y si usa o no AMS.</p></div>
+      </div>
+    </div>
+
     <h3 class="mini" style="margin-top:28px">Guía visual de MakerWorld</h3>
     <div class="grid two">
       <figure class="shot" data-ui="mwSearch"></figure>
       <figure class="shot" data-ui="mwModel"></figure>
     </div>
-    <figure class="shot" data-ui="mwLab" style="max-width:720px"></figure>
 
-    <h3 class="sub"><i class="px" data-px="pencil"></i>Prácticas secuenciales en MakerWorld</h3>
+    <h3 class="sub"><i class="px" data-px="pencil"></i>Práctica en MakerWorld</h3>
     <div class="grid two">
       <article class="task">
         <div class="task-h"><span class="code">MW-01</span><h4>Búsqueda y verificación</h4></div>
@@ -1245,6 +1277,19 @@ footer .brand{font-size:14px}
         </ol>
         <p style="margin:12px 0 0"><label class="chk"><input type="checkbox" class="track" data-id="mw-01"><span class="off">Marcar como completada</span><span class="on">Completada</span></label></p>
       </article>
+    </div>
+
+    <h3 class="sub" id="makerlab" style="scroll-margin-top:110px"><i class="px" data-px="cube"></i>MakerLab: personalizar y modelar sin CAD</h3>
+    <p>MakerLab es el conjunto de <b>generadores</b> de MakerWorld: a partir de un texto, una imagen o unos pocos parámetros crean un modelo listo para imprimir. No sustituyen al diseño en Tinkercad o Layerling, pero permiten obtener resultados en una sola sesión y personalizar piezas para el aula.</p>
+    <div class="grid three">
+      <div class="card"><h4><i class="px" data-px="pencil"></i>Personalizar</h4><p class="small">Señales, placas y llaveros a partir de texto o de un dibujo: <b>Hacer mi señal</b>, <b>Imagen a llavero</b>.</p></div>
+      <div class="card"><h4><i class="px" data-px="layers"></i>Relieves e imágenes</h4><p class="small">Litofanías, relieves y rompecabezas de píxeles desde una fotografía o ilustración.</p></div>
+      <div class="card"><h4><i class="px" data-px="chip"></i>Modelos paramétricos</h4><p class="small">Cajas, soportes y piezas que se ajustan cambiando medidas, sin modelar.</p></div>
+    </div>
+    <figure class="shot" data-ui="mwLab" style="max-width:720px"></figure>
+    <div class="note"><i class="px" data-px="shield"></i><p>Se usa con la cuenta del profesorado. Las imágenes que se suban no deben contener datos ni rostros del alumnado.</p></div>
+    <h3 class="mini">Prácticas con MakerLab</h3>
+    <div class="grid two">
       <article class="task">
         <div class="task-h"><span class="code">MW-02</span><h4>MakerLab · Hacer mi señal</h4></div>
         <figure class="shot" data-ui="mwSign"></figure>
@@ -1292,6 +1337,7 @@ footer .brand{font-size:14px}
     </table></div>
 
     <div class="links"><a href="https://makerworld.com/es" target="_blank" rel="noopener noreferrer">MakerWorld</a><a href="https://makerworld.com/es/makerlab" target="_blank" rel="noopener noreferrer">MakerLab</a></div>
+<h3 class="sub" id="ideas-clave-repositorios" style="scroll-margin-top:110px"><i class="px" data-px="bulb"></i>Ideas clave · MakerWorld</h3>
     <figure class="anat" data-anat="makerworld"></figure>
   </div>
 </section>
@@ -1314,6 +1360,7 @@ footer .brand{font-size:14px}
     <h3 class="mini" style="margin-top:28px">Referencia rápida</h3>
     <div class="grid three">
       <div class="card">
+        <figure class="shot ill mini" data-ui="ref-formatos"></figure>
         <h4>Formatos habituales</h4>
         <ul class="clean small">
           <li><code>.STL</code> · malla triangular, sin color ni configuración.</li>
@@ -1322,6 +1369,7 @@ footer .brand{font-size:14px}
         </ul>
       </div>
       <div class="card">
+        <figure class="shot ill mini" data-ui="ref-capas"></figure>
         <h4>Perfiles de altura de capa</h4>
         <ul class="clean small">
           <li><code>0.20mm Standard</code> · ajuste general.</li>
@@ -1330,6 +1378,7 @@ footer .brand{font-size:14px}
         </ul>
       </div>
       <div class="card">
+        <figure class="shot ill mini" data-ui="ref-param"></figure>
         <h4>Tres parámetros esenciales</h4>
         <ul class="clean small">
           <li><b>Relleno (<em>Infill</em>):</b> 10–15 % para piezas didácticas.</li>
@@ -1338,6 +1387,10 @@ footer .brand{font-size:14px}
         </ul>
       </div>
     </div>
+
+    <h3 class="mini" style="margin-top:28px">Iconos de la barra de herramientas</h3>
+    <p class="muted small">Los iconos reales de Bambu Studio que se usan en las prácticas.</p>
+    <div id="icoBambu"></div>
 
     <h3 class="mini">Prácticas secuenciales en Bambu Studio</h3>
     <div class="grid two">
@@ -1542,6 +1595,7 @@ footer .brand{font-size:14px}
       </tbody>
     </table></div>
     <div class="note"><i class="px" data-px="shield"></i><p><b>Protección de datos.</b> No se vinculan cuentas personales del alumnado ni se publican imágenes de la cámara en las que aparezcan personas. Al cambiar de responsable, se desvincula la impresora y se actualiza la contraseña de la cuenta.</p></div>
+<h3 class="sub" id="ideas-clave-laminador" style="scroll-margin-top:110px"><i class="px" data-px="bulb"></i>Ideas clave · Bambu Studio</h3>
     <figure class="anat" data-anat="slicer"></figure>
   </div>
 </section>
@@ -1556,6 +1610,12 @@ footer .brand{font-size:14px}
     <p class="muted">Las operaciones básicas del editor, cada una enlazada con su lección oficial.</p>
     <figure class="shot" data-ui="tcUI" style="max-width:760px"></figure>
     <div id="manualTinkercad" class="wkgrid three"></div>
+
+    <h3 class="sub" id="tinkercad-real" style="scroll-margin-top:110px"><i class="px" data-px="camera"></i>El editor real de Tinkercad</h3>
+    <p class="muted">Capturas de la aplicación web con un diseño de ejemplo.</p>
+    <div id="guiaTcReal" class="wkgrid three"></div>
+    <h3 class="mini" style="margin-top:20px">Iconos que se usan en las prácticas</h3>
+    <div id="icoTinker"></div>
 
     
     <h3 class="mini" style="margin-top:32px">Guía rápida</h3>
@@ -1613,9 +1673,15 @@ footer .brand{font-size:14px}
     <div id="kb-tc"></div>
 
     <h3 class="sub"><i class="px" data-px="cube"></i>Prácticas con Tinkercad</h3>
-    <p class="muted">Doce prácticas con medidas exactas, animación en tres pasos y pestañas de ayuda: paso a paso, pistas, herramientas y una solución descargable.</p>
+    <p class="muted">Once prácticas con medidas exactas, animación en tres pasos y pestañas de ayuda: paso a paso, pistas, herramientas y una solución descargable.</p>
     <div class="filters" data-target="practicasTcAll" role="toolbar" aria-label="Filtrar prácticas de Tinkercad por área curricular"></div>
     <div id="practicasTcAll"><div class="practices" id="practicas"></div></div>
+    <h3 class="sub" id="cansat-tinkercad" style="scroll-margin-top:110px"><i class="px" data-px="chip"></i>CanSat con Tinkercad <span class="wip">En construcción</span></h3>
+    <div class="note info"><i class="px" data-px="warn"></i><p><b>Apartado en preparación.</b> Diseño de la estructura de un CanSat, el satélite del tamaño de una lata del desafío de ESERO: carcasa cilíndrica, soportes para la placa y los sensores, y salida para el paracaídas. Medidas de referencia del concurso europeo: <b>Ø 66 × 115 mm</b> y masa limitada; comprobar siempre las bases de la convocatoria vigente.</p></div>
+    <div class="links"><a href="https://esero.es/cansat/" target="_blank" rel="noopener noreferrer">CanSat · ESERO España</a></div>
+
+    <div class="note info aviso-medidas"><i class="px" data-px="warn"></i><p><b>Aviso.</b> Las medidas indicadas y los archivos STL de las soluciones pueden contener algún error. Comprobarlos antes de imprimir: medir las piezas reales con pie de rey, revisar el modelo en el laminador y hacer una impresión de prueba cuando haya encajes.</p></div>
+    <h3 class="sub" id="ideas-clave-diseno" style="scroll-margin-top:110px"><i class="px" data-px="bulb"></i>Ideas clave · Diseño 3D</h3>
     <figure class="anat" data-anat="design"></figure>
   </div>
 </section>
@@ -1678,9 +1744,13 @@ footer .brand{font-size:14px}
     <div id="kb-ly"></div>
 
     <h3 class="sub"><i class="px" data-px="cube"></i>Prácticas con Layerling</h3>
-    <p class="muted">Seis prácticas con herramientas propias del editor.</p>
+    <p class="muted">Nueve prácticas con herramientas propias del editor: vaciado, tapas, redondeos, roscas, engranajes y patrones.</p>
     <div class="filters" data-target="practicasLyAll" role="toolbar" aria-label="Filtrar prácticas de Layerling por área curricular"></div>
     <div id="practicasLyAll"><div class="practices" id="practicasLy"></div></div>
+
+    <h3 class="sub" id="cansat-layerling" style="scroll-margin-top:110px"><i class="px" data-px="chip"></i>CanSat con Layerling <span class="wip">En construcción</span></h3>
+    <div class="note info"><i class="px" data-px="warn"></i><p><b>Apartado en preparación.</b> La lata del CanSat con las herramientas propias de Layerling: cuerpo vaciado con pared uniforme, tapa de rosca o de bayoneta, soportes interiores con roscas métricas y ventanas para los sensores. Medidas de referencia del concurso europeo: <b>Ø 66 × 115 mm</b>; comprobar las bases vigentes.</p></div>
+    <div class="links"><a href="https://esero.es/cansat/" target="_blank" rel="noopener noreferrer">CanSat · ESERO España</a></div>
 
     <div id="asistente" style="scroll-margin-top:110px">
       <h3 class="sub"><i class="px" data-px="chip"></i>Ahora con Asistente: del prompt al STL</h3>
@@ -1708,15 +1778,28 @@ footer .brand{font-size:14px}
         </div>
       </div>
       <div class="note info"><i class="px" data-px="star"></i><p><b>Cómo escribir un buen prompt.</b> Indicar la forma base, todas las medidas en mm, el grosor de pared, los orificios y el texto, cómo se apoyará en la placa y, al final, pedir que ejecute «Comprobar impresión» y exporte en STL. Escribirlo bien ya es un ejercicio de especificación técnica.</p></div>
+      <div class="card" style="margin:14px 0">
+        <h4><i class="px" data-px="star"></i>¿Se puede hacer con un asistente gratuito?</h4>
+        <ul class="clean small">
+          <li><b>Con Layerling y MCP, sí:</b> <b>Gemini CLI</b> se puede usar gratis con una cuenta personal de Google y admite servidores MCP; se configura igual que en la puesta en marcha.</li>
+          <li><b>Sin MCP, con cualquier chat gratuito</b> (ChatGPT, Gemini, Claude): pedir el modelo en código <b>OpenSCAD</b> con todas las medidas, pegarlo en OpenSCAD (gratuito) y exportar en STL. Funciona bien con piezas geométricas sencillas.</li>
+          <li>Algunos chats pueden generar directamente un archivo <code>.stl</code> mediante código; el resultado hay que revisarlo siempre en el laminador.</li>
+          <li>Todos tienen edad mínima y política de datos propias: uso por parte del profesorado, sin datos del alumnado.</li>
+        </ul>
+      </div>
       <div class="grid three" id="tareasAsistente"></div>
       <div class="links"><a href="https://layerling.com/guia-es/ai-with-mcp.html" target="_blank" rel="noopener noreferrer">Guía: construir con una IA (MCP)</a><a href="https://github.com/henmedia/layerling" target="_blank" rel="noopener noreferrer">Layerling en GitHub</a></div>
     </div>
     
-    <h3 class="mini" style="margin-top:32px">Otras herramientas gratuitas</h3>
+    <h3 class="sub" id="otras-herramientas" style="scroll-margin-top:110px"><i class="px" data-px="pencil"></i>Otras herramientas gratuitas de modelado</h3>
+    <div class="card feature" style="margin-bottom:14px">
+      <h4><i class="px" data-px="star"></i>SolidCraft · CAD paramétrico libre y gratuito</h4>
+      <p class="small">Programa de código abierto con un flujo similar al de Fusion: bocetos con restricciones, operaciones paramétricas con historial y exportación a STL y STEP. No pide registro y funciona en el ordenador y en el navegador. Recomendado para dar el salto desde Tinkercad o Layerling al diseño paramétrico en ESO, Bachillerato y FP. Es un proyecto joven: conviene probar la versión actual antes de llevarlo al aula.</p>
+      <div class="links" style="margin:6px 0 0"><a href="https://github.com/bherbruck/solidcraft" target="_blank" rel="noopener noreferrer">SolidCraft en GitHub</a></div>
+    </div>
     <div class="tbl"><table>
       <thead><tr><th>Herramienta</th><th>Tipo de modelado</th><th>Uso didáctico</th><th>Acceso</th></tr></thead>
       <tbody>
-        <tr><td>SolidCraft 3D</td><td>Modelado 3D</td><td>Alternativa gratuita emergente; comprobar disponibilidad y condiciones de uso antes de implantarla.</td><td><span class="badge">Software gratuito</span></td></tr>
         <tr><td>BlocksCAD</td><td>Programación por bloques</td><td>Matemáticas y pensamiento computacional: la geometría se genera con instrucciones.</td><td><a href="https://www.blockscad3d.com/" target="_blank" rel="noopener noreferrer">blockscad3d.com</a></td></tr>
         <tr><td>FreeCAD</td><td>Paramétrico, código abierto</td><td>Tecnología en ESO, Bachillerato y FP: croquis con restricciones.</td><td><a href="https://www.freecad.org/" target="_blank" rel="noopener noreferrer">freecad.org</a></td></tr>
         <tr><td>Onshape Education</td><td>CAD paramétrico en la nube</td><td>Trabajo colaborativo en proyectos de Tecnología.</td><td><a href="https://www.onshape.com/en/education/" target="_blank" rel="noopener noreferrer">onshape.com/education</a></td></tr>
@@ -1725,14 +1808,15 @@ footer .brand{font-size:14px}
       </tbody>
     </table></div>
 
-      </div>
+        <div class="note info aviso-medidas"><i class="px" data-px="warn"></i><p><b>Aviso.</b> Las medidas indicadas y los archivos STL de las soluciones pueden contener algún error. Comprobarlos antes de imprimir: medir las piezas reales con pie de rey, revisar el modelo en el laminador y hacer una impresión de prueba cuando haya encajes.</p></div>
+  </div>
 </section>
 
 <!-- 07 RETOS -->
 <section class="sec" id="retos">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num">07</span><h2>Retos de diseño <span class="sec-count" data-count></span></h2>
-      <p class="kick">Cinco proyectos integradores para Tinkercad o Layerling, con especificación, uso didáctico, estrategia de construcción y laminado.</p></div>
+      <p class="kick">Diez proyectos integradores para Tinkercad o Layerling, con especificación, uso didáctico, estrategia de construcción y laminado.</p></div>
     <div class="filters" data-target="listaRetos" role="toolbar" aria-label="Filtrar retos por área curricular"></div>
     <div class="retos" id="listaRetos"></div>
 
@@ -1741,6 +1825,7 @@ footer .brand{font-size:14px}
       <figure><div class="ill16" data-ill="g112" role="img" aria-label="Ilustración: creaciones con cambio de filamento"><svg viewBox="0 0 600 338" role="img"><rect width="600" height="338" fill="#f8f9fb"></rect><line x1="12" y1="46" x2="12" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="36" y1="46" x2="36" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="60" y1="46" x2="60" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="84" y1="46" x2="84" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="108" y1="46" x2="108" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="132" y1="46" x2="132" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="156" y1="46" x2="156" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="180" y1="46" x2="180" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="204" y1="46" x2="204" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="228" y1="46" x2="228" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="252" y1="46" x2="252" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="276" y1="46" x2="276" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="300" y1="46" x2="300" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="324" y1="46" x2="324" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="348" y1="46" x2="348" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="372" y1="46" x2="372" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="396" y1="46" x2="396" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="420" y1="46" x2="420" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="444" y1="46" x2="444" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="468" y1="46" x2="468" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="492" y1="46" x2="492" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="516" y1="46" x2="516" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="540" y1="46" x2="540" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="564" y1="46" x2="564" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="588" y1="46" x2="588" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="58" x2="600" y2="58" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="82" x2="600" y2="82" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="106" x2="600" y2="106" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="130" x2="600" y2="130" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="154" x2="600" y2="154" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="178" x2="600" y2="178" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="202" x2="600" y2="202" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="226" x2="600" y2="226" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="250" x2="600" y2="250" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="274" x2="600" y2="274" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="298" x2="600" y2="298" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="322" x2="600" y2="322" stroke="#e6e9ee" stroke-width="1"></line><rect x="0" y="0" width="600" height="46" fill="#1f2226"></rect><rect x="0" y="46" width="600" height="3" fill="#e2672e"></rect><text x="22" y="29" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#f39a62" text-anchor="start">CREACIONES CON CAMBIO DE FILAMENTO</text><g fill="#5c636b"><rect x="560" y="18" width="6" height="6"></rect><rect x="570" y="18" width="6" height="6" fill="#e2672e"></rect><rect x="550" y="18" width="6" height="6"></rect></g><polygon points="90,230 330,230 380,190 140,190" fill="#2e8aa0" stroke="#1f2226" stroke-width="2"></polygon><rect x="90" y="230" width="240" height="18" fill="#1d7386" stroke="#1f2226" stroke-width="2"></rect><polygon points="330,230 380,190 380,208 330,248" fill="#15596a" stroke="#1f2226" stroke-width="2"></polygon><text x="232" y="222" font-family="Arial Black,Arial" font-size="34" font-weight="900" fill="#e2672e" stroke="#1f2226" stroke-width="1.5" text-anchor="middle" transform="skewX(-30) translate(118 0)">AULA</text><rect x="440" y="64" width="136" height="232" fill="#fff" rx="12" stroke="#d5d9df" stroke-width="1.5"></rect><text x="508" y="86" font-family="ui-monospace,Consolas,monospace" font-size="11" font-weight="700" fill="#5c636b" text-anchor="middle">CAPAS</text><rect x="504" y="96" width="8" height="180" fill="#d5d9df" rx="4"></rect><rect x="504" y="196" width="8" height="80" fill="#1d7386" rx="4"></rect><rect x="504" y="150" width="8" height="46" fill="#e2672e"></rect><rect x="470" y="190" width="72" height="14" fill="#1f2226" rx="7"></rect><text x="506" y="201" font-family="ui-monospace,Consolas,monospace" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">⏸ 2 mm</text><text x="508" y="292" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="11.5" font-weight="400" fill="#5c636b" text-anchor="middle">pausa y cambio</text><rect x="0" y="308" width="600" height="30" fill="#eef0f3"></rect><text x="300" y="328" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#5c636b" text-anchor="middle">Una pausa en la capa elegida permite imprimir en dos colores sin AMS.</text></svg></div><figcaption><b>Creaciones con cambio de filamento</b>Piezas planas en dos colores mediante una pausa por capa, la misma técnica del Reto 05 (medalla en tres niveles).<small>Basada en la diapositiva 112 del curso del CEP de Granada</small></figcaption></figure>
       <figure><div class="ill16" data-ill="g114" role="img" aria-label="Ilustración: produciendo en serie"><svg viewBox="0 0 600 338" role="img"><rect width="600" height="338" fill="#f8f9fb"></rect><line x1="12" y1="46" x2="12" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="36" y1="46" x2="36" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="60" y1="46" x2="60" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="84" y1="46" x2="84" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="108" y1="46" x2="108" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="132" y1="46" x2="132" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="156" y1="46" x2="156" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="180" y1="46" x2="180" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="204" y1="46" x2="204" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="228" y1="46" x2="228" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="252" y1="46" x2="252" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="276" y1="46" x2="276" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="300" y1="46" x2="300" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="324" y1="46" x2="324" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="348" y1="46" x2="348" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="372" y1="46" x2="372" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="396" y1="46" x2="396" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="420" y1="46" x2="420" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="444" y1="46" x2="444" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="468" y1="46" x2="468" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="492" y1="46" x2="492" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="516" y1="46" x2="516" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="540" y1="46" x2="540" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="564" y1="46" x2="564" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="588" y1="46" x2="588" y2="338" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="58" x2="600" y2="58" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="82" x2="600" y2="82" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="106" x2="600" y2="106" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="130" x2="600" y2="130" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="154" x2="600" y2="154" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="178" x2="600" y2="178" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="202" x2="600" y2="202" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="226" x2="600" y2="226" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="250" x2="600" y2="250" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="274" x2="600" y2="274" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="298" x2="600" y2="298" stroke="#e6e9ee" stroke-width="1"></line><line x1="0" y1="322" x2="600" y2="322" stroke="#e6e9ee" stroke-width="1"></line><rect x="0" y="0" width="600" height="46" fill="#1f2226"></rect><rect x="0" y="46" width="600" height="3" fill="#e2672e"></rect><text x="22" y="29" font-family="ui-monospace,Consolas,monospace" font-size="14" font-weight="700" fill="#f39a62" text-anchor="start">PRODUCCIÓN EN SERIE</text><g fill="#5c636b"><rect x="560" y="18" width="6" height="6"></rect><rect x="570" y="18" width="6" height="6" fill="#e2672e"></rect><rect x="550" y="18" width="6" height="6"></rect></g><rect x="70" y="70" width="320" height="220" fill="#c49a52" rx="14" stroke="#1f2226" stroke-width="2"></rect><rect x="70" y="70" width="320" height="220" fill="url(#p-tex)" rx="14" opacity=".55"></rect><rect x="92" y="96" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="107" cy="123" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="142" y="129" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">3.º A</text><rect x="192" y="96" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="207" cy="123" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="242" y="129" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">3.º B</text><rect x="292" y="96" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="307" cy="123" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="342" y="129" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">3.º C</text><rect x="92" y="192" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="107" cy="219" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="142" y="225" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">4.º A</text><rect x="192" y="192" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="207" cy="219" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="242" y="225" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">4.º B</text><rect x="292" y="192" width="84" height="54" fill="#1d7386" rx="12" stroke="#1f2226" stroke-width="2"></rect><circle cx="307" cy="219" r="6" fill="#c49a52" stroke="#1f2226" stroke-width="1.5"></circle><text x="342" y="225" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">4.º C</text><rect x="412" y="90" width="166" height="170" fill="#fff" rx="12" stroke="#d5d9df" stroke-width="1.5"></rect><text x="495" y="128" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#1f2226" text-anchor="middle">Una placa</text><text x="495" y="150" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="14" font-weight="400" fill="#5c636b" text-anchor="middle">seis piezas</text><rect x="436" y="170" width="118" height="26" fill="#e2672e" rx="13"></rect><text x="495" y="188" font-family="ui-monospace,Consolas,monospace" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Auto-organizar</text><rect x="436" y="206" width="118" height="26" fill="#1f2226" rx="13"></rect><text x="495" y="224" font-family="ui-monospace,Consolas,monospace" font-size="11" font-weight="700" fill="#fff" text-anchor="middle">Por objeto</text><rect x="0" y="308" width="600" height="30" fill="#eef0f3"></rect><text x="300" y="328" font-family="system-ui,Segoe UI,Arial,sans-serif" font-size="13" font-weight="600" fill="#5c636b" text-anchor="middle">Llaveros con nombre repetidos y organizados en una misma placa.</text></svg></div><figcaption><b>Producción en serie</b>Llaveros con nombre repetidos en una misma placa: aplicación directa de la práctica BS-05 (placa compartida del grupo).<small>Basada en la diapositiva 114 del curso del CEP de Granada</small></figcaption></figure>
     </div>
+    <div class="note info aviso-medidas"><i class="px" data-px="warn"></i><p><b>Aviso.</b> Las medidas indicadas y los archivos STL de las soluciones pueden contener algún error. Comprobarlos antes de imprimir: medir las piezas reales con pie de rey, revisar el modelo en el laminador y hacer una impresión de prueba cuando haya encajes.</p></div>
   </div>
 </section>
 
@@ -1847,7 +1932,9 @@ footer .brand{font-size:14px}
           <div class="card"><h4>Imágenes de terceros</h4><ul class="clean small">
             <li>Capturas de layerling: realizadas por el autor sobre layerling.com (software libre AGPL-3.0, © henmedia).</li>
             <li>Las ilustraciones de los apartados 01, 02, 04 y 06 se basan en el curso del CEP de Granada del mismo autor.</li>
-            <li>Las ilustraciones de Tinkercad, MakerWorld y Bambu Studio son esquemas propios, no capturas oficiales.</li>
+            <li>Capturas de Tinkercad (apartado 05): aplicación de Autodesk, tomadas por el autor desde su cuenta, con los datos del alumnado y el código de clase sustituidos por datos ficticios.</li>
+            <li>Iconos de Bambu Studio: copiados sin modificar de su distribución (© Bambu Lab, software libre con licencia GNU AGPL); ver <code>img/bambu/ico/LEEME.txt</code>.</li>
+            <li>El resto de ilustraciones de MakerWorld, Bambu Studio y Tinkercad son esquemas propios.</li>
             <li>Los modelos de las soluciones (STL y fuente .scad) son propios y se generan con <a href="https://openscad.org/" target="_blank" rel="noopener noreferrer">OpenSCAD</a>; se comparten con la misma licencia que el manual.</li>
           </ul></div>
           <div class="card"><h4>Marcas</h4><p class="small">Bambu Lab, Bambu Studio, Bambu Handy, MakerWorld, Tinkercad (Autodesk), layerling, Lychee Slicer y el resto de marcas citadas pertenecen a sus titulares. Este material es independiente y no tiene vinculación comercial con ninguno de ellos.</p></div>
@@ -1865,7 +1952,7 @@ footer .brand{font-size:14px}
       <span>© Pablo Moraga · Contenidos con licencia <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.es" target="_blank" rel="noopener noreferrer license">CC BY-NC-ND 4.0</a> · <a href="https://github.com/pablomoraga" target="_blank" rel="noopener noreferrer">github.com/pablomoraga</a></span>
       <button class="reset" id="resetBtn2" type="button">↺ Reiniciar progreso</button>
     </div>
-    <p class="small" style="margin-top:14px">Material educativo independiente, sin vinculación comercial con Bambu Lab, Tinkercad (Autodesk) ni Layerling. Las marcas citadas pertenecen a sus respectivos titulares. Las ilustraciones, esquemas de interfaz y capturas son propios.</p>
+    <p class="small" style="margin-top:14px">Material educativo independiente, sin vinculación comercial con Bambu Lab, Tinkercad (Autodesk) ni Layerling. Las marcas citadas pertenecen a sus respectivos titulares. Las ilustraciones y esquemas son propios. Las capturas de Tinkercad son de la aplicación de Autodesk, con los datos del alumnado ocultos, y los iconos de Bambu Studio se reproducen de su distribución libre (© Bambu Lab, licencia GNU AGPL); ninguno de ellos forma parte de la licencia CC de este material.</p>
     <noscript><p class="small">Las prácticas de diseño, los retos, las animaciones y el registro de progreso requieren JavaScript.</p></noscript>
   </div>
 </footer>
@@ -2046,10 +2133,10 @@ var A={};
     f:[base+dim,base+dim+tk,base+dim+tk+nm,base+tk+nm+R(14,46,212,52,"sel")+T(120,116,"Ctrl + G","dt")]};
 })();
 (function(){ // 02 Moneda
-  var b=C(120,62,46,"sol"),bv=C(120,62,38,"lite"),s=T(120,75,"X","emb",34),d=T(120,124,"Ø 35 × 3 mm","dt");
-  var side=P("140,58 145,53 215,53 220,58 220,67 215,72 145,72 140,67","sol")+T(180,90,"perfil biselado","dt");
-  var sm=C(70,62,36,"sol")+C(70,62,30,"lite")+T(70,72,"X","emb",27);
-  A.p02={l:["Cilindro Ø 35 × 3 mm","Borde biselado","Símbolo centrado","Pieza final y perfil"],f:[b+d,b+bv+d,b+bv+s+d,sm+side]};
+  var b=C(120,62,46,"sol"),rim=C(120,62,46,"sol")+C(120,62,39,"lite"),d=T(120,124,"Ø 35 × 3 mm","dt");
+  var book=P("98,58 118,52 118,76 98,82","bgc")+P("142,58 122,52 122,76 142,82","bgc")+L(120,52,120,78,"ln");
+  var tx=T(120,100,"BIBLIOCOIN","emb",8)+T(120,46,"1","emb",11);
+  A.p02={l:["Disco Ø 35 × 3 mm","Borde en relieve","Libro abierto en relieve","Valor y nombre: Bibliocoin"],f:[b+d,rim+d,rim+book+d,rim+book+tx]};
 })();
 (function(){ // 03 Identificador
   var pl=R(40,40,160,66,"sol",12),d=T(120,28,"60 × 25 × 4 mm","dt"),h=C(66,73,8,"hol"),n=T(140,81,"ALEX","emb",22);
@@ -2132,10 +2219,25 @@ var A={};
   A.r3={l:["Esfera Ø 100 × 4 mm","Marcas horarias para φ = 37°","Gnomon inclinado a 37°","Gnomon orientado al norte"],f:[disc,disc+mk+nb,side,disc+mk+gn]};
 })();
 (function(){ // Reto 04 HC-SR04
-  var pl=R(20,22,200,100,"sol"),h=C(68,72,32,"hol")+C(172,72,32,"hol");
-  var dm=L(68,72,172,72,"dlk")+L(68,64,68,80,"ln")+L(172,64,172,80,"ln")+T(120,66,"26 mm","emb",11)+T(68,116,"Ø 16,2","dt")+T(172,116,"Ø 16,2","dt");
-  var side=R(60,18,10,102,"sol")+R(70,110,120,10,"sol")+P("70,110 70,62 118,110","sec")+R(150,110,8,10,"bgc")+R(30,44,30,46,"ghost")+T(45,104,"sensor","dt",9)+T(154,104,"M3","dt",9);
-  A.r4={l:["Placa 50 × 25 × 3 mm","Dos huecos Ø 16,2 mm","26 mm entre centros","Escuadra trasera con refuerzo"],f:[pl,pl+h,pl+h+dm,side]};
+  var pl=R(14,24,212,96,"sol"),h=C(68,66,32,"hol")+C(172,66,32,"hol");
+  var xt=R(102,40,36,14,"bgc")+T(120,36,"cristal","dt",9),m2=C(24,32,3,"hol")+C(216,32,3,"hol")+C(24,112,3,"hol")+C(216,112,3,"hol");
+  var dm=L(68,66,172,66,"dlk")+T(120,90,"26 mm","emb",11)+T(68,112,"Ø 16,4","dt")+T(172,112,"Ø 16,4","dt");
+  var side=R(70,30,10,90,"sol")+R(80,30,90,10,"sol")+P("80,40 80,70 110,40","sec")+R(40,60,30,50,"ghost")+T(55,52,"sensor","dt",9)+R(46,110,4,14,"mag")+R(56,110,4,14,"mag")+T(140,60,"pestaña arriba","dt",9)+T(70,132,"pines libres","dt",9);
+  A.r4={l:["Placa 52 × 26 × 2,5 mm","Orificios Ø 16,4 a 26 mm","Ranura del cristal y taladros M2","Pestaña arriba: pines libres"],f:[pl,pl+h+dm,pl+h+xt+m2,side]};
+})();
+(function(){ // Retos 06–10
+  var robot=R(60,40,120,60,"ghost")+C(80,104,12,"ghost")+C(160,104,12,"ghost");
+  var pala=P("40,96 200,96 196,110 44,110","sol"),arms=R(70,70,10,30,"sec")+R(160,70,10,30,"sec")+R(70,78,10,3,"bgc")+R(160,78,10,3,"bgc");
+  A.r6={l:["Medir el robot","Pala 90 × 30 mm","Brazos con ranura de 1,8 mm","Huecos para los sensores"],f:[robot+T(120,30,"ancho del chasis","dt"),robot+pala,robot+pala+arms,robot+pala+arms+R(110,98,20,8,"bgc")]};
+  var pala7=P("30,96 210,96 210,110 30,110","sol")+P("30,96 14,80 14,94 30,110","lite")+P("210,96 226,80 226,94 210,110","lite"),sop=R(95,60,50,30,"sec")+R(103,66,8,18,"bgc",4)+R(129,66,8,18,"bgc",4);
+  A.r7={l:["Medir los taladros delanteros","Pala con alas a 45°","Soporte con colisos M3","Montaje con tornillos"],f:[robot+C(100,46,4,"mag")+C(140,46,4,"mag"),robot+pala7,robot+pala7+sop,robot+pala7+sop+T(120,50,"M3","emb",11)]};
+  var base8=R(30,96,180,14,"sol")+R(46,64,10,32,"sol")+R(184,64,10,32,"sol"),arm=P("51,72 200,30 204,38 55,80","lite")+C(51,76,6,"bgc")+C(51,76,4,"sec")+C(204,32,12,"sec")+C(204,32,7,"bgc");
+  A.r8={l:["Base y soportes","Brazo con eje Ø 4 mm","Cazoleta y tope a 45°","Holgura de 0,4 mm"],f:[base8,base8+arm,base8+arm+P("150,96 180,64 186,70 162,96","sec"),base8+arm+C(51,76,9,"dlk")+T(80,120,"0,4 mm","dt")]};
+  var cells="";for(var i=0;i<3;i++)for(var j=0;j<2;j++)cells+=R(50+i*46,24+j*46,44,44,"ghost");
+  var bins=R(50,24,90,44,"sol",4)+R(142,24,44,90,"lite",4)+R(50,70,44,44,"sec",4);
+  A.r9={l:["Retícula de 42 mm","Cubetas de 1 y 2 celdas","Separadores interiores","Etiquetas en relieve"],f:[cells,cells+bins,cells+bins+L(95,24,95,68,"ln")+L(142,68,186,68,"ln"),cells+bins+T(95,50,"ROTUL.","emb",8)]};
+  var map=P("24,70 52,44 96,40 132,30 176,38 214,58 204,86 150,104 96,108 52,98","sol"),prov=L(70,42,66,104,"dl")+L(110,36,110,108,"dl")+L(150,34,160,100,"dl"),caps=C(60,80,4,"bgc")+C(128,72,4,"bgc")+C(188,62,4,"bgc");
+  A.r10={l:["Contorno en relieve","Provincias con surcos","Capitales y braille","Leyenda táctil"],f:[map,map+prov,map+prov+caps+C(66,88,1.6,"emb")+C(66,92,1.6,"emb"),map+prov+caps+T(120,126,"LEYENDA EN RELIEVE","dt")]};
 })();
 (function(){ // Reto 05 Medalla
   var ringO=C(120,22,11,"sec"),base=C(120,78,48,"sec"),ringH=C(120,22,5,"bgc"),frm=C(120,78,44,"frm"),em=star(120,78,26,11,"yel");
@@ -2155,7 +2257,7 @@ var A={};
   
 })();
 /* Motor estandarizado: viewBox 260 × 120, ciclo de 3 pasos (step-1, step-2, step-3) */
-var STEPS={p11:[0,1,2],p12:[0,1,2],p01:[0,1,3],p04:[0,1,3],p05:[0,1,3],p10:[0,1,3],r1:[0,1,3],p07:[1,2,3],r2:[1,2,3],r3:[1,2,3],r4:[1,2,3],r5:[1,2,3]};
+var STEPS={r6:[1,2,3],r7:[1,2,3],r8:[1,2,3],r9:[1,2,3],r10:[0,2,3],p11:[0,1,2],p12:[0,1,2],p01:[0,1,3],p04:[0,1,3],p05:[0,1,3],p10:[0,1,3],r1:[0,1,3],p07:[1,2,3],r2:[1,2,3],r3:[1,2,3],r4:[1,2,3],r5:[1,2,3]};
 function animSVG(key){
   var a=A[key]; if(!a) return "";
   var ks=STEPS[key]||[0,2,3],labels=[];
@@ -2167,8 +2269,8 @@ function animSVG(key){
   return '<svg class="anim" viewBox="0 0 260 120" role="img" aria-label="Evolución constructiva: '+labels.join(" → ")+'"><title>Clic para pausar o reanudar</title>'+GRID+fr+'</svg>';
 }
 /* Áreas para el filtro (data-area) */
-var AREA={p01:"matematicas",p02:"historia matematicas",p03:"",p04:"matematicas",p05:"historia ciencias",p06:"robotica",p07:"matematicas",p08:"inclusion",p09:"ciencias",p10:"robotica",p11:"",p12:"matematicas",
-  r1:"inclusion",r2:"ciencias",r3:"ciencias matematicas",r4:"robotica",r5:""};
+var AREA={p01:"matematicas",p02:"matematicas",p03:"",p04:"matematicas",p05:"historia ciencias",p06:"robotica",p07:"matematicas",p08:"inclusion",p09:"ciencias",p10:"robotica",p11:"",p12:"matematicas",
+  r1:"inclusion",r2:"ciencias",r3:"ciencias matematicas",r4:"robotica",r5:"",r6:"robotica",r7:"robotica",r8:"ciencias matematicas",r9:"matematicas",r10:"ciencias inclusion"};
 
 /* Animaciones de las prácticas de Layerling (3 fotogramas) */
 function gear(cx,cy,rp,z,c){var p=[],t=2*Math.PI/z,ro=rp-4,rt=rp+4;for(var i=0;i<z;i++){var a=i*t;[[a,ro],[a+.2*t,rt],[a+.5*t,rt],[a+.7*t,ro]].forEach(function(q){p.push(f1(cx+q[1]*Math.cos(q[0]))+","+f1(cy+q[1]*Math.sin(q[0])));});}return P(p.join(" "),c);}
@@ -2193,7 +2295,13 @@ function gear(cx,cy,rp,z,c){var p=[],t=2*Math.PI/z,ro=rp-4,rt=rp+4;for(var i=0;i
   A.l06={l:["Regla de 400 mm: no cabe","Dividir con un plano","Unión en cola de milano"],f:[bed+R(20,56,200,16,"sol")+R(20,56,36,16,"mag")+R(184,56,36,16,"mag")+T(120,44,"sobresale 72 mm por lado","dt"),
     bed+R(20,56,200,16,"sol")+P("116,36 126,30 126,92 116,98","wp"),
     R(12,56,100,16,"sol")+P("112,58 124,54 124,74 112,70","sol")+R(132,56,100,16,"sol")+P("132,58 144,54 144,74 132,70","bgc")+T(120,96,"cola de milano","dt")]};
-  ["l01","l02","l03","l04","l05","l06"].forEach(function(k){STEPS[k]=[0,1,2];});
+  var bx=R(70,40,110,70,"sol",10),hol=R(78,40,94,62,"bgc",6),lid=R(70,22,110,10,"lite",4)+R(78,32,94,6,"lite");
+  A.l07={l:["Caja redondeada 80 × 60 × 40","Vaciar: pared 2 mm, abierta arriba","Tapa «Por dentro» · holgura 0,2 mm"],f:[bx+T(196,30,"80 × 60 × 40","dt"),bx+hol+T(200,60,"pared 2 mm","dt"),bx+hol+lid+T(204,30,"tapa","dt")]};
+  var dk=R(40,58,160,24,"sol"),dr=P("40,82 40,64 46,58 194,58 200,64 200,82","sol"),dc=P("43,82 40,79 40,64 46,58 194,58 200,64 200,79 197,82","sol");
+  A.l08={l:["Cilindro Ø 90 × 5 mm","Redondeo: aristas superiores R 2","Chaflán redondeado en el pie"],f:[dk+T(120,48,"Ø 90 × 5 mm","dt"),dr+T(120,48,"R 2 mm","dt"),dc+R(60,58,120,3,"bgc")+T(120,48,"pie sin pata de elefante","dt")]};
+  var body=R(102,48,36,70,"sol"),nose=P("102,48 120,8 138,48","lite"),cav=R(106,72,28,46,"bgc")+T(120,98,"bote","dt",9),fins=P("102,96 82,118 102,118","sec")+P("138,96 158,118 138,118","sec");
+  A.l09={l:["Cuerpo Ø 36 mm y ojiva","Hueco Ø 32,5 × 52 mm para el bote","Tres aletas con «Patrón» a 120°"],f:[body+nose+T(176,70,"Ø 36 mm","dt"),body+nose+cav,body+nose+cav+fins]};
+  ["l01","l02","l03","l04","l05","l06","l07","l08","l09"].forEach(function(k){STEPS[k]=[0,1,2];});
 })();
 var LY=[
  {id:"l01",t:"Portalápices con paredes uniformes",a:"Organización de aula",ar:"",tech:"Redondeo y Vaciar",
@@ -2219,7 +2327,19 @@ var LY=[
  {id:"l06",t:"Regla de 40 cm dividida",a:"Matemáticas",ar:"matematicas",tech:"Dividir y cola de milano",
   s:"Regla de <b>400 × 30 × 4 mm</b> que no cabe en la cama de <b>256 mm</b>: se divide en dos mitades unidas con <b>cola de milano</b>.",
   st:["En Ajustes → Plano de trabajo, elegir la impresora Bambu Lab P1S: la placa toma el tamaño de 256 × 256 mm.","Crear la regla de 400 × 30 × 4 mm: layerling avisa de cuánto sobresale.","«Dividir» la regla con un plano vertical en el centro.","Añadir una «Cola de milano» en la unión: saliente en una mitad y hueco en la otra.","Ejecutar «Comprobar holguras», apoyar ambas mitades sobre la placa y exportar."],
-  tips:["Con la impresora elegida, el aviso aparece antes de llegar al laminador.","Las marcas cada 10 mm se pueden hacer con «Patrón» en modo «Fila»."],tools:["ajustes","ly_caja","dividir","colamilano","holguras","ly_exportar"]}
+  tips:["Con la impresora elegida, el aviso aparece antes de llegar al laminador.","Las marcas cada 10 mm se pueden hacer con «Patrón» en modo «Fila»."],tools:["ajustes","ly_caja","dividir","colamilano","holguras","ly_exportar"]},
+ {id:"l07",t:"Caja con tapa encajable",a:"Organización de aula",ar:"",tech:"Vaciar y Tapa",
+  s:"Caja redondeada de <b>80 × 60 × 40 mm</b> con pared de <b>2 mm</b> y su tapa «Por dentro» con <b>0,2 mm</b> de holgura.",
+  st:["Añadir una «Caja redondeada» de 80 × 60 × 40 mm.","Seleccionarla y pulsar «Vaciar»: grosor de pared 2 mm y solo «Arriba» abierto.","Con la caja seleccionada, pulsar «Tapa», tipo «Por dentro», grosor 2 mm y «Ajuste» normal (0,2 mm).","«Crear tapa»: aparece junto a la caja, boca abajo, lista para imprimir sin soportes.","Añadir un texto en relieve en la tapa y exportar las dos piezas."],
+  tips:["Imprimir antes una caja pequeña de prueba: si la tapa entra muy justa, elegir el ajuste suelto (0,3 mm).","Otros tipos de tapa: «De corredera» para un plumier, «De rosca» para un bote redondo, o con «Bisagra»."],tools:["ly_caja","vaciar","tapa","ly_texto","ly_exportar"]},
+ {id:"l08",t:"Posavasos con cantos suaves",a:"Iniciación · Tecnología",ar:"",tech:"Redondeo y chaflán por grupos de aristas",
+  s:"Disco de <b>Ø 90 × 5 mm</b> con el canto superior redondeado (<b>R 2 mm</b>), el pie con «Chaflán redondeado» y un rebaje central de 1 mm.",
+  st:["Añadir un «Cilindro» de Ø 90 × 5 mm.","Pulsar <kbd>B</kbd> (Redondeo), elegir «Aristas superiores», radio 2 mm y «Aplicar».","Pulsar <kbd>Mayús</kbd>+<kbd>B</kbd> (Chaflán), elegir «Chaflán redondeado» y «Aristas inferiores», 0,6 mm.","Restar un cilindro de Ø 76 × 1 mm en la cara superior para el rebaje.","Exportar en STL."],
+  tips:["«Todas las aristas vivas» redondea cualquier pieza con un clic: útil en llaveros e identificadores.","El chaflán del pie se imprime sin soportes y evita la pata de elefante; un redondeo en la base, no."],tools:["ly_cilindro","redondeo","chaflan","ly_exportar"]},
+ {id:"l09",t:"Minicohete de pastilla efervescente",a:"Física y Química",ar:"ciencias",tech:"Vaciar, Paraboloide y Patrón circular",
+  s:"Cohete de <b>Ø 36 × 120 mm</b> con un hueco inferior de <b>Ø 32,5 × 52 mm</b> para un bote de carrete fotográfico y tres aletas a 120°.",
+  st:["Medir el bote (habitual: Ø 31–32 mm y 50 mm de alto) y sumar entre 0,5 y 1 mm de holgura al diámetro.","Añadir un «Cilindro» de Ø 36 × 75 mm y, encima, un «Paraboloide» de Ø 36 × 45 mm como ojiva; agrupar.","Restar desde la base un cilindro de Ø 32,5 × 52 mm (o «Vaciar» con pared de 1,6 mm y solo «Abajo» abierto).","Crear una aleta con una «Cuña» de 30 × 2 × 35 mm apoyada en la base y repetirla con «Patrón» en modo «Círculo», 3 copias.","«Comprobar impresión» y exportar; imprimir de pie, con las aletas sobre la placa."],
+  tips:["Funcionan mejor los botes de tapa interior (translúcidos). Lanzar al aire libre, con gafas y a 3 m: un tercio de agua y media pastilla; tapar, dar la vuelta y apartarse.","Medir el alcance cambiando la cantidad de agua o de pastilla: práctica de control de variables."],tools:["ly_cilindro","paraboloide","vaciar","cuna","patron","comprobar"]}
 ];
 
 /* ---------- 4. Prácticas de diseño (sección 05) ---------- */
@@ -2233,14 +2353,14 @@ var PR=[
       "Alargar a 10 mm las marcas de 0, 50 y 100 e incorporar los números con la forma <em>Texto</em> (4 mm de altura de letra y 1 mm de relieve).",
       "Seleccionar todo, agrupar con "+K("Ctrl")+"+"+K("G")+" y exportar en <code>.STL</code>."],
   n:"Al medir la regla impresa con un pie de rey, el alumnado compara la medida nominal con la real y calcula el error relativo."},
- {id:"p02",t:"Moneda histórica o ficha de conteo",a:"Historia · Matemáticas",tech:"Cilindros y texto",
-  s:"Cilindro de <b>Ø 35 × 3 mm</b> con borde biselado y valor o símbolo centrado.",
-  st:["Insertar un <em>Cilindro</em> de 35 × 35 × 3 mm y aumentar el número de <em>Lados</em> para obtener un contorno circular suave.",
-      "Aplicar en el panel de forma un <em>Bisel</em> de 0,6 a 0,8 mm en la arista superior.",
-      "Añadir el valor o el símbolo con la forma <em>Texto</em> (1 mm de relieve) y situarlo sobre la cara superior con "+K("W")+".",
-      "Seleccionar moneda y texto, pulsar "+K("L")+" y centrar ambos ejes con los tiradores de alineación.",
-      "Agrupar y exportar. Para fichas de conteo, duplicar el conjunto y cambiar únicamente el valor."],
-  n:"Permite trabajar sistemas monetarios históricos (as y denario romanos, dírham andalusí) y el valor posicional con fichas de 1, 10 y 100."},
+ {id:"p02",t:"Bibliocoin para el proyecto de biblioteca",a:"Biblioteca · Matemáticas",tech:"Tubo, texto y agrupar",
+  s:"Moneda de <b>Ø 35 × 3 mm</b> con borde en relieve, un libro abierto y la palabra <b>BIBLIOCOIN</b>: se entrega por cada libro leído y se canjea en la biblioteca del centro.",
+  st:["Insertar un <em>Cilindro</em> de Ø 35 × 3 mm y subir los <em>Lados</em> a 64 para que el contorno sea redondo.",
+      "Añadir un <em>Tubo</em> de Ø 35 mm, pared de 2 mm y 1 mm de alto, centrado con "+K("L")+" sobre la moneda: es el borde.",
+      "Dibujar el libro abierto con dos cajas de 9 × 12 × 1 mm giradas ±15° y unidas en el centro.",
+      "Añadir el valor («1») y la palabra «BIBLIOCOIN» con la forma <em>Texto</em>: letra de 4 mm y 0,8 mm de relieve.",
+      "Agrupar y exportar. Para monedas de 5 y 10, duplicar el conjunto y cambiar solo el valor."],
+  n:"Sirve para un plan lector o una economía de aula: contar, sumar valores y llevar un registro de préstamos."},
  {id:"p03",t:"Identificador de mochila con pasador",a:"Organización de aula",tech:"Sólido + Hueco + Agrupar",
   s:"Placa redondeada de <b>60 × 25 × 4 mm</b> con perforación de <b>Ø 6 mm</b> y nombre en relieve.",
   st:["Insertar una <em>Caja</em> de 60 × 25 × 4 mm y asignar un <em>Radio</em> de 3 mm para redondear las esquinas.",
@@ -2273,14 +2393,6 @@ var PR=[
       "Introducir 1 mm el respaldo en la base y añadir la pestaña frontal con una caja de 60 × 3 × 5 mm alineada con el borde delantero.",
       "Agrupar y exportar. Comprobar que el espacio entre pestaña y respaldo admite el grosor del dispositivo."],
   n:"La placa Micro:bit mide 52 × 42 mm. Con un respaldo a 65°, el voladizo es de 25° respecto a la vertical y la pieza no necesita soportes."},
- {id:"p07",t:"Sello educativo",a:"Infantil y Primaria",tech:"Simetría "+K("M"),
-  s:"Base cilíndrica de <b>Ø 30 mm</b> con mango superior y texto invertido en espejo para su lectura correcta al estampar.",
-  st:["Insertar un <em>Cilindro</em> de Ø 30 × 8 mm como base del sello.",
-      "Añadir el mango: cilindro de Ø 14 × 25 mm centrado con "+K("L")+" sobre la base, con el extremo superior plano.",
-      "Escribir el texto o el símbolo (trazo mínimo de 2 mm y 1,5 mm de relieve) y situarlo bajo la base, elevando 1,5 mm el conjunto base-mango.",
-      "Seleccionar el texto, pulsar "+K("M")+" y elegir la flecha del eje horizontal: el texto queda invertido.",
-      "Agrupar y exportar. En el laminador, girar la pieza 180° para imprimirla apoyada en el extremo del mango y activar el <em>Brim</em>."],
-  n:"La inversión del texto permite trabajar la lateralidad y la simetría axial con un resultado directamente observable sobre el papel."},
  {id:"p08",t:"Ficha táctil en braille",a:"Inclusión PT/AL",tech:"Rejilla 0,5 mm y Duplicar",
   s:"Placa de <b>40 × 30 × 3 mm</b> con puntos semiesféricos de <b>Ø 1,5 mm</b> dispuestos en matriz <b>2 × 3</b>.",
   st:["Insertar una <em>Caja</em> de 40 × 30 × 3 mm y fijar la <em>Rejilla de ajuste</em> en 0,5 mm.",
@@ -2389,6 +2501,10 @@ var TI={
  boceto:'<path d="M3 3h18v18H3z" fill="#f4f6f8" stroke="#c9ccd1"/><path d="M5 17c3-8 6 2 9-6" fill="none" stroke="#3c8a46" stroke-width="2"/><path d="M15 15l5-5 2 2-5 5h-2z" fill="#f4c724" stroke="#a88a0c"/>',
  cono:'<ellipse cx="12" cy="19" rx="8" ry="2.6" fill="#8e4bb5" stroke="#5a2b7a"/><polygon points="12,3 20,19 4,19" fill="#a46ad0" stroke="#5a2b7a"/>',
  toroide:'<ellipse cx="12" cy="12" rx="10" ry="6" fill="#f49b24" stroke="#a8620c"/><ellipse cx="12" cy="11" rx="4.5" ry="2.2" fill="#fff" stroke="#a8620c"/>',
+ tapa:'<rect x="3" y="11" width="18" height="10" rx="2" fill="#e2672e" stroke="#9c3f14"/><rect x="2" y="5" width="20" height="4" rx="1.5" fill="#f6a56c" stroke="#9c3f14"/><rect x="5" y="9" width="14" height="2" fill="#f6a56c"/>',
+ cuna:'<polygon points="3,20 21,20 3,6" fill="#3c8a46" stroke="#24572b"/>',
+ paraboloide:'<path d="M4 20 C4 8 9 3 12 3 C15 3 20 8 20 20 Z" fill="#3c8a46" stroke="#24572b"/>',
+ tubo:'<ellipse cx="12" cy="12" rx="9" ry="6" fill="#f49b24" stroke="#a8620c"/><ellipse cx="12" cy="11" rx="4" ry="2.4" fill="#fff" stroke="#a8620c"/>',
  ia:'<rect x="3" y="5" width="18" height="14" rx="4" fill="#3c8a46"/><circle cx="9" cy="12" r="2" fill="#fff"/><circle cx="15" cy="12" r="2" fill="#fff"/><path d="M12 2v3" stroke="#3c8a46" stroke-width="2"/>'
 };
 var TOOLS={
@@ -2400,30 +2516,29 @@ var TOOLS={
  redondeo:["redondeo","Redondeo","Cinta · tecla B"],chaflan:["chaflan","Chaflán","Cinta · Mayús+B"],vaciar:["vaciar","Vaciar","Cinta o clic derecho"],rosca:["rosca","Rosca","Biblioteca de formas"],
  engranaje:["engranaje","Engranaje","Biblioteca de formas"],patron:["patron","Patrón · Círculo","Cinta · Patrón"],textoarco:["textoarco","Texto en arco","Propiedades del texto"],flexi:["flexi","Articulaciones flexi","Cinta"],
  dividir:["dividir","Dividir","Cinta · plano móvil"],colamilano:["colamilano","Cola de milano","Biblioteca de formas"],comprobar:["comprobar","Comprobar impresión","Grupo «Combinar»"],holguras:["holguras","Comprobar holguras","Grupo «Combinar»"],
- ajustes:["ajustes","Ajustes · Impresora","Rueda dentada del título"],cono:["cono","Cono","Formas básicas"],toroide:["toroide","Toroide","Formas básicas"],boceto:["boceto","Boceto · Extruir","Editor 3D → Boceto"],ia:["ia","Asistente de IA (MCP)","Copia local de layerling"]
+ ajustes:["ajustes","Ajustes · Impresora","Rueda dentada del título"],cono:["cono","Cono","Formas básicas"],toroide:["toroide","Toroide","Formas básicas"],tubo:["tubo","Tubo","Formas básicas"],tapa:["tapa","Tapa","Cinta · tipos: por dentro, rosca…"],cuna:["cuna","Cuña","Añadir forma"],paraboloide:["paraboloide","Paraboloide","Añadir forma"],boceto:["boceto","Boceto · Extruir","Editor 3D → Boceto"],ia:["ia","Asistente de IA (MCP)","Copia local de layerling"]
 };
 function toolChips(keys){
-  return '<div class="toolset">'+keys.map(function(k){var t=TOOLS[k];return '<div class="tool"><svg viewBox="0 0 24 24" aria-hidden="true">'+TI[t[0]]+'</svg><div><b>'+t[1]+'</b><small>'+t[2]+'</small></div></div>';}).join("")+'</div><p class="tools-note">Iconos orientativos: el aspecto puede variar según la versión de la aplicación.</p>';
+  return '<div class="toolset">'+keys.map(function(k){var t=TOOLS[k];return '<div class="tool">'+(TIMG[k]?'<img src="'+TIMG[k]+'" alt="" class="real">':'<svg viewBox="0 0 24 24" aria-hidden="true">'+TI[t[0]]+'</svg>')+'<div><b>'+t[1]+'</b><small>'+t[2]+'</small></div></div>';}).join("")+'</div><p class="tools-note">Iconos de Tinkercad capturados de la aplicación; los de Layerling son orientativos. El aspecto puede variar con cada versión.</p>';
 }
-var TC_TOOLS={p01:["caja","rejilla","duplicar","texto","agrupar","exportar"],p02:["cilindro","texto","plano","alinear","agrupar"],p03:["caja","cilindro","hueco","texto","agrupar"],
- p04:["caja","plano","semiesfera","hueco","alinear","agrupar"],p05:["piramide","caja","hueco","girar","agrupar"],p06:["caja","girar","alinear","agrupar"],p07:["cilindro","texto","simetria","alinear","agrupar"],
+var TC_TOOLS={p01:["caja","rejilla","duplicar","texto","agrupar","exportar"],p02:["cilindro","tubo","caja","texto","alinear","agrupar"],p03:["caja","cilindro","hueco","texto","agrupar"],
+ p04:["caja","plano","semiesfera","hueco","alinear","agrupar"],p05:["piramide","caja","hueco","girar","agrupar"],p06:["caja","girar","alinear","agrupar"],
  p08:["caja","rejilla","semiesfera","duplicar","agrupar"],p09:["esfera","cilindro","girar","simetria","agrupar"],p10:["importar","cilindro","plano","apoyar","texto","agrupar","exportar"],
  p11:["cono","duplicar","hueco","toroide","girar","alinear","agrupar"],p12:["caja","cilindro","duplicar","plano","texto","hueco","agrupar"]};
-var TC_TIPS={p01:"Para que todas las marcas queden a la misma altura, seleccionarlas juntas y usar Alinear (L).",p02:"Si el texto queda enterrado en el cilindro, elevarlo con el cono negro superior hasta Z = 3 mm.",
+var TC_TIPS={p01:"Para que todas las marcas queden a la misma altura, seleccionarlas juntas y usar Alinear (L).",p02:"Si el texto queda enterrado, elevarlo con el cono negro superior hasta que apoye sobre la cara de la moneda (Z = 3 mm).",
  p03:"Comprobar en vista lateral que el cilindro hueco atraviesa la placa por completo antes de agrupar.",p04:"Trabajar cara a cara: tras cada cara, volver al plano por defecto con W y un clic en una zona vacía.",
  p05:"Mostrar la pieza con la cámara frontal para que la sección sea visible al alumnado.",p06:"Escribir el ángulo en el campo de rotación es más preciso que arrastrar la flecha curva.",
- p07:"Antes de agrupar, comprobar con la vista inferior que el texto se lee al revés.",p08:"Si los puntos no apoyan bien, bajar la rejilla a 0,1 mm para colocarlos con precisión.",
+ p08:"Si los puntos no apoyan bien, bajar la rejilla a 0,1 mm para colocarlos con precisión.",
  p09:"Agrupar por partes (oxígeno con un enlace, luego el segundo) facilita corregir errores.",p10:"Si el modelo importado pesa demasiado, simplificarlo antes en el laminador o elegir una versión de menos detalle.",
  p11:"Si el asa queda flotando, bajarla con el cono negro hasta que toque la pared en toda su sección.",p12:"Seleccionar los ocho tetones y agruparlos antes de moverlos: así la retícula de 8 mm no se descoloca."};
 /* Una solución posible: árbol de formas (forma, modo, medidas en mm, posición) */
 var SOL={
  p01:[["Caja","Sólido","100 × 20 × 3","Base, Z = 0"],["Caja × 3 (marcas largas)","Sólido","0,8 × 10 × 1","X = 0, 50 y 100 · Z = 3"],["Caja × 8 (marcas cortas)","Sólido","0,8 × 6 × 1","Cada 10 mm · Z = 3"],["Texto 0 … 10","Sólido","Letra 4 · relieve 1","Bajo cada marca · Z = 3"]],
- p02:[["Cilindro (64 lados)","Sólido","Ø 35 × 3 · bisel 0,7","Centro"],["Texto «X»","Sólido","Letra 12 · relieve 1","Centrado · Z = 3"]],
+ p02:[["Cilindro (64 lados)","Sólido","Ø 35 × 3","Centro"],["Tubo (borde)","Sólido","Ø 35 · pared 2 · alto 1","Centrado · Z = 3"],["Caja × 2 (libro)","Sólido","9 × 12 × 1 · ±15°","Centro · Z = 3"],["Texto «1» y «BIBLIOCOIN»","Sólido","Letra 4 · relieve 0,8","Arriba y abajo del libro · Z = 3"]],
  p03:[["Caja (radio 3)","Sólido","60 × 25 × 4","Base"],["Cilindro","Hueco","Ø 6 × 6","A 7 mm del borde izquierdo · Z = −1"],["Texto (alias)","Sólido","Letra 8 · relieve 1","Zona derecha · Z = 4"]],
  p04:[["Caja (radio 2)","Sólido","25 × 25 × 25","Centro"],["Media esfera × 21","Hueco","Ø 5 · profundidad 2","1 a 6 puntos por cara; opuestas suman 7"]],
  p05:[["Pirámide","Sólido","50 × 50 × 35","Centro"],["Caja (corte)","Hueco","25 × 25 × 40","Cuadrante frontal derecho · Z = −1"],["Caja (cámara)","Hueco","8 × 6 × 5","Z = 12, cruzando las caras del corte"],["Caja (corredor)","Hueco","3 × 20 × 3 · girada 26°","Desde la cámara hacia fuera"]],
  p06:[["Caja (base)","Sólido","60 × 50 × 4","Base"],["Caja (respaldo)","Sólido","60 × 4 × 55 · girada 25°","A 12 mm del borde frontal · hundida 1"],["Caja (pestaña)","Sólido","60 × 3 × 5","Borde frontal · Z = 4"]],
- p07:[["Cilindro (base)","Sólido","Ø 30 × 8","Z = 1,5"],["Cilindro (mango)","Sólido","Ø 14 × 25","Centrado · Z = 9,5"],["Texto con simetría (M)","Sólido","Trazo ≥ 2 · relieve 1,5","Bajo la base · Z = 0"]],
  p08:[["Caja","Sólido","40 × 30 × 3","Base · rejilla 0,5"],["Media esfera × 6","Sólido","Ø 1,5 × 0,6","Matriz 2 × 3 · 2,5 entre puntos · Z = 3"]],
  p09:[["Esfera (oxígeno, roja)","Sólido","Ø 20","Centro"],["Cilindro × 2 (enlaces)","Sólido","Ø 4 × 22 · ± 52,25°","Desde el centro del oxígeno"],["Esfera × 2 (hidrógeno, blanca)","Sólido","Ø 12","Extremo de cada enlace"]],
  p10:[["Cilindro (base)","Sólido","Ø 50 × 4","Centro"],["Modelo importado","Sólido","Escala proporcional","Sobre la base · hundido 0,5"],["Texto (etiqueta)","Sólido","Letra 5 · relieve 1","Canto o cara superior"]],
@@ -2432,10 +2547,15 @@ var SOL={
  r1:[["Polígono de 3 lados (prisma)","Sólido","Lado 22 · largo 45 · aristas R 3","De pie"],["Cilindro","Hueco","Ø 8,2 × 50","Centrado en el baricentro"]],
  r2:[["Caja (base)","Sólido","90 × 90 × 4","Base"],["Paraboloide o cono","Sólido","Ø 90 × 55","Centrado · Z = 4"],["Cono invertido (cráter)","Hueco","Ø 14 × 10","Cima"],["Cilindro (chimenea)","Hueco","Ø 6 × 45","Eje central"],["Esfera achatada (cámara)","Hueco","30 × 30 × 12","Z = 8"],["Caja (sección)","Hueco","90 × 45 × 60","Mitad frontal"]],
  r3:[["Cilindro (esfera)","Sólido","Ø 100 × 4","Centro"],["Caja × 13 (marcas)","Sólido","1,5 × 100 × 1 · girada θ","Centrada en el disco · Z = 4"],["Cilindro (recorte)","Hueco","Ø 80 × 6","Centro"],["Caja (mitad sur)","Hueco","100 × 50 × 6","Mitad inferior"],["Cuña (gnomon)","Sólido","50 × 3 × 37,7","Sobre la línea del mediodía"]],
- r4:[["Caja (placa)","Sólido","50 × 25 × 3","De pie"],["Cilindro × 2","Hueco","Ø 16,2 × 5","Centros a ± 13 mm"],["Caja (escuadra)","Sólido","50 × 20 × 3","Perpendicular en el borde inferior"],["Cuña × 2 (refuerzo)","Sólido","15 × 3 × 15","En las esquinas"],["Cilindro × 2","Hueco","Ø 3,2 × 5","En la escuadra"]],
+ r4:[["Caja (placa frontal)","Sólido","52 × 26 × 2,5","De pie"],["Cilindro × 2","Hueco","Ø 16,4 × 5","Centros a ± 13 mm"],["Caja (cristal)","Hueco","12 × 5 × 5","Entre los orificios, arriba"],["Cilindro × 4","Hueco","Ø 2,2 × 5","Taladros M2 medidos (≈ 41 × 16)"],["Caja (pestaña)","Sólido","52 × 12 × 3","Borde superior, a 90°"],["Cuña (refuerzo)","Sólido","12 × 3 × 12","Entre placa y pestaña"]],
+ r6:[["Caja (pala)","Sólido","90 × 2,5 × 30 · chaflán inferior","Delante del robot, a 3 mm del suelo"],["Caja × 2 (brazos)","Sólido","40 × 8 × 6","A los lados del chasis"],["Caja × 2 (ranura)","Hueco","40 × 1,8 × 10","A la altura de la placa del robot"],["Cuña × 2","Sólido","15 × 3 × 15","Refuerzo pala-brazo"]],
+ r7:[["Caja (pala)","Sólido","120 × 3 × 35","Frontal"],["Caja × 2 (alas)","Sólido","25 × 3 × 35 · girada 45°","Extremos de la pala"],["Caja (soporte)","Sólido","50 × 15 × 4","Detrás de la pala"],["Caja redondeada × 2 (colisos)","Hueco","3,4 × 8 × 6","A la distancia medida entre taladros"],["Cuña (refuerzo)","Sólido","15 × 4 × 15","Soporte-pala"]],
+ r8:[["Caja (base)","Sólido","80 × 40 × 6","Base"],["Caja × 2 (soportes)","Sólido","8 × 6 × 26","Laterales"],["Cilindro × 2","Hueco","Ø 4,8 × 10","Orificios de los soportes"],["Caja + cilindro (brazo y eje)","Sólido","90 × 8 × 5 · eje Ø 4","Eje entre los soportes"],["Semiesfera vaciada (cazoleta)","Sólido","Ø 18","Extremo del brazo"],["Cuña (tope)","Sólido","20 × 30 × 20","Base, delante del brazo"]],
+ r9:[["Caja vaciada · Fondo Gridfinity","Sólido","84 × 42 × 35 · pared 1,2","Celdas 2 × 1"],["Separadores","Sólido","grosor 1,2","Transversales"],["Texto (etiqueta)","Sólido","Letra 6 · relieve 0,8","Frente"]],
+ r10:[["Caja (base)","Sólido","160 × 90 × 3","Base"],["SVG importado (Andalucía)","Sólido","150 de ancho · extruido 2","Centrado · Z = 3"],["Trazos (límites)","Hueco","1 de ancho · 1 de fondo","Fronteras provinciales"],["Cilindro × 8 (capitales)","Sólido","Ø 3 × 1","Cada capital"],["Semiesferas (braille)","Sólido","Ø 1,5 × 0,6 · paso 2,5","Junto a cada capital"]],
  r5:[["Cilindro (base)","Sólido","Ø 65 × 2","Centro"],["Cilindro (marco)","Sólido","Ø 65 × 3,5","Centro"],["Cilindro","Hueco","Ø 57 × 4","Centro · deja el marco de 4 mm"],["Emblema (SVG o texto)","Sólido","Altura total 5","Centro"],["Toroide o tubo (anilla)","Sólido","Ø interior 5","Borde superior"]]
 };
-var DL={p01:"dp-01-regla",p02:"dp-02-moneda",p03:"dp-03-identificador",p04:"dp-04-dado",p05:"dp-05-piramide",p06:"dp-06-soporte",p07:"dp-07-sello",p08:"dp-08-braille",
+var DL={p01:"dp-01-regla",p03:"dp-03-identificador",p04:"dp-04-dado",p05:"dp-05-piramide",p06:"dp-06-soporte",p08:"dp-08-braille",
   p09:"dp-09-media-molecula-h2o",p10:"dp-10-base-remezcla",r1:"reto-01-adaptador-lapiz",r2:"reto-02-volcan-seccion",r3:"reto-03-reloj-sol",r4:"reto-04-soporte-hcsr04",r5:"reto-05-medalla",
   l01:"ly-01-portalapices",l04:"ly-04-esfera-reloj",l06:"ly-06-regla-40cm-dividida"};
 var DL_NOTE={p09:"Media molécula cortada por el plano de los núcleos: imprimir dos copias sin soportes y unirlas.",p10:"La estrella es una figura de ejemplo: sustituirla por el modelo importado.",
@@ -2489,16 +2609,41 @@ var RT=[
   did:["Relaciona latitud, orientación y movimiento aparente del Sol.","Aplicación de la trigonometría en 4.º de ESO: cálculo de las marcas para φ = 37° (1 h: 9,2° · 2 h: 19,2° · 3 h: 31,0° · 4 h: 46,2° · 5 h: 66,0° · 6 h: 90°).","El gnomon puede ajustarse a la latitud de cada localidad (Cádiz 36,5° · Sevilla 37,4° · Córdoba 37,9°).","La lectura corresponde a la hora solar local; su comparación con la hora oficial introduce el huso horario, la longitud y la ecuación del tiempo."],
   est:["Crear el disco de Ø 100 × 4 mm.","Para cada marca, crear una barra fina que atraviese todo el diámetro centrada en el disco y girarla el ángulo θ calculado.","Restar un cilindro central de Ø 80 mm y una caja sobre la mitad sur para conservar solo los extremos útiles de las marcas.","Crear el gnomon con una cuña de 50 mm de base y 37,7 mm de altura (50 · tan 37°) y alinearlo con la línea del mediodía.","Agrupar y exportar."],
   lam:["Imprimir en una sola pieza, con el disco sobre la placa; la cuña no presenta voladizos.","Perfil <code>0.20mm Standard</code> y relleno del 15 %.","El PLA se reblandece con la exposición solar continuada: para una instalación exterior permanente, valorar PETG."]},
- {id:"r4",t:"Soporte para sensor ultrasónico HC-SR04",a:"Robótica · Escuela 4.0",
-  spec:["Placa frontal de <b>50 × 25 × 3 mm</b>.","Dos perforaciones de <b>Ø 16,2 mm</b> separadas <b>26 mm</b> entre centros y centradas en la placa.","Escuadra trasera de fijación a 90° con refuerzo triangular.","Dos orificios de Ø 3,2 mm en la escuadra para tornillos M3."],
-  did:["Integra el diseño con los kits de robótica: medición de distancias y detección de obstáculos.","Trabajo con medidas reales tomadas con pie de rey sobre el sensor.","Introduce el ajuste a presión y la necesidad de tolerancias."],
-  est:["Crear la placa de 50 × 25 × 3 mm.","Añadir dos cilindros huecos de Ø 16,2 mm; centrar el conjunto con Alinear y desplazar cada uno 13 mm desde el centro.","Añadir la escuadra (50 × 20 × 3 mm) perpendicular a la placa en su borde inferior.","Incorporar una cuña como refuerzo y dos cilindros huecos de Ø 3,2 mm en la escuadra.","Agrupar, exportar y probar el ajuste con el sensor."],
-  lam:["Imprimir con la placa frontal apoyada: los orificios quedan en vertical y salen circulares.","Perfil <code>0.20mm Standard</code>, 3 perímetros y relleno del 20 %.","Si el ajuste es demasiado justo, aumentar el diámetro en 0,2 mm y repetir."]},
+ {id:"r4",t:"Soporte frontal para sensor ultrasónico HC-SR04",a:"Robótica · Escuela 4.0",
+  spec:["Placa frontal de <b>52 × 26 × 2,5 mm</b> para un módulo de 45 × 20 mm.","Dos orificios de <b>Ø 16,4 mm</b> a <b>26 mm</b> entre centros, a la altura de los transductores.","Ranura de <b>12 × 5 mm</b> entre los orificios para el cristal oscilador, que sobresale por delante del módulo.","Cuatro taladros de <b>Ø 2,2 mm</b> para tornillos M2 en las posiciones de los del módulo (≈ 41 × 16 mm; medir con pie de rey).","Pestaña de fijación en el borde <b>superior</b>: el inferior queda libre para los cuatro pines (VCC, Trig, Echo, GND)."],
+  did:["Integra el diseño con los kits de robótica: medición de distancias y detección de obstáculos.","Diseñar a partir del objeto real: el cristal y los pines obligan a observar antes de modelar.","Ajuste a presión, tolerancias y tornillería normalizada (M2 y M3)."],
+  est:["Medir el módulo: placa, diámetro de los transductores, distancia entre centros, cristal y taladros.","Crear la placa de 52 × 26 × 2,5 mm y dos cilindros huecos de Ø 16,4 mm separados 26 mm.","Añadir una caja hueca de 12 × 5 mm centrada entre los orificios para el cristal.","Añadir cuatro cilindros huecos de Ø 2,2 mm en las posiciones medidas de los taladros.","Añadir en el borde superior una pestaña de 52 × 12 × 3 mm a 90° con dos orificios de Ø 3,2 mm y un refuerzo triangular; agrupar y exportar."],
+  lam:["Imprimir con la placa frontal apoyada: los orificios salen redondos.","Perfil <code>0.20mm Standard</code>, 3 perímetros y relleno del 20 %.","Imprimir antes solo la placa frontal para comprobar el encaje del módulo."]},
  {id:"r5",t:"Medalla conmemorativa del centro en 3 niveles de altura",a:"Eventos STEAM",
   spec:["Base de <b>Ø 65 × 2 mm</b>.","Marco perimetral elevado hasta <b>3,5 mm</b> de altura total.","Emblema central hasta <b>5 mm</b> de altura total.","Anilla superior con orificio interior de <b>Ø 5 mm</b>."],
   did:["Reconocimiento en ferias STEAM, jornadas de puertas abiertas o el 11 de febrero (Día de la Mujer y la Niña en la Ciencia).","Trabajo de identidad visual del centro y del concepto de capa como unidad de fabricación.","Permite obtener una pieza en tres colores sin necesidad de AMS."],
   est:["Crear la base con un cilindro de Ø 65 × 2 mm.","Construir el marco restando a un cilindro de Ø 65 × 3,5 mm otro cilindro hueco de Ø 57 mm.","Importar el emblema en <code>.SVG</code> (o construirlo con primitivas) y extruirlo hasta 5 mm de altura.","Añadir la anilla con un toroide o un cilindro con orificio de Ø 5 mm.","Agrupar y exportar."],
-  lam:["En la pestaña <b>Preview</b>, añadir un cambio de filamento o una pausa en la primera capa por encima de 2 mm y otra por encima de 3,5 mm.","Sin AMS, cambiar el filamento manualmente durante cada pausa.","Perfil <code>0.20mm Standard</code>; las alturas de 2 y 3,5 mm coinciden con límites de capa."]}
+  lam:["En la pestaña <b>Vista previa</b>, añadir un cambio de filamento o una pausa en la primera capa por encima de 2 mm y otra por encima de 3,5 mm.","Sin AMS, cambiar el filamento manualmente durante cada pausa.","Perfil <code>0.20mm Standard</code>; las alturas de 2 y 3,5 mm coinciden con límites de capa."]},
+ {id:"r6",t:"Pala empujadora para micro:Maqueen Lite",a:"Robótica · Escuela 4.0",
+  spec:["Pala frontal de <b>90 × 30 mm</b> y 2,5 mm de espesor, a <b>3 mm</b> del suelo.","Dos brazos de 40 mm que abrazan el borde de la placa del robot con una ranura de <b>1,8 mm</b> (placa de 1,6 mm).","Huecos que dejan libres el sensor ultrasónico y los sensores de línea.","Medidas de partida orientativas: verificar el ancho del chasis y la altura de la placa con pie de rey."],
+  did:["Retos de sumo o de recogida de objetos con micro:bit.","Diseño a partir de un objeto real: medir, prototipar, probar y corregir.","Holgura de encaje y equilibrio entre rigidez y peso."],
+  est:["Medir el ancho del chasis, el grosor de la placa (≈ 1,6 mm) y su altura sobre el suelo.","Crear la pala: caja de 90 × 30 × 2,5 mm con chaflán inferior, o un tubo de radio 60 mm cortado a 90° para que sea curva.","Crear dos brazos de 40 × 8 × 6 mm con una ranura hueca de 1,8 mm a la altura de la placa.","Unir pala y brazos con refuerzos triangulares y abrir los huecos de los sensores.","Imprimir antes una pieza corta solo con la ranura para ajustar el encaje."],
+  lam:["Imprimir con la pala apoyada sobre su cara trasera; soportes solo bajo la ranura si hacen falta.","PLA, <code>0.20mm Standard</code>, 4 perímetros y relleno del 25 %: la pala recibe golpes.","Brim si los brazos tienen poca superficie de apoyo."]},
+ {id:"r7",t:"Pala empujadora atornillada para micro:Maqueen Plus V2",a:"Robótica · Escuela 4.0",
+  spec:["Pala de <b>120 × 35 mm</b> y 3 mm de espesor con alas laterales a 45°.","Fijación con tornillos <b>M3</b> a los puntos de montaje delanteros del robot, con colisos de 8 mm para ajustar la altura.","Altura libre al suelo de <b>3–4 mm</b>, sin tapar el ultrasonido ni los sensores de línea.","Modelo paramétrico: medir antes la separación de los taladros del robot."],
+  did:["Retos de empuje y de sumo con la versión Plus.","Tornillería normalizada y colisos para ajustar la posición.","Comparar con la pala de Maqueen Lite: dos robots, dos soluciones de fijación."],
+  est:["Medir con pie de rey la distancia entre los taladros delanteros y su altura sobre el suelo.","Crear la pala con una caja de 120 × 3 × 35 mm y dos alas de 25 mm giradas 45°.","Crear el soporte: placa de 50 × 15 × 4 mm con dos colisos (caja hueca redondeada de 3,4 × 8 mm) a la distancia medida.","Unir soporte y pala con un refuerzo triangular y redondear las aristas expuestas.","Agrupar, exportar y montar con dos tornillos M3 y tuercas."],
+  lam:["Imprimir la pala tumbada, con la cara frontal sobre la placa.","PLA o PETG, 4 perímetros, relleno del 25–30 %.","Colisos en vertical para que salgan limpios sin soportes."]},
+ {id:"r8",t:"Catapulta con bisagra impresa en una sola pieza",a:"Física · Tecnología",
+  spec:["Base de <b>80 × 40 × 6 mm</b> con dos soportes laterales.","Brazo de <b>90 mm</b> con cazoleta de Ø 18 mm unido a la base por una <b>bisagra impresa en el sitio</b>: eje de Ø 4 mm en orificios de Ø 4,8 mm.","Tope inclinado que limita el recorrido del brazo a 45°.","Propulsión con una goma elástica entre el brazo y la base."],
+  did:["Energía potencial elástica, palancas y tiro parabólico.","Alcance según el ángulo del tope: tabla de datos y gráfica.","Tolerancias: la bisagra solo gira si la holgura es suficiente."],
+  est:["Crear la base y dos soportes con un orificio de Ø 4,8 mm.","Crear el brazo con un eje de Ø 4 mm que atraviese los soportes (0,4 mm de holgura por lado).","Añadir la cazoleta: semiesfera vaciada de Ø 18 mm en el extremo del brazo.","Añadir el tope inclinado y dos ganchos para la goma.","Revisar holguras (Layerling: «Comprobar holguras») y exportar como una sola pieza."],
+  lam:["Imprimir en una pieza con el brazo en horizontal.","<code>0.20mm Standard</code>; soportes solo bajo la cazoleta si es necesario, nunca dentro de la bisagra.","Al terminar, girar el brazo con suavidad para liberar la bisagra."]},
+ {id:"r9",t:"Organizador modular Gridfinity para el aula",a:"Organización de aula · Matemáticas",
+  spec:["Cubetas sobre una retícula de <b>42 × 42 mm</b> (estándar Gridfinity).","Base de 3 × 2 celdas (126 × 84 mm) y cubetas de 1 × 1, 2 × 1 y 1 × 2 celdas.","Alturas en múltiplos de 7 mm y separadores interiores para rotuladores, gomas y tarjetas.","Etiqueta frontal con el contenido en relieve."],
+  did:["Múltiplos, áreas y volúmenes: cuántas cubetas caben y cuánto material ocupan.","Diseño de sistemas modulares y normalizados.","Producto útil para el aula, mejorable por versiones."],
+  est:["Layerling: crear una caja de 84 × 42 × 35 mm, «Vaciar» con el lado de arriba abierto y activar «Fondo Gridfinity».","Añadir «Separadores» según el material que se guarde.","Añadir una etiqueta con texto en relieve de 0,8 mm en el frente.","Tinkercad: importar una base Gridfinity con licencia que permita remezcla y diseñar solo las cubetas.","Exportar cada pieza por separado."],
+  lam:["Imprimir las cubetas de pie, sin soportes.","<code>0.20mm Standard</code>, 2 perímetros y relleno del 10 %.","Repartir varias cubetas en la misma placa."]},
+ {id:"r10",t:"Mapa táctil de Andalucía con relieve y braille",a:"Geografía · Inclusión PT/AL",
+  spec:["Base de <b>160 × 90 × 3 mm</b> con el contorno de Andalucía en relieve de 2 mm.","Las ocho provincias separadas por surcos de 1 mm.","Capitales marcadas con un punto de Ø 3 mm y su inicial en braille (puntos de Ø 1,5 × 0,6 mm a 2,5 mm).","Leyenda en relieve para la persona que acompaña."],
+  did:["Geografía accesible para alumnado con discapacidad visual.","Escala, contornos y simplificación cartográfica.","Validación con la ONCE o con el equipo de orientación."],
+  est:["Obtener el contorno en SVG de una fuente con licencia libre (por ejemplo, Wikimedia Commons) y simplificarlo.","Importar el SVG, extruirlo 2 mm sobre la base y escalarlo a 150 mm de ancho.","Restar los límites provinciales con trazos huecos de 1 mm.","Añadir los puntos de las capitales y el braille con la rejilla a 0,5 mm (práctica de la ficha en braille).","Agrupar y exportar."],
+  lam:["Imprimir plano con <code>0.12mm Fine</code> para que el braille sea legible.","Cambio de color en la capa de 3 mm para destacar el relieve (pausa en Vista previa).","Probar el tacto del braille con una persona usuaria antes de hacer más copias."]}
 ];
 
 function renderRetos(){
@@ -2570,7 +2715,7 @@ function wkCard(c){
   var leg='<ol class="legend">'+c.pins.map(function(p){return "<li>"+p[2]+"</li>";}).join("")+'</ol>';
   return '<figure class="wk'+(c.wide?" wide":"")+'"><h4><span class="num">'+c.n+'</span>'+c.t+'</h4>'+
     '<div class="wk-img">'+wkMedia(c)+pins+'</div>'+
-    leg+'<p>'+c.p+'</p><figcaption>'+(c.own?'Captura propia de Bambu Studio en Windows':'Esquema propio de la interfaz, simplificado')+'</figcaption></figure>';
+    leg+'<p>'+c.p+'</p><figcaption>'+(c.cap||(c.own?'Captura propia de Bambu Studio en Windows':'Esquema propio de la interfaz, simplificado'))+'</figcaption></figure>';
 }
 function renderWiki(){
   var a=document.getElementById("guiaStudio"),b=document.getElementById("guiaHandy");
@@ -2736,10 +2881,7 @@ function WEB(title){
 }
 function CARD(x,y,shape,col,title,stars,dl){
   var s=R(x,y,140,104,"mw-card",6)+R(x+6,y+6,128,60,"mw-thumb",4);
-  if(shape==="cell")s+=E(x+70,y+36,34,22,"mw-s1")+E(x+76,y+36,10,8,"mw-s2");
-  else if(shape==="frac")s+=C(x+46,y+36,20,"mw-s1")+PA("M"+(x+46)+" "+(y+36)+" L"+(x+46)+" "+(y+16)+" A20 20 0 0 1 "+(x+66)+" "+(y+36)+" Z","mw-s2")+C(x+96,y+36,20,"mw-s3");
-  else if(shape==="cube")s+=BOX(x+52,y+58,34,34,24);
-  else s+=P((x+40)+","+(y+58)+" "+(x+70)+","+(y+14)+" "+(x+100)+","+(y+58),"mw-s3");
+  s+=thumbArt(shape==="cone"?"volcano":shape,x+6,y+6,128,60);
   return s+T(x+8,y+80,title,"mw-t",8.5,"start")+T(x+8,y+96,"★ "+stars,"mw-star",8,"start")+T(x+132,y+96,"↓ "+dl,"mw-sub",8,"end");
 }
 function mwUI(v){
@@ -2748,11 +2890,11 @@ function mwUI(v){
     s=WEB("célula eucariota");
     [["Impresora: P1S",1],["Un color · sin AMS",1],["Educación",1],["Gratis",0]].forEach(function(c,i){var x=14+i*104;s+=R(x,38,96,18,"mw-chip"+(c[1]?" on":""),9)+T(x+48,50,c[0],"mw-chipt"+(c[1]?" on":""),8);});
     s+=CARD(14,66,"cell","","Célula eucariota","4,9","2,1 k")+CARD(170,66,"frac","","Fracciones circulares","4,8","5,4 k")+CARD(326,66,"cube","","Cuerpos geométricos","4,7","3,3 k");
-    s+=CARD(14,184,"cone","","Volcán en sección","4,6","980")+CARD(170,184,"cell","","Célula vegetal","4,8","1,2 k")+CARD(326,184,"frac","","Reloj de fracciones","4,5","760");
+    s+=CARD(14,184,"cone","","Volcán en sección","4,6","980")+CARD(170,184,"plant","","Célula vegetal","4,8","1,2 k")+CARD(326,184,"frac","","Reloj de fracciones","4,5","760");
     s+=MK(340,15,1)+MK(440,47,2)+MK(150,226,3)+MK(150,104,4);
   }else if(v==="mwModel"){
     s=WEB("Célula eucariota en sección");
-    s+=R(14,40,220,160,"mw-thumb",6)+E(124,120,86,58,"mw-s1")+E(140,118,26,20,"mw-s2")+E(90,100,14,8,"mw-s3")+E(100,150,12,7,"mw-s3");
+    s+=R(14,40,220,160,"mw-thumb",6)+thumbArt("cell",14,40,220,160);
     for(var i=0;i<4;i++)s+=R(14+i*57,208,50,34,"mw-thumb",4);
     s+=T(248,52,"Célula eucariota en sección","mw-h",11,"start")+T(248,68,"@autor · CC BY","mw-sub",8.5,"start")+T(248,86,"★★★★★ 4,9 · 312 valoraciones","mw-star",8.5,"start");
     s+=T(248,108,"PERFILES DE IMPRESIÓN","mw-sub",8,"start")+R(248,114,220,22,"mw-prof on",4)+T(256,129,"P1S · 0.20 mm · 1 placa · sin AMS","mw-t",8.5,"start")+R(248,140,220,22,"mw-prof",4)+T(256,155,"X1C · 4 colores · AMS","mw-sub",8.5,"start");
@@ -3122,6 +3264,7 @@ function foldSteps(){
 function renderShots(){
   document.querySelectorAll("figure.shot[data-ui]").forEach(function(f){
     var v=f.getAttribute("data-ui"),bs=v.indexOf("bs")===0,name=bs?"Bambu Studio":"Lychee Slicer";
+    if(FIGS[v]){var cp=f.querySelector("figcaption");f.innerHTML='<div class="shot-media">'+FIGS[v]()+'</div>'+(cp?cp.outerHTML:"");return;}
     if(v==="senecaUI"){var cap=f.querySelector("figcaption");f.innerHTML='<div class="shot-media">'+senecaUI()+'</div>'+(cap?cap.outerHTML:"");return;}
     if(v.indexOf("mw")===0||v==="tcUI"){
       var mw=v.indexOf("mw")===0;
@@ -3141,7 +3284,7 @@ var KEY="impresion3d-aula:progreso";
 var state={};
 function load(){try{state=JSON.parse(localStorage.getItem(KEY))||{};}catch(e){state={};}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
-var ALL_IDS=(function(){var a=[],add=function(p,n){for(var i=1;i<=n;i++)a.push(p+String(i).padStart(2,"0"));};add("mw-",4);add("bs-",5);add("ls-",3);add("dp-",12);add("ly-",6);add("as-",3);add("reto-",5);return a;})();
+var ALL_IDS=(function(){var a=[],add=function(p,n){for(var i=1;i<=n;i++)a.push(p+String(i).padStart(2,"0"));};add("mw-",4);add("bs-",5);add("ls-",3);add("dp-",11);add("ly-",9);add("as-",3);add("reto-",5);return a;})();
 function update(){
   var boxes=[].slice.call(document.querySelectorAll("input.track"));
   boxes.forEach(function(b){var t=b.closest(".task"); if(t) t.classList.toggle("done",b.checked);});
@@ -3400,12 +3543,14 @@ function tcClassUI(v){
   return '<svg class="ui tc" viewBox="0 0 480 300" role="img" aria-label="Esquema propio: '+(v.charAt(0)==="g"?"Google Classroom con Tinkercad":"clases de Tinkercad")+'">'+s+'</svg>';
 }
 var WK_CLASES=[
- {n:"1",t:"Crear la clase",svg:"tcc-c1",pins:[[52,32,"Nombre de la clase"],[38,46,"Nivel y materia"],[30,59,"Modo seguro"],[66,83,"Crear clase","l"]],p:"Antes, en el perfil: Ajustes › Rol › Docente. Cada clase admite hasta 250 estudiantes."},
- {n:"2",t:"Añadir plazas de alumnado",svg:"tcc-c2",pins:[[87,15,"Añadir alumnos","l"],[50,61,"En bloque: un alumno por línea"],[30,29,"Acceso de cada plaza"]],p:"Si no se escribe el acceso, Tinkercad lo crea. Se puede pegar la lista desde una hoja de cálculo."},
- {n:"3",t:"Compartir el código",svg:"tcc-c3",pins:[[50,36,"Código de 9 caracteres"],[50,57,"Copiar código o enlace"],[50,70,"Hoja de acceso para recortar"]],p:"El alumnado entra con el código (o el enlace) y su acceso personal, sin correo."},
- {n:"4",t:"Seguir el trabajo",svg:"tcc-c4",pins:[[12,22,"Resumen de la clase"],[25,45,"Tutoriales completados"],[74,45,"Quién tiene trabajo","l"]],p:"Desde la pestaña Diseños se abre cualquier pieza del alumnado."},
- {n:"5",t:"Google Classroom: adjuntar el diseño",svg:"tcc-g1",pins:[[20,56,"Complemento Autodesk Tinkercad"],[22,80,"Hasta 8 diseños"],[87,88,"Asignar","l"]],p:"La primera vez se inicia sesión con Google y se pulsa Permitir. El alumnado pulsa «Start Tinkering» y trabaja en su propia copia."},
- {n:"6",t:"Google Classroom: revisar y calificar",svg:"tcc-g2",pins:[[16,20,"Trabajos entregados"],[45,73,"Ver en 3D"],[34,86,"Calificación"]],p:"Con «Tinker this» el docente abre el diseño en el editor. Si el complemento no aparece, lo habilita la administración de Google Workspace del centro."}];
+ {n:"1",t:"Tus clases",own:"img/tinkercad/clases.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk) · datos anonimizados",pins:[[50,29.7,"Crear una clase nueva"],[56,20,"Enseñanza · Archivadas"],[92,37,"Editar, archivar o eliminar","l"]],p:"Antes, en el perfil: Ajustes › Rol › Docente."},
+ {n:"2",t:"Crear una clase nueva",own:"img/tinkercad/crear-clase.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk)",pins:[[49,17,"Nombre de la clase"],[49,27.3,"Curso o edad"],[49,37.9,"Materia"],[16,57,"Modo seguro activado"],[76,72,"Crear clase","l"]],p:"Hasta 250 estudiantes por clase."},
+ {n:"3",t:"Añadir estudiantes",own:"img/tinkercad/estudiantes.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk) · datos anonimizados",pins:[[13,34.5,"Añadir estudiantes"],[34,34.5,"Lista de clases imprimible"],[40,50.5,"Tipo «Puesto»: sin correo"],[89,26.5,"Modo seguro para todos","l"]],p:"Cada puesto tiene su inicio de sesión. Usar alias o iniciales, nunca nombres completos."},
+ {n:"4",t:"Autorización del centro",own:"img/tinkercad/anadir-aviso.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk)",pins:[[50,22,"Declaración del docente"],[77,43.4,"Siguiente","l"]],p:"Al añadir alumnado, el docente declara que el centro le autoriza. Comprobarlo antes con la dirección."},
+ {n:"5",t:"Compartir el código",own:"img/tinkercad/compartir.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk) · código ficticio",pins:[[50,26,"Código de 9 caracteres"],[47,65,"Copiar vínculo o código"],[30,86,"Instrucciones para el alumnado"]],p:"Proyectar el código o repartir el enlace; cada estudiante entra con su nombre de usuario."},
+ {n:"6",t:"Panel de la clase",own:"img/tinkercad/clase-inicio.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk) · datos anonimizados",pins:[[82,11,"Compartir vínculo","l"],[40,18,"Estudiantes, actividades y diseños"],[50,35,"Resumen de la clase"],[40,61,"Progreso por estudiante"]],p:"Desde «Diseños» se abre cualquier pieza del alumnado."},
+ {n:"7",t:"Google Classroom: adjuntar el diseño",svg:"tcc-g1",pins:[[20,56,"Complemento Autodesk Tinkercad"],[22,80,"Hasta 8 diseños"],[87,88,"Asignar","l"]],p:"La primera vez se inicia sesión con Google y se pulsa Permitir. El alumnado pulsa «Start Tinkering» y trabaja en su propia copia."},
+ {n:"8",t:"Google Classroom: revisar y calificar",svg:"tcc-g2",pins:[[16,20,"Trabajos entregados"],[45,73,"Ver en 3D"],[34,86,"Calificación"]],p:"Con «Tinker this» el docente abre el diseño en el editor. Si el complemento no aparece, lo habilita la administración de Google Workspace del centro."}];
 function renderClases(){var h=document.getElementById("guiaClases");if(h)h.innerHTML=WK_CLASES.map(wkCard).join("");}
 
 function senecaUI(){
@@ -3418,11 +3563,177 @@ function senecaUI(){
   return '<svg class="ui" viewBox="0 0 480 270" role="img" aria-label="Esquema propio del alta de un dispositivo IoT en Séneca">'+s+'</svg>';
 }
 
+/* ---------- 11. Ilustraciones explicativas (estilo de la web) ---------- */
+var IK={ink:"#1f2226",mut:"#5c636b",acc:"#e2672e",accL:"#f39a62",accD:"#a8461b",tea:"#2c9cbc",teaD:"#1d6680",yel:"#f2c230",grn:"#4fbf3c",grnD:"#2e7d25",red:"#d8432f",bg:"#f8f9fb",line:"#d5d9df",grid:"#e6e9ee",card:"#ffffff"};
+function ilT(x,y,s,o){o=o||{};return '<text x="'+x+'" y="'+y+'" font-family="'+(o.mono?"ui-monospace,Consolas,monospace":"system-ui,Segoe UI,Arial,sans-serif")+'" font-size="'+(o.s||13)+'" font-weight="'+(o.w||400)+'" fill="'+(o.c||IK.ink)+'" text-anchor="'+(o.a||"middle")+'">'+s+'</text>';}
+function ilR(x,y,w,h,f,o){o=o||{};return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="'+(o.r||0)+'" fill="'+f+'"'+(o.st?' stroke="'+o.st+'" stroke-width="'+(o.sw||1.5)+'"':'')+(o.op?' opacity="'+o.op+'"':'')+'/>';}
+function ilP(d,f,st,sw,extra){return '<path d="'+d+'" fill="'+(f||"none")+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1.5)+'" stroke-linejoin="round" stroke-linecap="round"':'')+(extra||"")+'/>';}
+function ilC(cx,cy,r,f,st,sw){return '<circle cx="'+cx+'" cy="'+cy+'" r="'+r+'" fill="'+f+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1.5)+'"':'')+'/>';}
+function ilE(cx,cy,rx,ry,f,st,sw,extra){return '<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+rx+'" ry="'+ry+'" fill="'+f+'"'+(st?' stroke="'+st+'" stroke-width="'+(sw||1.5)+'"':'')+(extra||"")+'/>';}
+function ilFrame(w,h,title,body,foot){
+  var g="";for(var x=12;x<w;x+=24)g+='<line x1="'+x+'" y1="46" x2="'+x+'" y2="'+h+'" stroke="'+IK.grid+'"/>';for(var y=58;y<h;y+=24)g+='<line x1="0" y1="'+y+'" x2="'+w+'" y2="'+y+'" stroke="'+IK.grid+'"/>';
+  return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+title.replace(/<[^>]+>/g,"")+'"><rect width="'+w+'" height="'+h+'" fill="'+IK.bg+'"/>'+g+ilR(0,0,w,46,IK.ink)+ilR(0,46,w,3,IK.acc)+ilT(22,29,title.toUpperCase(),{mono:1,s:14,w:700,c:IK.accL,a:"start"})+
+    '<g fill="#5c636b">'+ilR(w-50,18,6,6,"#5c636b")+ilR(w-40,18,6,6,IK.acc)+ilR(w-30,18,6,6,"#5c636b")+'</g>'+body+(foot?ilR(0,h-30,w,30,"#eef0f3")+ilT(w/2,h-10,foot,{s:13,w:600,c:IK.mut}):"")+'</svg>';
+}
+function ilCard(x,y,w,h,n,title,sub){return ilR(x,y,w,h,IK.card,{r:12,st:IK.line})+(n?ilT(x+w/2,y+h-44,n,{mono:1,s:12,w:700,c:IK.acc}):"")+ilT(x+w/2,y+h-24,title,{s:15,w:700})+(sub?ilT(x+w/2,y+h-8,sub,{s:11.5,c:IK.mut}):"");}
+function spoolArt(cx,cy,r,col){return ilC(cx,cy,r+4,IK.ink)+ilC(cx,cy,r,col)+'<circle cx="'+cx+'" cy="'+cy+'" r="'+(r*.62)+'" fill="none" stroke="#000" stroke-opacity=".13" stroke-width="'+(r*.22)+'"/>'+ilC(cx,cy,r*.3,IK.ink)+ilC(cx,cy,r*.12,IK.bg);}
+/* 02 · FDM en el aula: impresora, bobina, ventilación y soportes */
+function fdmAulaSVG(){
+  var b="",W=760,cw=166,gap=18,x0=22;
+  var xs=[0,1,2,3].map(function(i){return x0+i*(cw+gap);});
+  b+=ilCard(xs[0],66,cw,196,"01","Impresora FDM","cerrada · cama en Z")+'<use href="#s-p1s" x="'+(xs[0]+43)+'" y="76" width="80" height="94"/>';
+  b+=ilCard(xs[1],66,cw,196,"02","Bobina de PLA","1,75 mm · 1 kg")+spoolArt(xs[1]+83,122,40,IK.acc)+ilP("M"+(xs[1]+118)+" 128 q 18 12 26 40",null,IK.acc,3)+ilR(xs[1]+52,170,62,14,"#fff",{r:3,st:IK.line,sw:1})+ilT(xs[1]+83,181,"PLA",{mono:1,s:10,w:700,c:IK.accD});
+  var vx=xs[2];b+=ilCard(vx,66,cw,196,"03","Ventilación","ventana entreabierta");
+  b+=ilR(vx+24,80,56,88,"#dff1f8",{st:IK.ink,sw:2})+ilP("M"+(vx+52)+" 80 V168 M"+(vx+24)+" 124 H"+(vx+80),null,IK.ink,2)+ilR(vx+56,86,22,34,"#bfe3f1",{op:.9});
+  [96,118,140].forEach(function(y,i){b+=ilP("M"+(vx+86)+" "+y+" c 14 -8 26 8 40 0 l -6 -5 m 6 5 l -6 5",null,IK.tea,2.4);});
+  b+='<use href="#s-p1s" x="'+(vx+118)+'" y="128" width="34" height="40"/>';
+  var sx=xs[3];b+=ilCard(sx,66,cw,196,"04","Soportes","se retiran al terminar");
+  b+=ilR(sx+30,90,106,16,IK.acc,{st:IK.ink,r:2})+ilR(sx+70,106,26,56,IK.acc,{st:IK.ink})+ilR(sx+22,162,122,6,"#9a6f1e");
+  [[44,106],[60,106],[110,106],[126,106]].forEach(function(p){b+=ilP("M"+(sx+p[0])+" "+p[1]+" L"+(sx+p[0]+(p[0]<83?6:-6))+" 140 L"+(sx+(p[0]<83?54:112))+" 162",null,IK.grn,2.2);});
+  return ilFrame(W,300,"FDM en el aula",b,"Lo esencial antes de imprimir: máquina cerrada, PLA, aula ventilada y soportes solo cuando hacen falta.");
+}
+/* 02 · Cinemática CoreXY abierta, en perspectiva */
+function corexySVG(){
+  var cam=V3.camera({cx:300,cy:222,F:560,dist:700,pitch:24,yaw:-28}),f=[],FR="#3d4149",s="";
+  var S=110,H=190,T=8,bar=function(x,y,z,w,d,h,c){f=f.concat(V3.box(x,y,z,w,d,h,c||FR));};
+  [[-S,-S],[S-T,-S],[-S,S-T],[S-T,S-T]].forEach(function(p){bar(p[0],p[1],0,T,T,H);});
+  [0,H-T].forEach(function(z){bar(-S,-S,z,2*S,T,T);bar(-S,S-T,z,2*S,T,T);bar(-S,-S,z,T,2*S,T);bar(S-T,-S,z,T,2*S,T);});
+  var zb=70;bar(-S+T,-S+T,zb,2*S-2*T,2*S-2*T,6,"#9a6f1e");
+  [[-S+20,0],[S-20,0]].forEach(function(p){f=f.concat(V3.lathe(p[0],p[1],0,[[3,0],[3,H-T]],8,"#aab1ba"));});
+  var zt=H-26;bar(-S+T,-S+T,zt,10,2*S-2*T,8,"#6e747c");bar(S-T-10,-S+T,zt,10,2*S-2*T,8,"#6e747c");
+  var gy=10;bar(-S+T,gy-5,zt+1,2*S-2*T,10,6,"#8a9099");
+  bar(-14,gy-12,zt-26,28,24,32,IK.tea);
+  bar(-S-2,S-30,H-T,26,26,22,"#15161a");bar(S-24,S-30,H-T,26,26,22,"#15161a");
+  f=f.concat(V3.box(-22,-22,zb+6,44,44,30,IK.acc));
+  s+=V3.render(cam,f);
+  var p=function(x,y,z){return V3.pt(cam,[x,y,z]);},pl=function(pts,c){return '<polyline points="'+pts.map(function(q){return q.join(",");}).join(" ")+'" fill="none" stroke="'+c+'" stroke-width="2.6" stroke-linejoin="round"/>';};
+  var z1=zt+10,z2=zt+12;
+  s+=pl([p(-S+14,S-18,z1),p(-S+14,-S+14,z1),p(-12,gy,z1),p(S-14,S-18,z1)],IK.acc);
+  s+=pl([p(S-14,S-18,z2),p(S-14,-S+14,z2),p(12,gy,z2),p(-S+14,S-18,z2)],IK.yel);
+  var lab=function(pt,tx,ty,t1,t2,anc){return ilP("M"+pt[0]+" "+pt[1]+" L"+tx+" "+ty,null,IK.mut,1.2,' stroke-dasharray="3 3"')+ilC(pt[0],pt[1],3.5,IK.ink)+ilT(tx+(anc==="end"?-4:4),ty-4,t1,{s:12.5,w:700,a:anc||"start"})+(t2?ilT(tx+(anc==="end"?-4:4),ty+11,t2,{s:11,c:IK.mut,a:anc||"start"}):"");};
+  var vb=function(x,y){return [x,y+40];};
+  s='<g transform="translate(0 40)">'+s+'</g>';
+  var A=p(-S+11,S-17,H+10),B=p(S-11,S-17,H+10),hd=p(0,gy,zt-10),bed=p(S-30,-S+30,zb+3),bl=p(-S+14,-S+14,z1),pr=p(0,-S/2,zb+36);
+  s+=lab(vb(A[0],A[1]),40,96,"Motor A","fijo en el marco")+lab(vb(B[0],B[1]),560,96,"Motor B","fijo en el marco","end");
+  s+=lab(vb(bl[0],bl[1]),40,180,"Correas A y B","se cruzan en el cabezal")+lab(vb(hd[0],hd[1]),560,190,"Cabezal","se mueve en X e Y","end");
+  s+=lab(vb(bed[0],bed[1]),560,300,"Cama","solo sube y baja (Z)","end")+lab(vb(pr[0],pr[1]),40,300,"Pieza","no se balancea");
+  var body=s+ilR(150,356,300,40,"#fff",{r:8,st:IK.line})+ilT(300,372,"Motores igual sentido → X · sentido contrario → Y",{s:12,w:700})+ilT(300,388,"La P1S cierra este marco con paneles y puerta.",{s:11,c:IK.mut});
+  return ilFrame(600,420,"Qué es una CoreXY (vista sin carcasa)",body,"");
+}
+/* 03 · ¿Qué es un repositorio? */
+function repoSVG(){
+  var b="";
+  b+=ilR(24,70,250,170,"#fff",{r:12,st:IK.line})+ilT(149,94,"Repositorio en línea",{s:14,w:700});
+  [[44,108,IK.acc],[124,108,IK.tea],[204,108,IK.yel],[44,170,IK.grn],[124,170,"#8e4bb5"],[204,170,IK.red]].forEach(function(c){b+=ilR(c[0],c[1],54,50,"#eef0f3",{r:6})+ilR(c[0]+16,c[1]+12,22,22,c[2],{r:3,st:IK.ink,sw:1})+ilR(c[0]+6,c[1]+40,30,4,"#c9ced4");});
+  b+=ilP("M286 156 H344 m-10 -8 l10 8 l-10 8",null,IK.acc,4);
+  b+=ilR(356,96,76,92,"#fff",{r:6,st:IK.ink,sw:2})+ilP("M408 96 v20 h24",null,IK.ink,2)+ilT(394,158,".STL",{mono:1,s:15,w:700,c:IK.acc})+ilT(394,176,".3MF",{mono:1,s:13,w:700,c:IK.tea});
+  b+=ilP("M444 156 H502 m-10 -8 l10 8 l-10 8",null,IK.acc,4);
+  b+=ilR(514,104,92,70,IK.ink,{r:5})+ilR(519,109,82,56,"#2d6f84")+ilR(552,174,16,8,IK.ink)+ilR(540,182,40,4,IK.ink,{r:2})+ilP("M535 152 h50 l-8 -26 h-34z","#bcdcf2","#fff",1.5)+ilR(552,132,16,16,IK.acc);
+  b+=ilP("M618 156 H668 m-10 -8 l10 8 l-10 8",null,IK.acc,4)+'<use href="#s-p1s" x="676" y="104" width="64" height="76"/>';
+  b+=ilT(149,262,"Busca · valora · revisa la licencia",{s:12,c:IK.mut})+ilT(394,210,"Descarga",{s:13,w:700})+ilT(560,210,"Laminador",{s:13,w:700})+ilT(708,210,"Impresora",{s:13,w:700});
+  return ilFrame(760,300,"¿Qué es un repositorio?",b,"Una biblioteca de modelos 3D compartidos: se descargan, se revisan y se preparan en el laminador.");
+}
+/* 03 · STL frente a 3MF */
+function stl3mfSVG(){
+  var b="",mesh="";
+  b+=ilR(22,66,340,236,"#fff",{r:12,st:IK.line})+ilT(192,92,".STL · solo la forma",{s:16,w:700,c:IK.accD});
+  var cx=92,cy=190,pts=[[0,-52],[46,-26],[46,26],[0,52],[-46,26],[-46,-26]];
+  var P2=pts.map(function(q){return [cx+q[0],cy+q[1]];});
+  mesh+='<polygon points="'+P2.map(function(q){return q.join(",");}).join(" ")+'" fill="#d9dce0" stroke="#6e747c" stroke-width="1.5"/>';
+  P2.forEach(function(q,i){var r=P2[(i+1)%6];mesh+=ilP("M"+cx+" "+cy+" L"+q[0]+" "+q[1]+" M"+q[0]+" "+q[1]+" L"+((q[0]+r[0])/2)+" "+((q[1]+r[1])/2)+" L"+cx+" "+cy,null,"#6e747c",1);});
+  b+=mesh+ilT(cx,262,"malla de triángulos",{s:11.5,c:IK.mut});
+  ["✓ Lo abre cualquier programa","✗ Sin color ni ajustes","✗ Unidades sin garantizar","→ Se prepara en el laminador"].forEach(function(t,i){b+=ilT(156,150+i*26,t,{s:12.5,a:"start",c:i===0||i===3?IK.ink:IK.mut,w:i===3?700:400});});
+  b+=ilR(386,66,352,236,"#fff",{r:12,st:IK.line})+ilT(562,92,".3MF · el proyecto completo",{s:16,w:700,c:IK.teaD});
+  b+=ilP("M420 132 l40 -16 l40 16 v76 l-40 16 l-40 -16 z","#eef0f3",IK.ink,2)+ilP("M420 132 l40 16 l40 -16 M460 148 v76",null,IK.ink,1.5);
+  b+=ilR(436,156,16,16,IK.acc,{st:IK.ink,sw:1})+ilR(466,166,14,14,IK.tea,{st:IK.ink,sw:1})+ilR(446,184,10,24,IK.yel,{st:IK.ink,sw:1});
+  ["Modelos y colores","Placas y posición","Perfil de impresora","Filamentos y ajustes"].forEach(function(t,i){b+=ilC(526,146+i*28,5,[IK.acc,IK.tea,IK.yel,IK.grn][i])+ilT(538,150+i*28,t,{s:12.5,a:"start"});});
+  b+=ilT(562,272,"Abrir en Bambu Studio y laminar",{s:12.5,w:700});
+  return ilFrame(760,330,"STL y 3MF",b,"");
+}
+/* 04 · Referencia rápida ilustrada */
+function laminRefSVG(k){
+  var b="",W=360,H=200;
+  if(k==="formatos"){
+    var fi=function(x,lab,col,sub){return ilR(x,62,70,84,"#fff",{r:5,st:IK.ink,sw:2})+ilP("M"+(x+50)+" 62 v18 h20",null,IK.ink,1.5)+ilT(x+35,112,lab,{mono:1,s:lab.length>5?12:17,w:700,c:col})+ilT(x+35,166,sub,{s:14,c:IK.mut});};
+    b+=fi(14,".STL",IK.accD,"diseño")+ilP("M90 104 h22 m-8 -6 l8 6 l-8 6",null,IK.acc,3)+fi(120,".3MF",IK.teaD,"laminador")+ilP("M196 104 h22 m-8 -6 l8 6 l-8 6",null,IK.acc,3)+fi(226,".gcode.3mf",IK.grnD,"impresora");
+    b+=ilT(180,192,"Forma → proyecto → instrucciones",{s:14,w:700});
+  }else if(k==="capas"){
+    [[0.28,"Extra Draft","rápido",10],[0.20,"Standard","general",14],[0.12,"Fine","detalle",22]].forEach(function(c,i){var x=24+i*112,h=96,n=c[3],y0=158;
+      b+=ilP("M"+x+" "+y0+" h76 v-"+h+" q-38 -26 -76 0 z",IK.acc,IK.ink,1.5);for(var j=1;j<n;j++){var y=y0-j*h/n;b+=ilP("M"+x+" "+y+" h76",null,IK.accD,0.9);}
+      b+=ilT(x+38,177,c[0].toFixed(2).replace(".",",")+" mm",{mono:1,s:14,w:700})+ilT(x+38,195,c[2],{s:13,c:IK.mut});});
+  }else{
+    b+=ilR(16,60,100,100,"#fff",{r:8,st:IK.line});var g="";for(var gx=30;gx<106;gx+=13)g+=ilP("M"+gx+" 72 v76",null,"#f39a62",1.2);for(var gy=72;gy<150;gy+=13)g+=ilP("M28 "+gy+" h76",null,"#f39a62",1.2);
+    b+=ilR(28,72,76,76,"none",{st:IK.acc,sw:4})+g+ilT(66,182,"Relleno 15 %",{s:14,w:700});
+    b+=ilR(130,60,100,100,"#fff",{r:8,st:IK.line})+ilR(146,78,68,14,IK.acc,{st:IK.ink})+ilR(172,92,16,52,IK.acc,{st:IK.ink})+ilP("M154 92 l4 30 l12 22 M206 92 l-4 30 l-12 22",null,IK.grn,2.4)+ilR(140,144,80,5,"#9a6f1e")+ilT(180,182,"Soportes árbol",{s:14,w:700});
+    b+=ilR(244,60,100,100,"#fff",{r:8,st:IK.line})+ilE(294,128,40,14,"none",IK.grn,3,' stroke-dasharray="1 0"')+ilE(294,128,34,11,"none",IK.grn,2)+ilR(278,84,32,44,IK.acc,{st:IK.ink})+ilE(294,128,16,6,IK.accD)+ilT(294,182,"Brim",{s:14,w:700});
+  }
+  return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Referencia ilustrada: '+k+'"><rect width="'+W+'" height="'+H+'" rx="10" fill="'+IK.bg+'"/>'+b+'</svg>';
+}
+/* Miniaturas de MakerWorld con más detalle */
+function thumbArt(k,x,y,w,h){
+  var cx=x+w/2,cy=y+h/2,sx=w/128,sy=h/60,s=Math.min(sx,sy),q="";
+  var t=function(dx,dy){return (cx+dx*s).toFixed(1)+" "+(cy+dy*s).toFixed(1);};
+  if(k==="cell"){
+    q+=ilP("M"+t(-52,4)+" C"+t(-54,-22)+" "+t(-20,-30)+" "+t(4,-27)+" C"+t(34,-30)+" "+t(56,-16)+" "+t(52,4)+" C"+t(54,24)+" "+t(22,30)+" "+t(-2,27)+" C"+t(-28,30)+" "+t(-50,22)+" "+t(-52,4)+" Z","#cfe9f0","#2c7a8c",2);
+    q+=ilE(cx-4*s,cy,14*s,11*s,"#b48ad6","#5a2b7a",1.5)+ilC(cx-1*s,cy-1*s,4*s,"#5a2b7a");
+    [[-34,-8,-20],[24,10,25],[28,-14,-10]].forEach(function(m){q+='<g transform="rotate('+m[2]+' '+(cx+m[0]*s)+' '+(cy+m[1]*s)+')">'+ilE(cx+m[0]*s,cy+m[1]*s,8*s,4*s,"#e2672e","#a8461b",1.2)+ilP("M"+t(m[0]-5,m[1])+" q"+(2*s)+" "+(-3*s)+" "+(3*s)+" 0 t"+(3*s)+" 0 t"+(3*s)+" 0",null,"#fff",1)+'</g>';});
+    q+=ilP("M"+t(14,-18)+" q"+(6*s)+" "+(-4*s)+" "+(12*s)+" 0 M"+t(14,-14)+" q"+(6*s)+" "+(-4*s)+" "+(12*s)+" 0 M"+t(14,-10)+" q"+(6*s)+" "+(-4*s)+" "+(12*s)+" 0",null,IK.yel,2);
+    q+=ilP("M"+t(-22,14)+" q"+(5*s)+" "+(4*s)+" "+(10*s)+" 0 t"+(10*s)+" 0",null,"#4bb0c3",1.6);
+    [[-40,16],[-18,22],[40,4],[-8,-20]].forEach(function(r){q+=ilC(cx+r[0]*s,cy+r[1]*s,1.6*s,IK.ink);});
+  }else if(k==="plant"){
+    q+=ilR(cx-48*s,cy-26*s,96*s,52*s,"#9fd18a",{r:4*s,st:IK.grnD,sw:3})+ilR(cx-44*s,cy-22*s,88*s,44*s,"#dff2d2",{r:3*s});
+    q+=ilR(cx-6*s,cy-18*s,46*s,36*s,"#cfe9f0",{r:8*s,st:"#2c7a8c",sw:1.2})+ilE(cx-26*s,cy-4*s,10*s,8*s,"#b48ad6","#5a2b7a",1.2);
+    [[-36,14],[-20,16],[-38,-14],[30,-20],[-12,-16]].forEach(function(c){q+=ilE(cx+c[0]*s,cy+c[1]*s,6*s,3.4*s,"#3c8a46","#2e7d25",1);});
+  }else if(k==="volcano"){
+    q+=ilP("M"+t(-60,26)+" L"+t(-26,-14)+" L"+t(-10,-18)+" L"+t(-6,-12)+" L"+t(6,-12)+" L"+t(10,-18)+" L"+t(26,-14)+" L"+t(60,26)+" Z","#9a7b5a","#5a3e22",1.5);
+    q+=ilP("M"+t(-48,26)+" L"+t(-22,-6)+" L"+t(22,-6)+" L"+t(48,26)+" Z","#b48a5f")+ilP("M"+t(-36,26)+" L"+t(-16,4)+" L"+t(16,4)+" L"+t(36,26)+" Z","#c9a271");
+    q+=ilE(cx,cy+22*s,20*s,6*s,"#d8432f","#8e2418",1.2)+ilR(cx-3*s,cy-12*s,6*s,34*s,"#e2672e")+ilP("M"+t(-6,-12)+" q"+(6*s)+" "+(-6*s)+" "+(12*s)+" 0","#f2c230");
+    q+=ilP("M"+t(10,-14)+" q"+(10*s)+" "+(8*s)+" "+(14*s)+" "+(24*s),null,"#e2672e",2.2);
+    q+=ilC(cx-4*s,cy-26*s,5*s,"#c9ced4")+ilC(cx+4*s,cy-29*s,6*s,"#d9dce0")+ilC(cx+12*s,cy-27*s,4*s,"#c9ced4");
+  }else if(k==="frac"){
+    [[-30,0,2],[0,0,3],[30,0,4]].forEach(function(f,i){var r=13*s,x0=cx+f[0]*s,y0=cy;q+=ilC(x0,y0,r,"#f8f9fb",IK.ink,1.2);for(var j=0;j<f[2];j++){var a1=j*2*Math.PI/f[2]-Math.PI/2,a2=(j+1)*2*Math.PI/f[2]-Math.PI/2;if(j===0)q+=ilP("M"+x0+" "+y0+" L"+(x0+r*Math.cos(a1))+" "+(y0+r*Math.sin(a1))+" A"+r+" "+r+" 0 0 1 "+(x0+r*Math.cos(a2))+" "+(y0+r*Math.sin(a2))+" Z",[IK.acc,IK.tea,IK.yel][i],IK.ink,1.2);q+=ilP("M"+x0+" "+y0+" L"+(x0+r*Math.cos(a1))+" "+(y0+r*Math.sin(a1)),null,IK.ink,1);}
+      q+=ilT(x0,y0+r+10*s,"1/"+f[2],{mono:1,s:8*s,w:700});});
+  }else{
+    q+=ilP("M"+t(-44,18)+" l"+(14*s)+" "+(-8*s)+" l"+(14*s)+" "+(8*s)+" l"+(-14*s)+" "+(8*s)+" z M"+t(-44,18)+" v"+(-20*s)+" l"+(14*s)+" "+(-8*s)+" l"+(14*s)+" "+(8*s)+" v"+(20*s),"#f0645f","#8f1b18",1.2);
+    q+=ilE(cx,cy-12*s,10*s,4*s,"#7ec6e0","#1d6680",1.2)+ilR(cx-10*s,cy-12*s,20*s,30*s,"#4bb0c3")+ilE(cx,cy+18*s,10*s,4*s,"#4bb0c3","#1d6680",1.2)+ilE(cx,cy-12*s,10*s,4*s,"#7ec6e0","#1d6680",1.2);
+    q+=ilP("M"+t(30,-20)+" L"+t(46,20)+" L"+t(14,20)+" Z","#f2c230","#a88a0c",1.2)+ilP("M"+t(30,-20)+" L"+t(34,20),null,"#a88a0c",1);
+  }
+  return q;
+}
+var FIGS={fdmaula:fdmAulaSVG,corexy:corexySVG,repo:repoSVG,stl3mf:stl3mfSVG,"ref-formatos":function(){return laminRefSVG("formatos");},"ref-capas":function(){return laminRefSVG("capas");},"ref-param":function(){return laminRefSVG("param");}};
+
+/* Iconos reales de las aplicaciones (capturas de Tinkercad e iconos de Bambu Studio) */
+var TIMG={caja:"img/tinkercad/ico/f-caja.png",cilindro:"img/tinkercad/ico/f-cilindro.png",esfera:"img/tinkercad/ico/f-esfera.png",semiesfera:"img/tinkercad/ico/f-semiesfera.png",piramide:"img/tinkercad/ico/f-piramide.png",
+ texto:"img/tinkercad/ico/f-texto.png",cono:"img/tinkercad/ico/f-cono.png",toroide:"img/tinkercad/ico/f-toroide.png",hueco:"img/tinkercad/ico/hueco.png",alinear:"img/tinkercad/ico/alinear.png",simetria:"img/tinkercad/ico/simetria.png",
+ plano:"img/tinkercad/ico/plano.png",apoyar:"img/tinkercad/ico/apoyar.png",duplicar:"img/tinkercad/ico/duplicar.png",importar:"img/tinkercad/ico/importar.png",exportar:"img/tinkercad/ico/exportar.png",rejilla:"img/tinkercad/ico/rejilla.png"};
+var BSICO=[["toolbar_open","Añadir modelo"],["toolbar_add_plate","Añadir placa"],["toolbar_arrange","Ordenar"],["toolbar_orient","Orientar"],["toolbar_move","Mover"],["toolbar_rotate","Girar"],["toolbar_scale","Escalar"],
+ ["toolbar_flatten","Apoyar en cara"],["toolbar_cut","Cortar"],["toolbar_text","Texto"],["toolbar_support","Pintar soportes"],["toolbar_measure","Medir"],["plate_settings","Ajustes de placa"]];
+var TCICO=[["f-caja","Caja"],["f-cilindro","Cilindro"],["f-esfera","Esfera"],["f-cono","Cono"],["f-piramide","Pirámide"],["f-cuna","Cuña"],["f-texto","Texto"],["f-semiesfera","Semiesfera"],["f-toroide","Toroide"],["f-tubo","Tubo"],
+ ["f-cajahueco","Caja hueca"],["solido","Sólido"],["hueco","Hueco"],["alinear","Alinear (L)"],["simetria","Simetría (M)"],["plano","Plano de trabajo (W)"],["apoyar","Apoyar (D)"],["regla","Regla (R)"],["duplicar","Duplicar (Ctrl+D)"],["importar","Importar"],["exportar","Exportar"]];
+function icoGrid(list,base,ext){return '<div class="icogrid">'+list.map(function(i){return '<figure><img src="'+base+i[0]+ext+'" alt="Icono '+i[1]+'" loading="lazy"><figcaption>'+i[1]+'</figcaption></figure>';}).join("")+'</div>';}
+function renderIcoGrids(){
+  var a=document.getElementById("icoBambu");if(a)a.innerHTML=icoGrid(BSICO,"img/bambu/ico/",".svg");
+  var b=document.getElementById("icoTinker");if(b)b.innerHTML=icoGrid(TCICO,"img/tinkercad/ico/",".png");
+}
+var WK_TCREAL=[
+ {n:"1",t:"El editor con una forma seleccionada",own:"img/tinkercad/editor-sel.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk) · diseño de ejemplo",
+  pins:[[4,12,"Cubo de vistas"],[4,31,"Inicio, encuadrar y zoom"],[40,24,"Inspector: Sólido o Hueco"],[60,8.5,"Alinear, simetría, plano y apoyar","l"],[86,15,"Plano, regla y notas","l"],[84,40,"Formas básicas","l"],[30,62,"Plano de trabajo"],[53,97,"Ajustar rejilla"]],
+  p:"Al seleccionar una forma aparecen el inspector, los tiradores y las flechas de giro."},
+ {n:"2",t:"Editar, importar y exportar",own:"img/tinkercad/editor-menu.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk)",
+  pins:[[3,14,"Copiar, pegar, duplicar y eliminar"],[71,14,"Importar","l"],[82,14,"Exportar","l"],[96,8.5,"Más opciones","l"]],
+  p:"Con la ventana estrecha, estas órdenes se agrupan en el menú «⋮»."},
+ {n:"3",t:"Exportar para imprimir",own:"img/tinkercad/exportar.jpg",w:792,h:845,cap:"Captura de Tinkercad (Autodesk)",
+  pins:[[33,21,"Diseño completo o forma seleccionada"],[64,59,".STL para el laminador","l"],[37,64,".OBJ y GLTF"]],
+  p:"Elegir «.STL» y abrir el archivo en Bambu Studio."}];
+function renderTcReal(){var h=document.getElementById("guiaTcReal");if(h)h.innerHTML=WK_TCREAL.map(wkCard).join("");}
+
 initTheme();
 renderPractices();
 renderAsistente();
 renderRetos();
 renderWiki();
+renderTcReal();
+renderIcoGrids();
 renderManuals();
 renderPhones();
 renderShots();
